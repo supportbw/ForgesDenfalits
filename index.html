@@ -23,7 +23,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { background: var(--cream); font-family: 'Jost', sans-serif; color: var(--text); overflow-x: hidden; }
-.leaf-deco { position: absolute; opacity: 0.12; pointer-events: none; }
 header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 16px 60px; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s ease; background: transparent; }
 header.scrolled { background: rgba(245, 239, 228, 0.96); backdrop-filter: blur(10px); box-shadow: 0 2px 30px rgba(100, 70, 30, 0.08); padding: 10px 60px; }
 .logo img { height: 52px; transition: 0.3s; }
@@ -51,11 +50,7 @@ nav a:hover::after { transform: scaleX(1); }
 .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
 .btn-outline { display: inline-block; border: 1px solid rgba(255,255,255,0.6); color: white; text-decoration: none; font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 36px; border-radius: 3px; transition: 0.3s; backdrop-filter: blur(4px); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); }
-.hero-badges { position: absolute; bottom: 50px; right: 60px; z-index: 3; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-.badge { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-radius: 8px; padding: 8px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-.badge img { height: 22px; }
-.badge-stars { color: #f4a925; font-size: 0.75rem; letter-spacing: 2px; }
-.badge-score { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 500; color: var(--dark); }
+.hero-badges { position: absolute; bottom: 50px; right: 60px; z-index: 3; }
 .scroll-hint { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.6); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; }
 .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent); animation: scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.2); } }
@@ -141,7 +136,7 @@ footer { background: var(--dark); padding: 70px 10% 40px; color: rgba(255,255,25
 .footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 24px; }
 .footer-partners { display: flex; gap: 16px; align-items: center; }
 .footer-partners img { height: 55px; opacity: 1; background: white; padding: 6px 10px; border-radius: 6px; transition: 0.3s; }
-.footer-partners img:hover { opacity: 1; }
+.footer-partners img:hover { opacity: 0.9; transform: translateY(-2px); }
 .footer-col h4 { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
@@ -209,13 +204,7 @@ footer { background: var(--dark); padding: 70px 10% 40px; color: rgba(255,255,25
     </div>
   </div>
   <div class="hero-badges">
-    <div class="badge">
-      <img src="logo_google.png" alt="Google">
-      <div>
-        <div class="badge-stars">★★★★★</div>
-        <div class="badge-score">4,9 / 5</div>
-      </div>
-    </div>
+    <img src="reviews.png" alt="Tripadvisor 4.9/5 · Google 4.9/5" style="width: 280px; filter: drop-shadow(0 8px 25px rgba(0,0,0,0.25));">
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
