@@ -17,8 +17,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:wght@0,400;0,500&family=Dancing+Script:wght@600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<!-- reCAPTCHA v3 - remplacez VOTRE_CLE_SITE par votre clé Google reCAPTCHA v3 -->
-<!-- <script src="https://www.google.com/recaptcha/api.js?render=VOTRE_CLE_SITE"></script> -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld3YnssAAAAANllYb_7-sXfsMoSuSzya9nkUyOv"></script>
 <style>
 /* ============================================
    VARIABLES & RESET
@@ -967,7 +966,8 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
           Envoyer ma demande →
         </button>
         <div class="recaptcha-note">
-          Protégé contre les robots. Ce site respecte votre vie privée.
+          🛡️ Protégé par Google reCAPTCHA v3 ·
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Confidentialité</a>
         </div>
 
         <div class="form-divider"><span>ou appelez directement</span></div>
@@ -1094,23 +1094,23 @@ function showTarif(tab, btn) {
 let lastSend = 0;
 
 function envoyerDemande() {
-  // Honeypot
+  // Honeypot anti-bot
   if (document.getElementById('website').value !== '') {
     console.warn('Bot détecté');
     return;
   }
 
-  // Rate limiting : 1 envoi max par 60 secondes
+  // Rate limiting client : 1 envoi / 60 sec
   const now = Date.now();
   if (now - lastSend < 60000) {
-    alert('Merci de patienter avant d\'envoyer une nouvelle demande.');
+    alert('Merci de patienter une minute avant d\'envoyer une nouvelle demande.');
     return;
   }
 
   // Récupération & sanitize
-  const nom    = sanitize(document.getElementById('nom').value.trim());
-  const email  = sanitize(document.getElementById('email').value.trim());
-  const tel    = sanitize(document.getElementById('tel').value.trim());
+  const nom     = sanitize(document.getElementById('nom').value.trim());
+  const email   = sanitize(document.getElementById('email').value.trim());
+  const tel     = sanitize(document.getElementById('tel').value.trim());
   const arrivee = document.getElementById('dateArrivee').value;
   const depart  = document.getElementById('dateDepart').value;
   const adultes = document.getElementById('adultes').value;
@@ -1118,43 +1118,69 @@ function envoyerDemande() {
   const msg     = sanitize(document.getElementById('message').value.trim());
 
   // Validation
-  if (!nom || !email) {
-    alert('Merci de renseigner votre nom et votre email.');
-    return;
-  }
+  if (!nom || !email) { alert('Merci de renseigner votre nom et votre email.'); return; }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('Adresse email invalide.');
-    return;
-  }
-  if (!selectedHeberg) {
-    alert('Merci de sélectionner un hébergement.');
-    return;
-  }
+  if (!emailRegex.test(email)) { alert('Adresse email invalide.'); return; }
+  if (!selectedHeberg) { alert('Merci de sélectionner un hébergement ci-contre.'); return; }
 
-  const fmt = d => d ? new Date(d).toLocaleDateString('fr-FR') : 'non précisé';
+  // Désactiver le bouton pendant la vérification
+  const btn = document.getElementById('btnEnvoyer');
+  btn.disabled = true;
+  btn.textContent = 'Vérification en cours…';
 
-  const subject = encodeURIComponent('Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits');
-  const body = encodeURIComponent(
-    'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n' +
-    '🏠 Hébergement : ' + selectedHeberg + '\n' +
-    '📅 Arrivée : ' + fmt(arrivee) + '\n' +
-    '📅 Départ : ' + fmt(depart) + '\n' +
-    '👥 Adultes : ' + adultes + '\n' +
-    '👶 Enfants : ' + enfants + '\n\n' +
-    'Coordonnées :\n' +
-    'Nom : ' + nom + '\n' +
-    'Email : ' + email + '\n' +
-    'Tél : ' + (tel || 'non renseigné') + '\n' +
-    (msg ? '\nMessage :\n' + msg : '') +
-    '\n\nCordialement,\n' + nom
-  );
+  // reCAPTCHA v3
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6Ld3YnssAAAAANllYb_7-sXfsMoSuSzya9nkUyOv', { action: 'reservation' })
+      .then(function(token) {
+        // Score reCAPTCHA : si score < 0.5 → probable bot
+        // Ici on procède à l'envoi (le score est vérifié côté serveur si vous en avez un)
+        // Pour GitHub Pages (statique), on envoie via mailto avec le token en info
+        const fmt = d => d ? new Date(d).toLocaleDateString('fr-FR') : 'non précisé';
 
-  window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
-  lastSend = Date.now();
+        const subject = encodeURIComponent(
+          'Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits'
+        );
+        const body = encodeURIComponent(
+          'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n' +
+          '🏠 Hébergement : ' + selectedHeberg + '\n' +
+          '📅 Arrivée     : ' + fmt(arrivee) + '\n' +
+          '📅 Départ      : ' + fmt(depart) + '\n' +
+          '👥 Adultes     : ' + adultes + '\n' +
+          '👶 Enfants     : ' + enfants + '\n\n' +
+          '— Coordonnées —\n' +
+          'Nom    : ' + nom + '\n' +
+          'Email  : ' + email + '\n' +
+          'Tél    : ' + (tel || 'non renseigné') + '\n' +
+          (msg ? '\n— Message —\n' + msg : '') +
+          '\n\n[reCAPTCHA v3 token: ' + token.substring(0,20) + '…]\n\n' +
+          'Cordialement,\n' + nom
+        );
 
-  document.getElementById('formBody').style.display = 'none';
-  document.getElementById('confirmationMsg').style.display = 'block';
+        window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
+        lastSend = Date.now();
+
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('confirmationMsg').style.display = 'block';
+      })
+      .catch(function() {
+        // reCAPTCHA indisponible → on envoie quand même (fallback)
+        btn.disabled = false;
+        btn.textContent = 'Envoyer ma demande →';
+        const fmt = d => d ? new Date(d).toLocaleDateString('fr-FR') : 'non précisé';
+        const subject = encodeURIComponent('Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits');
+        const body = encodeURIComponent(
+          'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n🏠 ' + selectedHeberg +
+          '\n📅 Arrivée : ' + fmt(arrivee) + '\n📅 Départ : ' + fmt(depart) +
+          '\n👥 Adultes : ' + adultes + '\n\nNom : ' + nom + '\nEmail : ' + email +
+          '\nTél : ' + (tel||'non renseigné') + (msg ? '\n\n' + msg : '') +
+          '\n\nCordialement,\n' + nom
+        );
+        window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
+        lastSend = Date.now();
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('confirmationMsg').style.display = 'block';
+      });
+  });
 }
 
 // Dates min
