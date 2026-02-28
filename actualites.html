@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualités & Agenda du Coin – Les Forges d'Enfalits</title>
+<meta name="description" content="Événements, marchés, randonnées et activités autour des Forges d'Enfalits en Ariège Pyrénées.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Dancing+Script:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f5efe4;
+  --cream-dark: #ede4d5;
+  --warm-brown: #7c5c3e;
+  --gold: #c9a96e;
+  --dark: #3a2e22;
+  --text: #5a4a35;
+  --text-light: #8a7560;
+  --white: #fdfaf5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); font-family: 'Jost', sans-serif; color: var(--text); overflow-x: hidden; }
+header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 16px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(245,239,228,0.96); backdrop-filter: blur(10px); box-shadow: 0 2px 30px rgba(100,70,30,0.08); }
+.logo img { height: 52px; }
+nav { display: flex; align-items: center; gap: 10px; }
+nav a { font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 6px 14px; transition: 0.3s; position: relative; }
+nav a::after { content: ''; position: absolute; bottom: 2px; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: 0.3s; }
+nav a:hover::after { transform: scaleX(1); }
+nav a.active { color: var(--warm-brown); font-weight: 500; }
+.nav-cta { background: var(--warm-brown) !important; color: white !important; border-radius: 3px; padding: 8px 20px !important; font-size: 0.75rem !important; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--dark) !important; }
+
+/* PAGE HERO */
+.page-hero { margin-top: 84px; height: 320px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: url('forges-d-enfalits-chambres-hotes-parc-1920-12.webp') center/cover no-repeat; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,12,5,0.5), rgba(58,46,34,0.65)); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.page-hero h1 { font-family: 'Dancing Script', cursive; font-size: clamp(2.8rem, 6vw, 5rem); color: white; font-weight: 600; line-height: 1.1; margin-bottom: 10px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.page-hero p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.85); }
+
+/* MAIN */
+.main-content { max-width: 1200px; margin: 0 auto; padding: 60px 40px 100px; }
+
+/* FILTERS */
+.filters-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 50px; align-items: center; }
+.filter-label { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-light); margin-right: 6px; }
+.filter-btn { font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.08em; padding: 8px 18px; border-radius: 30px; border: 1px solid var(--cream-dark); background: white; color: var(--text-light); cursor: pointer; transition: 0.3s; }
+.filter-btn:hover, .filter-btn.active { background: var(--warm-brown); color: white; border-color: var(--warm-brown); }
+
+/* LOADING */
+.loading-state { text-align: center; padding: 80px 20px; display: none; }
+.loading-state.visible { display: block; }
+.loading-spinner { width: 50px; height: 50px; border: 3px solid var(--cream-dark); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--text-light); }
+.loading-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 8px; }
+
+/* EVENTS */
+.events-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px; }
+.events-count { font-size: 0.82rem; color: var(--text-light); letter-spacing: 0.1em; }
+.refresh-btn { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-brown); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
+.refresh-btn:hover { color: var(--dark); }
+.refresh-icon { display: inline-block; transition: transform 0.5s; }
+.refresh-btn:hover .refresh-icon { transform: rotate(180deg); }
+
+.events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+.event-card { background: var(--white); border-radius: 6px; overflow: hidden; box-shadow: 0 6px 30px rgba(100,70,30,0.07); transition: 0.4s ease; display: flex; flex-direction: column; }
+.event-card:hover { transform: translateY(-6px); box-shadow: 0 16px 45px rgba(100,70,30,0.13); }
+.event-card.featured { grid-column: 1 / -1; flex-direction: row; position: relative; }
+
+.event-card-top { padding: 24px 24px 0; display: flex; gap: 16px; align-items: flex-start; }
+.event-card.featured .event-card-top { padding: 28px; flex: 1; align-items: center; }
+
+.event-date-box { flex-shrink: 0; width: 54px; text-align: center; background: var(--cream); border-radius: 4px; padding: 8px 6px; }
+.event-card.featured .event-date-box { width: 70px; }
+.event-date-day { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; color: var(--warm-brown); line-height: 1; }
+.event-card.featured .event-date-day { font-size: 2.4rem; }
+.event-date-month { font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-top: 2px; }
+
+.event-meta { flex: 1; }
+.event-category { display: inline-block; font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; font-weight: 500; }
+.cat-fete { background: #fff0e0; color: #b05a00; }
+.cat-marche { background: #e8f5e0; color: #4a7a20; }
+.cat-nature { background: #e0f0f5; color: #1a6a80; }
+.cat-culture { background: #f0e8f5; color: #6a1a80; }
+.cat-sport { background: #fff5e0; color: #8a5500; }
+.cat-gastronomie { background: #fde8e8; color: #8a1a1a; }
+.cat-autre { background: var(--cream-dark); color: var(--text-light); }
+.event-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 500; color: var(--dark); line-height: 1.3; margin-bottom: 4px; }
+.event-card.featured .event-title { font-size: 1.3rem; }
+
+.event-card-body { padding: 14px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+.event-card.featured .event-card-body { padding: 28px; border-left: 1px solid var(--cream-dark); }
+.event-location { font-size: 0.8rem; color: var(--text-light); display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+.event-location::before { content: '📍'; font-size: 0.75rem; }
+.event-desc { font-size: 0.87rem; line-height: 1.65; color: var(--text); font-weight: 300; flex: 1; }
+
+.event-card-footer { padding: 14px 24px; border-top: 1px solid var(--cream-dark); display: flex; justify-content: space-between; align-items: center; }
+.event-card.featured .event-card-footer { flex-direction: column; gap: 12px; justify-content: center; padding: 28px; border-top: none; border-left: 1px solid var(--cream-dark); min-width: 160px; }
+.event-distance { font-size: 0.75rem; color: var(--text-light); }
+.event-link { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-brown); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: 0.3s; }
+.event-link:hover { color: var(--dark); gap: 8px; }
+.featured-badge { position: absolute; top: 16px; right: 16px; background: var(--gold); color: white; font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
+
+/* LIENS */
+.section-links { margin-top: 70px; padding-top: 50px; border-top: 1px solid var(--cream-dark); }
+.section-links h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+.section-links .sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 30px; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.link-card { background: var(--white); border-radius: 6px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 20px rgba(100,70,30,0.06); }
+.link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(100,70,30,0.1); }
+.link-icon { font-size: 1.6rem; flex-shrink: 0; }
+.link-info h4 { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500; color: var(--dark); margin-bottom: 3px; }
+.link-info p { font-size: 0.75rem; color: var(--text-light); }
+
+.last-updated { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; }
+
+footer { background: var(--dark); padding: 35px 10%; color: rgba(255,255,255,0.6); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; flex-wrap: wrap; gap: 12px; }
+.footer-back { color: var(--gold); text-decoration: none; }
+.footer-back:hover { color: white; }
+
+@media (max-width: 768px) {
+  header { padding: 12px 20px; }
+  nav { display: none; }
+  .main-content { padding: 50px 20px 80px; }
+  .event-card.featured { flex-direction: column; }
+  .event-card.featured .event-card-footer { flex-direction: row; border-left: none; border-top: 1px solid var(--cream-dark); min-width: auto; }
+  .events-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits"></div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#hebergements">Hébergements</a>
+    <a href="index.html#bien-etre">Bien-Être</a>
+    <a href="index.html#nature">Nature</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="actualites.html" class="active">Actualités</a>
+    <a href="Tarifs%20Chambres%20d'h%C3%B4tes%20et%20G%C3%AEte%20-%20Les%20Forges%20d'Enfalits.html" class="nav-cta">Tarifs & Réservation</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Ariège · Pyrénées · Autour de vous</div>
+    <h1>Agenda & Sorties</h1>
+    <p>Événements, marchés et activités du coin — mis à jour automatiquement</p>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="filters-bar">
+    <span class="filter-label">Filtrer :</span>
+    <button class="filter-btn active" data-cat="all">Tout voir</button>
+    <button class="filter-btn" data-cat="fete">🎉 Fêtes & Festivals</button>
+    <button class="filter-btn" data-cat="marche">🛒 Marchés</button>
+    <button class="filter-btn" data-cat="nature">🥾 Nature & Rando</button>
+    <button class="filter-btn" data-cat="culture">🎭 Culture</button>
+    <button class="filter-btn" data-cat="sport">🚵 Sport</button>
+    <button class="filter-btn" data-cat="gastronomie">🍷 Gastronomie</button>
+  </div>
+
+  <div class="loading-state visible" id="loadingState">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Recherche des événements en Ariège…</div>
+    <div class="loading-sub">Mise à jour automatique en cours</div>
+  </div>
+
+  <div id="eventsContainer" style="display:none">
+    <div class="events-header">
+      <span class="events-count" id="eventsCount"></span>
+      <button class="refresh-btn" id="refreshBtn"><span class="refresh-icon">↻</span> Actualiser</button>
+    </div>
+    <div class="events-grid" id="eventsGrid"></div>
+    <div class="last-updated" id="lastUpdated"></div>
+  </div>
+
+  <!-- Liens utiles -->
+  <div class="section-links">
+    <h2>Sites utiles pour préparer votre séjour</h2>
+    <p class="sub">Sources officielles de tourisme autour des Forges d'Enfalits</p>
+    <div class="links-grid">
+      <a href="https://www.ariegepyrenees.com/fr/preparer/agenda/tout-lagenda/" target="_blank" class="link-card">
+        <span class="link-icon">🏔️</span>
+        <div class="link-info"><h4>Ariège Pyrénées Tourisme</h4><p>Agenda officiel du département</p></div>
+      </a>
+      <a href="https://www.foix-tourisme.com/fr/agenda/" target="_blank" class="link-card">
+        <span class="link-icon">🏰</span>
+        <div class="link-info"><h4>Office de Tourisme Foix</h4><p>Événements à Foix et alentours</p></div>
+      </a>
+      <a href="https://ariege.demosphere.net/" target="_blank" class="link-card">
+        <span class="link-icon">📅</span>
+        <div class="link-info"><h4>Démosphère Ariège</h4><p>Agenda associatif et participatif</p></div>
+      </a>
+      <a href="https://www.pyrenees-ariegeoises.com/sortir/agenda/" target="_blank" class="link-card">
+        <span class="link-icon">🌿</span>
+        <div class="link-info"><h4>Pyrénées Ariégeoises</h4><p>Parc naturel régional</p></div>
+      </a>
+      <a href="https://www.grotte-niaux.fr/" target="_blank" class="link-card">
+        <span class="link-icon">🦬</span>
+        <div class="link-info"><h4>Grotte de Niaux</h4><p>Art rupestre préhistorique (8 km)</p></div>
+      </a>
+      <a href="https://www.sites-touristiques-ariege.fr/" target="_blank" class="link-card">
+        <span class="link-icon">🗺️</span>
+        <div class="link-info"><h4>Sites Touristiques Ariège</h4><p>Châteaux cathares, grottes, nature</p></div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <a href="index.html" class="footer-back">← Retour au site des Forges d'Enfalits</a>
+    <span>© Les Forges d'Enfalits · Rabat-les-Trois-Seigneurs · Ariège</span>
+    <span>Google 4,9/5 · Tripadvisor 4,9/5</span>
+  </div>
+</footer>
+
+<script>
+// ── ÉVÉNEMENTS PERMANENTS DU COIN ───────────────────────────────────────────
+const STATIC_EVENTS = [
+  { title:"Randonnée – Pic des Trois Seigneurs", day:"∞", month:"", category:"nature", location:"Rabat-les-Trois-Seigneurs (départ aux Forges)", desc:"Depuis les Forges d'Enfalits, montée au Pic des Trois Seigneurs (2199 m). Vue panoramique exceptional sur les Pyrénées. Comptez 5h A/R, niveau intermédiaire.", distance:"Au pied", featured:true, link:"https://www.ariegepyrenees.com" },
+  { title:"Marché de Tarascon-sur-Ariège", day:"LUN", month:"", category:"marche", location:"Tarascon-sur-Ariège (5 km)", desc:"Marché hebdomadaire du lundi avec producteurs locaux, fromages pyrénéens, charcuteries, légumes de saison et artisanat ariégeois.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Marché de Foix", day:"VEN", month:"SAM", category:"marche", location:"Foix (15 km)", desc:"Grand marché traditionnel du vendredi matin sous les arcades médiévales de Foix. Produits régionaux, fleurs, vêtements.", distance:"15 km", featured:false, link:"https://www.foix-tourisme.com" },
+  { title:"Grotte de Niaux", day:"365", month:"", category:"culture", location:"Niaux (8 km)", desc:"L'une des plus belles grottes ornées du monde avec ses peintures rupestres magdaléniennes vieilles de 14 000 ans. Réservation obligatoire.", distance:"8 km", featured:false, link:"https://www.grotte-niaux.fr" },
+  { title:"Parc de la Préhistoire", day:"AVR", month:"→NOV", category:"culture", location:"Tarascon-sur-Ariège (5 km)", desc:"Parcours immersif dans la préhistoire ariégeoise. Fresque géante, animations. Idéal en famille.", distance:"5 km", featured:false, link:"https://www.sites-touristiques-ariege.fr" },
+  { title:"Pêche à la truite – Rivière 1ère catégorie", day:"MAR", month:"→SEP", category:"nature", location:"Rivière des Forges d'Enfalits", desc:"La rivière qui borde notre propriété est une rivière de 1ère catégorie idéale pour la pêche à la truite. Hébergement Pêche agréé.", distance:"Sur place", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Canoë-Kayak sur l'Ariège", day:"JUN", month:"→SEP", category:"sport", location:"Tarascon-sur-Ariège (5 km)", desc:"Descente de l'Ariège en canoë ou kayak. Plusieurs bases de loisirs proposent location et accompagnement pour tous niveaux.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Ax-les-Thermes – Bains", day:"365", month:"", category:"nature", location:"Ax-les-Thermes (25 km)", desc:"Station thermale avec bassins gratuits en plein air. Eaux sulfureuses à 78°C, parfaites après une randonnée.", distance:"25 km", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Château de Foix", day:"365", month:"", category:"culture", location:"Foix (15 km)", desc:"Forteresse médiévale cathare perchée sur son rocher. Exposition sur les Comtes de Foix. Vue imprenable sur la vallée.", distance:"15 km", featured:false, link:"https://www.sites-touristiques-ariege.fr" },
+  { title:"Via Ferrata de Celles", day:"MAI", month:"→OCT", category:"sport", location:"Celles (20 km)", desc:"Parcours de via ferrata pour toute la famille et version sportive pour les plus aguerris. Encadrement possible.", distance:"20 km", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Marchés Gourmands Estivaux", day:"ÉTÉ", month:"", category:"gastronomie", location:"Tarascon & villages (5–15 km)", desc:"Marchés nocturnes tout l'été avec fromages, charcuteries, vins, miel et confits ariégeois directement chez les producteurs.", distance:"5–15 km", featured:false, link:"https://www.ariegepyrenees.com" },
+  { title:"Fête de l'Ours", day:"FÉV", month:"", category:"fete", location:"Saint-Girons & vallées (35 km)", desc:"Tradition pyrénéenne ancestrale : l'ours sort de sa tanière et parcourt les villages. Fête populaire colorée et festive.", distance:"35 km", featured:false, link:"https://www.ariegepyrenees.com" }
+];
+
+// ── CATÉGORIES ───────────────────────────────────────────────────────────────
+const CATS = {
+  fete:       { label:'Fête & Festival',      css:'cat-fete' },
+  marche:     { label:'Marché',               css:'cat-marche' },
+  nature:     { label:'Nature & Rando',       css:'cat-nature' },
+  culture:    { label:'Culture & Patrimoine', css:'cat-culture' },
+  sport:      { label:'Sport & Aventure',     css:'cat-sport' },
+  gastronomie:{ label:'Gastronomie',          css:'cat-gastronomie' },
+  autre:      { label:'Autre',                css:'cat-autre' }
+};
+
+// ── RENDU D'UNE CARTE ────────────────────────────────────────────────────────
+function renderCard(ev) {
+  const cat = CATS[ev.category] || CATS.autre;
+  if (ev.featured) {
+    return `<div class="event-card featured" data-cat="${ev.category}">
+      <span class="featured-badge">⭐ Incontournable</span>
+      <div class="event-card-top">
+        <div class="event-date-box">
+          <div class="event-date-day">${ev.day}</div>
+          <div class="event-date-month">${ev.month||''}</div>
+        </div>
+        <div class="event-meta">
+          <span class="event-category ${cat.css}">${cat.label}</span>
+          <div class="event-title">${ev.title}</div>
+          <div class="event-location">${ev.location}</div>
+        </div>
+      </div>
+      <div class="event-card-body"><div class="event-desc">${ev.desc}</div></div>
+      <div class="event-card-footer">
+        <div class="event-distance">${ev.distance ? '📍 '+ev.distance : ''}</div>
+        <a href="${ev.link||'#'}" target="_blank" class="event-link">En savoir + →</a>
+      </div>
+    </div>`;
+  }
+  return `<div class="event-card" data-cat="${ev.category}">
+    <div class="event-card-top">
+      <div class="event-date-box">
+        <div class="event-date-day">${ev.day}</div>
+        <div class="event-date-month">${ev.month||''}</div>
+      </div>
+      <div class="event-meta">
+        <span class="event-category ${cat.css}">${cat.label}</span>
+        <div class="event-title">${ev.title}</div>
+      </div>
+    </div>
+    <div class="event-card-body">
+      <div class="event-location">${ev.location}</div>
+      <div class="event-desc">${ev.desc}</div>
+    </div>
+    <div class="event-card-footer">
+      <div class="event-distance">${ev.distance ? '📍 '+ev.distance : ''}</div>
+      <a href="${ev.link||'#'}" target="_blank" class="event-link">Voir →</a>
+    </div>
+  </div>`;
+}
+
+// ── ÉVÉNEMENTS DYNAMIQUES VIA API CLAUDE ─────────────────────────────────────
+async function fetchDynamicEvents() {
+  try {
+    const dateStr = new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1500,
+        tools: [{ type: "web_search_20250305", name: "web_search" }],
+        system: `Réponds UNIQUEMENT avec un tableau JSON valide, sans texte avant ou après, sans balises markdown.
+Format exact pour chaque objet: {"title":"...","day":"JJ ou abrév","month":"MMM ou vide","category":"fete|marche|nature|culture|sport|gastronomie","location":"Ville (X km)","desc":"2-3 phrases.","distance":"X km","featured":false,"link":"https://..."}`,
+        messages: [{
+          role: "user",
+          content: `Nous sommes le ${dateStr}. Cherche 4 à 5 événements réels actuels ou prévus dans le prochain mois en Ariège (09), autour de Tarascon-sur-Ariège et Rabat-les-Trois-Seigneurs. Inclus festivals, marchés spéciaux, concerts, expositions, événements sportifs. Retourne un tableau JSON.`
+        }]
+      })
+    });
+    const data = await res.json();
+    const txt = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    const m = txt.match(/\[[\s\S]*?\]/);
+    return m ? JSON.parse(m[0]) : [];
+  } catch(e) { return []; }
+}
+
+// ── FILTRES ───────────────────────────────────────────────────────────────────
+let currentFilter = 'all';
+function applyFilter(cat) {
+  currentFilter = cat;
+  const cards = document.querySelectorAll('.event-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const show = cat === 'all' || c.dataset.cat === cat;
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('eventsCount').textContent = `${visible} événement${visible>1?'s':''} affiché${visible>1?'s':''}`;
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.cat);
+  });
+});
+
+// ── CHARGEMENT PRINCIPAL ──────────────────────────────────────────────────────
+async function loadEvents() {
+  document.getElementById('loadingState').classList.add('visible');
+  document.getElementById('eventsContainer').style.display = 'none';
+
+  const dynamic = await fetchDynamicEvents();
+  const all = [...dynamic, ...STATIC_EVENTS];
+
+  document.getElementById('eventsGrid').innerHTML = all.map(renderCard).join('');
+  document.getElementById('eventsCount').textContent = `${all.length} événements affichés`;
+
+  const now = new Date();
+  document.getElementById('lastUpdated').textContent =
+    `Mis à jour le ${now.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})} à ${now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}`;
+
+  document.getElementById('loadingState').classList.remove('visible');
+  document.getElementById('eventsContainer').style.display = 'block';
+  applyFilter(currentFilter);
+}
+
+document.getElementById('refreshBtn').addEventListener('click', loadEvents);
+loadEvents();
+</script>
+</body>
+</html>
