@@ -10,12 +10,13 @@
 <style>
 body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 .main-wrap{max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 380px;gap:60px}
-.heberg-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.07);display:grid;grid-template-columns:220px 1fr;margin-bottom:20px;cursor:pointer;border:2px solid transparent;transition:.3s}
+.heberg-grid{display:flex;flex-direction:column;gap:20px}
+.heberg-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.07);display:grid;grid-template-columns:220px 1fr;cursor:pointer;border:2px solid transparent;transition:.3s}
 .heberg-card.selected{border-color:#7c5c3e}
 .heberg-img img{width:100%;height:100%;object-fit:cover;min-height:170px}
 .heberg-info{padding:22px}
 .heberg-name{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:6px}
-.heberg-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#7c5c3e}
+.heberg-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#7c5c3e}
 .form-card{background:#fff;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.1);overflow:hidden}
 .form-header{background:#3a2e22;color:#fff;padding:24px}
 .form-header h3{font-family:'Dancing Script';font-size:1.8rem;margin:0}
@@ -35,11 +36,12 @@ body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 
 <div class="main-wrap">
 
-<div>
+<!-- COLONNE GAUCHE -->
+<div class="heberg-grid">
 
 <div class="heberg-card" id="card-chataigne" onclick="selectHeberg('Chambre Châtaigne','chataigne')">
 <div class="heberg-img">
-<img src="20220620-forges-d-enfalits-chambres-hotes-pyrénées-ariege-tarascon-chambre-chataigne-05.webp">
+<img src="20220620-forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-chambre-chataigne-05.webp">
 </div>
 <div class="heberg-info">
 <div class="heberg-name">Chambre Châtaigne</div>
@@ -47,9 +49,39 @@ body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 </div>
 </div>
 
+<div class="heberg-card" id="card-myrtille" onclick="selectHeberg('Chambre Myrtille','myrtille')">
+<div class="heberg-img">
+<img src="20220620-forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-chambre-myrtille-04.webp">
+</div>
+<div class="heberg-info">
+<div class="heberg-name">Chambre Myrtille</div>
+<div class="heberg-price">95 € / nuit</div>
+</div>
+</div>
+
+<div class="heberg-card" id="card-ble" onclick="selectHeberg('Chambre Blé','ble')">
+<div class="heberg-img">
+<img src="forges-d-enfalits-chambres-hotes-parc-1920-13.webp">
+</div>
+<div class="heberg-info">
+<div class="heberg-name">Chambre Blé</div>
+<div class="heberg-price">95 € / nuit</div>
+</div>
+</div>
+
+<div class="heberg-card" id="card-paprika" onclick="selectHeberg('Chambre Paprika','paprika')">
+<div class="heberg-img">
+<img src="20220620-forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-chambre-paprika-01.webp">
+</div>
+<div class="heberg-info">
+<div class="heberg-name">Chambre Paprika</div>
+<div class="heberg-price">95–135 € / nuit</div>
+</div>
+</div>
+
 <div class="heberg-card" id="card-gite" onclick="selectHeberg('Le Gîte en Bois','gite')">
 <div class="heberg-img">
-<img src="unnamed (1).webp">
+<img src="unnamed%20(1).webp">
 </div>
 <div class="heberg-info">
 <div class="heberg-name">Le Gîte en Bois</div>
@@ -59,6 +91,7 @@ body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 
 </div>
 
+<!-- FORMULAIRE -->
 <div class="form-card">
 <div class="form-header">
 <h3>Demande de réservation</h3>
@@ -81,16 +114,6 @@ body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 <div class="form-group">
 <label>Départ</label>
 <input type="date" id="dateDepart" name="Départ" required>
-</div>
-
-<div class="form-group">
-<label>Adultes</label>
-<select name="Adultes">
-<option>1</option>
-<option selected>2</option>
-<option>3</option>
-<option>4</option>
-</select>
 </div>
 
 <div class="form-group">
@@ -127,9 +150,9 @@ body{margin:0;font-family:'Jost',sans-serif;background:#f5efe4;color:#5a4a35}
 </div>
 
 <script>
-let selectedHeberg = '';
+let selectedHeberg='';
 
-function selectHeberg(name, id){
+function selectHeberg(name,id){
 document.querySelectorAll('.heberg-card').forEach(c=>c.classList.remove('selected'));
 document.getElementById('card-'+id).classList.add('selected');
 selectedHeberg=name;
@@ -140,11 +163,7 @@ document.getElementById('hebergementInput').value=name;
 
 document.getElementById('formBody').addEventListener('submit',async function(e){
 e.preventDefault();
-
-if(!selectedHeberg){
-alert("Merci de sélectionner un hébergement.");
-return;
-}
+if(!selectedHeberg){alert("Merci de sélectionner un hébergement.");return;}
 
 const formData=new FormData(this);
 
@@ -160,7 +179,7 @@ document.getElementById('confirmationMsg').style.display="block";
 }else{
 alert("Erreur lors de l'envoi.");
 }
-}catch(error){
+}catch{
 alert("Erreur réseau.");
 }
 });
