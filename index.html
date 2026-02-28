@@ -1,167 +1,41 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</title>
-<meta name="description" content="Chambres d'hôtes & Gîte de charme au cœur du Parc Naturel des Pyrénées Ariégeoises. SPA, nature, gastronomie. À 5 km de Tarascon-sur-Ariège.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500&family=Dancing+Script:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --cream: #f5efe4;
-  --cream-dark: #ede4d5;
-  --warm-brown: #7c5c3e;
-  --gold: #c9a96e;
-  --dark: #3a2e22;
-  --text: #5a4a35;
-  --text-light: #8a7560;
-  --white: #fdfaf5;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--cream); font-family:'Jost',sans-serif; color:var(--text); }
-header { position:fixed; top:0; width:100%; z-index:1000; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; transition:.4s; }
-header.scrolled { background:rgba(245,239,228,0.95); box-shadow:0 2px 20px rgba(0,0,0,.08); }
-.logo img { height:52px; }
-nav a { font-size:.8rem; text-transform:uppercase; letter-spacing:.12em; margin-left:20px; text-decoration:none; color:white; }
-header.scrolled nav a { color:var(--text); }
-
-.hero { height:100vh; position:relative; background:url('forges-d-enfalits-chambres-hotes-parc-1920-12.webp') center/cover no-repeat; display:flex; align-items:center; padding-left:10%; color:white; }
-.hero h1 { font-family:'Dancing Script',cursive; font-size:5rem; }
-.hero h2 { font-family:'Playfair Display',serif; font-weight:400; }
-
-section { padding:120px 10%; }
-
-footer {
-  background: var(--dark);
-  padding: 70px 10% 40px;
-  color: rgba(255,255,255,0.7);
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
-  padding-bottom: 50px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.footer-brand img {
-  height: 45px;
-  margin-bottom: 20px;
-  filter: brightness(0) invert(1) opacity(0.85);
-}
-
-.footer-brand p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 25px;
-}
-
-.footer-partners {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-partners img {
-  height: 60px;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  opacity: 1;
-  transition: transform .3s ease, opacity .3s ease;
-}
-
-.footer-partners img:hover {
-  transform: translateY(-3px);
-  opacity: .9;
-}
-
-.footer-col h4 {
-  font-size: 0.75rem;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-
-.footer-col ul { list-style:none; }
-.footer-col ul li { margin-bottom:10px; }
-.footer-col ul li a {
-  color: rgba(255,255,255,0.6);
-  text-decoration:none;
-  font-size:0.9rem;
-}
-.footer-col ul li a:hover { color:white; }
-
-.footer-bottom {
-  display:flex;
-  justify-content:space-between;
-  font-size:.8rem;
-}
-</style>
-</head>
-
-<body>
-
-<header id="header">
-  <div class="logo">
-    <img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits">
-  </div>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">Hébergements</a>
-    <a href="#">SPA</a>
-    <a href="#">Nature</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h1>Respirez.</h1>
-    <h2>Vous êtes en Ariège.</h2>
-  </div>
-</section>
-
 <footer>
   <div class="footer-top">
-
     <div class="footer-brand">
       <img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits">
       <p>Chambres d'hôtes & Gîte de charme au cœur du Parc Naturel Régional des Pyrénées Ariégeoises. Qualité Tourisme · Hébergement Pêche agréé.</p>
 
       <div class="footer-partners">
+        <img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits">
         <img src="qualite-tourisme.png" alt="Qualité Tourisme">
         <img src="hebergement-peche.webp" alt="Hébergement Pêche">
       </div>
+
     </div>
 
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Chambres d'hôtes</a></li>
-        <li><a href="#">Le Gîte</a></li>
-        <li><a href="#">SPA & Bien-être</a></li>
-        <li><a href="#">Nature & Activités</a></li>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#hebergements">Chambres d'hôtes</a></li>
+        <li><a href="#hebergements">Le Gîte</a></li>
+        <li><a href="#bien-etre">SPA & Bien-être</a></li>
+        <li><a href="#nature">Nature & Activités</a></li>
+        <li><a href="Tarifs%20Chambres%20d'h%C3%B4tes%20et%20G%C3%AEte%20-%20Les%20Forges%20d'Enfalits.html">Tarifs</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Contact</h4>
-      Les Forges d'Enfalits<br>
-      Rabat-les-Trois-Seigneurs<br>
-      09400 Ariège<br><br>
-      05 61 03 83 45
+      <address>
+        Les Forges d'Enfalits<br>
+        Rabat-les-Trois-Seigneurs<br>
+        09400 Ariège<br><br>
+        <a href="tel:0561038345">05 61 03 83 45</a><br><br>
+        À 5 km de Tarascon-sur-Ariège<br>
+        À 15 min de Foix<br>
+        À 1h de Toulouse & Andorre
+      </address>
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -169,12 +43,3 @@ footer {
     <span>Google 4,9/5 · Tripadvisor 4,9/5</span>
   </div>
 </footer>
-
-<script>
-window.addEventListener('scroll', () => {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
-});
-</script>
-
-</body>
-</html>
