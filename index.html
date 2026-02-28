@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Forges d’Enfalits – Chambres d’hôtes & Gîte en Ariège</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+background:#f4efe7;
+font-family:'Cormorant Garamond', serif;
+color:#4a4035;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 50px; /* reduced vertical padding */
+z-index:1000;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.2);
+transition:all 0.4s ease;
+}
+
+header.scrolled{
+background:rgba(244,239,231,0.95);
+backdrop-filter:blur(8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.logo img{
+height:55px; /* unchanged */
+}
+
+nav a{
+margin-left:35px;
+text-decoration:none;
+color:white;
+font-size:1.2rem; /* unchanged from your previous adjustment */
+font-weight:500;
+position:relative;
+transition:0.4s;
+}
+
+header.scrolled nav a{
+color:#4a4035;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+width:0;
+height:1px;
+background:#b89b5e;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{width:100%;}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:url('forges-d-enfalits-chambres-hotes-parc-1920-12.webp') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+color:white;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.35);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+animation:fadeIn 1.5s ease forwards;
+}
+
+.hero h1{
+font-family:'Allura',cursive;
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.hero h2{
+font-family:'Playfair Display',serif;
+font-size:2.2rem;
+}
+
+/* REVIEW LOGOS */
+
+.hero-logos{
+position:absolute;
+bottom:40px;
+right:60px;
+z-index:3;
+display:flex;
+flex-direction:column;
+align-items:flex-end;
+}
+
+.hero-logos img{
+height:65px;
+margin-top:12px;
+background:white;
+padding:6px 12px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* SECTION */
+
+section{
+padding:120px 12%;
+text-align:center;
+}
+
+.section-sub{
+font-family:'Allura',cursive;
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.intro p{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+font-size:1.1rem;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+gap:40px;
+justify-content:center;
+margin-top:60px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+width:320px;
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 40px rgba(0,0,0,0.15);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card h3{
+font-family:'Playfair Display',serif;
+margin:20px 0 10px;
+}
+
+.card p{
+padding:0 20px 25px;
+font-size:0.95rem;
+}
+
+/* SPLIT SECTION */
+
+.split{
+display:flex;
+align-items:center;
+gap:60px;
+margin-top:80px;
+flex-wrap:wrap;
+}
+
+.split img{
+width:500px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.split-text{
+flex:1;
+text-align:left;
+}
+
+.split-text h3{
+font-family:'Allura',cursive;
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+/* CTA */
+
+.cta{
+background:#e9e1d5;
+padding:100px 12%;
+text-align:center;
+}
+
+.cta h2{
+font-family:'Playfair Display',serif;
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.phone{
+font-size:1.8rem;
+font-weight:600;
+margin-top:15px;
+}
+
+/* FOOTER */
+
+footer{
+background:#dcd2c3;
+padding:60px 20px 40px;
+text-align:center;
+}
+
+.partners{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.partners img{
+max-height:90px;
+opacity:0.85;
+transition:0.3s;
+}
+
+.partners img:hover{
+opacity:1;
+transform:translateY(-5px);
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:900px){
+header{padding:10px 25px;}
+.split{flex-direction:column;}
+.split img{width:100%;}
+.hero-logos{right:20px;bottom:20px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">
+<img src="logo-forges-denfalits.png" alt="Les Forges d’Enfalits">
+</div>
+<nav>
+<a href="#">Accueil</a>
+<a href="#">Chambres</a>
+<a href="#">SPA</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="hero-content">
+<h1>Respirez.</h1>
+<h2>Vous êtes en Ariège.</h2>
+</div>
+
+<div class="hero-logos">
+<img src="logo google.png" alt="Google 4.9/5">
+<img src="logo-tripadvisor.png" alt="Tripadvisor 4.9/5">
+</div>
+</div>
+
+<section class="intro">
+<h3 class="section-sub">Bienvenue chez nous, Régine et Gérard</h3>
+<p>
+Sur le site des anciennes forges de Rabat-les-Trois-Seigneurs, dans le Parc Naturel Régional des Pyrénées Ariégeoises, au pied du Pic des Trois Seigneurs, à 5 km de Tarascon-sur-Ariège et 15 min de Foix, nous vous accueillons dans une ambiance familiale et décontractée.
+<br><br>
+Notre parc de 4 hectares est bordé sur plus d’un kilomètre par une rivière de première catégorie, avec barrage, canaux et chutes d’eau, vestiges des anciennes forges. À 1 heure de Toulouse et de la Principauté d’Andorre.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<img src="forges-d-enfalits-chambres-hotes-parc-1920-13.webp">
+<h3>Nature & Randonnée</h3>
+<p>Un environnement préservé au pied des montagnes.</p>
+</div>
+
+<div class="card">
+<img src="forges-d-enfalits-chambres-hotes-ariege-pyrenees-tarascon-morilles_02.webp">
+<h3>Gastronomie</h3>
+<p>Produits locaux et spécialités ariégeoises.</p>
+</div>
+
+<div class="card">
+<img src="forges-d-enfalits-chambres-hotes-pyrenées-ariege-tarascon-SPA-sauna-detente-01.webp">
+<h3>Détente & Bien-Être</h3>
+<p>Jacuzzi et sauna pour un moment privilégié.</p>
+</div>
+
+</div>
+
+<div class="split">
+<img src="forges-d-enfalits-chambres-hotes-salon-1920-010.webp">
+<div class="split-text">
+<h3>Une maison de caractère</h3>
+<p>
+Authenticité, confort et sérénité au cœur de l’Ariège.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="cta">
+<h2>📞 Réservations & renseignements immédiats</h2>
+<div class="phone">05 61 03 83 45</div>
+</section>
+
+<footer>
+<div class="partners">
+<img src="qualite-tourisme-1024x432.png" alt="Qualité Tourisme">
+<img src="hebergement-peche-1024x1024.png" alt="Hébergement Pêche">
+</div>
+<p>© Les Forges d’Enfalits – Chambres d’hôtes & Gîte en Ariège</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", function(){
+var header = document.getElementById("header");
+header.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
