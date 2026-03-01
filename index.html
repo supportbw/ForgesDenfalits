@@ -117,8 +117,11 @@ h2.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.
 .room-card:hover { box-shadow: 0 15px 50px rgba(100,70,30,0.12); }
 .room-card.featured { grid-column: 1 / -1; grid-template-columns: 1.2fr 1fr; }
 .room-card-gallery { position: relative; overflow: hidden; }
-.room-card-gallery img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; transition: transform 0.6s ease; }
-.room-card:hover .room-card-gallery img { transform: scale(1.04); }
+.room-card-gallery .room-main-img { width: 100%; height: 380px; object-fit: cover; transition: opacity 0.35s, transform 0.6s; display: block; }
+.room-card:hover .room-card-gallery .room-main-img { transform: scale(1.04); }
+.thumb-strip { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; display: flex; gap: 4px; padding: 8px; box-sizing: border-box; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%); }
+.rthumb { flex: 1; min-width: 0; height: 100%; object-fit: cover; cursor: pointer; border: 2px solid transparent; opacity: 0.8; transition: 0.2s; border-radius: 2px; }
+.rthumb.active, .rthumb:hover { border-color: white; opacity: 1; }
 .room-card-info { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
 .room-badge { display: inline-block; background: var(--cream); color: var(--warm-brown); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; margin-bottom: 16px; font-family: 'Jost', sans-serif; }
 .room-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--dark); margin-bottom: 12px; }
@@ -213,6 +216,26 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
   #cookie-banner { padding: 14px 18px; }
 }
 
+/* ── BURGER MENU ─────────────────────────────────────────── */
+header.scrolled 
+
+
+/* ── BURGER MENU ──────────────────────────────────────────── */
+header.scrolled 
+
+
+
+
+
+
+/* ── BURGER MENU ──────────────────────────────────────────── */
+header.scrolled 
+
+
+@media (max-width: 768px) {
+  nav { display: none !important; }
+  
+}
 /* ── BURGER MENU ─────────────────────────────── */
 .burger { display:none; flex-direction:column; justify-content:center; gap:6px; width:40px; height:40px; cursor:pointer; background:none; border:none; padding:6px; z-index:9999; flex-shrink:0; }
 .burger span { display:block; height:2px; border-radius:2px; background:white; transition:all 0.35s cubic-bezier(0.23,1,0.32,1); }
@@ -235,7 +258,7 @@ header.scrolled .burger span { background:var(--dark); }
 
 <!-- COOKIE BANNER GDPR -->
 <div id="cookie-banner">
-  <p>?? Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de traçage.</p>
+  <p>🍪 Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de traçage.</p>
   <div class="cookie-btns">
     <button class="btn-cookie-refuse" onclick="refuseCookies()">Refuser</button>
     <button class="btn-cookie-accept" onclick="acceptCookies()">Accepter</button>
@@ -245,7 +268,7 @@ header.scrolled .burger span { background:var(--dark); }
 <header id="header">
   <div class="logo"><a href="index.html"><img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits"></a></div>
   <nav>
-    <a href="#accueil">Accueil</a>
+    <a href="index.html">Accueil</a>
     <a href="#hebergements">Hébergements</a>
     <a href="#bien-etre">Bien-Être</a>
     <a href="#nature">Nature</a>
@@ -253,12 +276,13 @@ header.scrolled .burger span { background:var(--dark); }
     <a href="actualites.html">Actualités</a>
     <a href="reservation.html" class="nav-cta">Réserver</a>
   </nav>
+<!-- BURGER BUTTON -->
 <button class="burger" id="burgerBtn" aria-label="Menu" onclick="toggleMenu()">
   <span></span><span></span><span></span>
 </button>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="active">Accueil</a>
+  <a href="index.html">Accueil</a>
   <a href="#hebergements">Hébergements</a>
   <a href="#bien-etre">Bien-Être</a>
   <a href="#nature">Nature</a>
@@ -266,7 +290,6 @@ header.scrolled .burger span { background:var(--dark); }
   <a href="actualites.html">Actualités</a>
   <a href="reservation.html" class="mobile-cta">Réserver</a>
 </div>
-
 <section class="hero" id="accueil">
   <div class="hero-slide active"></div>
   <div class="hero-slide"></div>
@@ -320,18 +343,25 @@ header.scrolled .burger span { background:var(--dark); }
         <div class="parc-slide-counter" id="parcCounter">1 / 15</div>
       </div>
       <div class="feature-card-body">
-        <div class="feature-card-icon">??</div>
+        <div class="feature-card-icon">🌿</div>
         <h3>Parc & Nature</h3>
         <p>Un environnement préservé au pied des montagnes, avec 4 hectares de parc traversé par une rivière de 1ère catégorie, hortensias, fontaines et faune sauvage.</p>
       </div>
     </div>
 
     <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-card-img"><img src="forges-d-enfalits-chambres-hotes-ariege-pyrenees-tarascon-morilles_02.webp" alt="Gastronomie ariégeoise Les Forges d'Enfalits"></div>
+      <div class="parc-slideshow" id="petitdejSlideshow">
+        <div class="slide active"><img src="petitdej.jpg" alt="Petit-déjeuner Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="Petitdej2.jpg" alt="Petit-déjeuner maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="petitdej3.jpg" alt="Thés et confitures maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="petitdej4.jpg" alt="Crêpes et viennoiseries Les Forges d'Enfalits"></div>
+        <div class="parc-slide-dots" id="petitdejDots"></div>
+        <div class="parc-slide-counter" id="petitdejCounter">1 / 4</div>
+      </div>
       <div class="feature-card-body">
-        <div class="feature-card-icon">??</div>
-        <h3>Gastronomie</h3>
-        <p>Produits locaux et spécialités ariégeoises. Les champignons du parc, les morilles, le terroir pyrénéen.</p>
+        <div class="feature-card-icon">🥐</div>
+        <h3>Petit-déjeuner</h3>
+        <p>Un petit-déjeuner généreux avec produits locaux : confitures maison, miels du terroir, viennoiseries, crêpes, fruits frais et jus de saison.</p>
       </div>
     </div>
     <div class="feature-card reveal reveal-delay-3">
@@ -379,14 +409,26 @@ header.scrolled .burger span { background:var(--dark); }
   <h2 class="section-title reveal">Chambres d'hôtes & Gîte</h2>
   <p class="intro-text reveal" style="margin-bottom:0">Chaque chambre porte le nom d'une couleur pyrénéenne. Toutes disposent d'une salle de bain privée et d'un accès direct au parc.</p>
   <div class="rooms-grid">
+
+    <!-- ═══ PAPRIKA (featured) ═══ -->
     <div class="room-card featured reveal">
-      <div class="room-card-gallery"><img src="paprika-master-bedroom.jpg" alt="Chambre Paprika Les Forges d'Enfalits Ariège"></div>
+      <div class="room-card-gallery" id="gal-paprika" style="position:relative;overflow:hidden;">
+        <img class="room-main-img" src="chambre_paprika.jpg" alt="Chambre Paprika"
+             >
+        <div class="thumb-strip">
+          <img src="chambre_paprika.jpg"   onclick="setRoom('paprika','chambre_paprika.jpg',this)"   class="rthumb active" alt="">
+          <img src="chambre_paprika2.webp" onclick="setRoom('paprika','chambre_paprika2.webp',this)" class="rthumb" alt="">
+          <img src="chambre-paprika-01.webp" onclick="setRoom('paprika','chambre-paprika-01.webp',this)" class="rthumb" alt="">
+          <img src="chambre-paprika-02.webp" onclick="setRoom('paprika','chambre-paprika-02.webp',this)" class="rthumb" alt="">
+          <img src="chambre-paprika-03.webp" onclick="setRoom('paprika','chambre-paprika-03.webp',this)" class="rthumb" alt="">
+        </div>
+      </div>
       <div class="room-card-info">
         <span class="room-badge">Chambre familiale</span>
         <h3>Chambre Paprika</h3>
-        <p>Notre chambre la plus lumineuse, avec ses teintes orangées chaleureuses. Vue sur le jardin et accès direct à la terrasse.</p>
+        <p>Notre chambre la plus lumineuse, avec ses teintes orangées chaleureuses. Vue sur le jardin et accès direct à la terrasse. Peut accueillir jusqu'à 4 personnes avec sa 2e chambre attenante.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Lit double 160</span>
+          <span class="amenity-tag">Jusqu'à 4 personnes</span>
           <span class="amenity-tag">Salle de bain privée</span>
           <span class="amenity-tag">Vue jardin</span>
           <span class="amenity-tag">Terrasse</span>
@@ -394,12 +436,23 @@ header.scrolled .burger span { background:var(--dark); }
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
     </div>
+
+    <!-- ═══ MYRTILLE ═══ -->
     <div class="room-card reveal reveal-delay-1">
-      <div class="room-card-gallery"><img src="20220620-forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-chambre-myrtille-04.webp" alt="Chambre Myrtille Les Forges d'Enfalits Ariège"></div>
+      <div class="room-card-gallery" id="gal-myrtille" style="position:relative;overflow:hidden;">
+        <img class="room-main-img" src="chambre_myrtille.webp" alt="Chambre Myrtille"
+             >
+        <div class="thumb-strip">
+          <img src="chambre_myrtille.webp"  onclick="setRoom('myrtille','chambre_myrtille.webp',this)"  class="rthumb active" alt="">
+          <img src="chambre_myrtille2.webp" onclick="setRoom('myrtille','chambre_myrtille2.webp',this)" class="rthumb" alt="">
+          <img src="chambre_myrtille3.webp" onclick="setRoom('myrtille','chambre_myrtille3.webp',this)" class="rthumb" alt="">
+          <img src="chambre_myrtille5.webp" onclick="setRoom('myrtille','chambre_myrtille5.webp',this)" class="rthumb" alt="">
+        </div>
+      </div>
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Myrtille</h3>
-        <p>Délicate et apaisante dans ses tons bleutés, cette chambre offre une vue sur le parc boisé.</p>
+        <p>Délicate et apaisante dans ses tons bleutés, cette chambre offre une vue directe sur le parc boisé.</p>
         <div class="room-amenities">
           <span class="amenity-tag">Lit double 160</span>
           <span class="amenity-tag">Salle de bain</span>
@@ -408,8 +461,18 @@ header.scrolled .burger span { background:var(--dark); }
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
     </div>
+
+    <!-- ═══ CHÂTAIGNE ═══ -->
     <div class="room-card reveal reveal-delay-2">
-      <div class="room-card-gallery"><img src="Chambre Chataigne.jpg" alt="Chambre Châtaigne Les Forges d'Enfalits Ariège"></div>
+      <div class="room-card-gallery" id="gal-chataigne" style="position:relative;overflow:hidden;">
+        <img class="room-main-img" src="chambre_chataigne1.webp" alt="Chambre Châtaigne"
+             >
+        <div class="thumb-strip">
+          <img src="chambre_chataigne1.webp" onclick="setRoom('chataigne','chambre_chataigne1.webp',this)" class="rthumb active" alt="">
+          <img src="chambre_chataigne2.webp" onclick="setRoom('chataigne','chambre_chataigne2.webp',this)" class="rthumb" alt="">
+          <img src="chambre_chataigne3.webp" onclick="setRoom('chataigne','chambre_chataigne3.webp',this)" class="rthumb" alt="">
+        </div>
+      </div>
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Châtaigne</h3>
@@ -422,12 +485,41 @@ header.scrolled .burger span { background:var(--dark); }
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
     </div>
-    <div class="room-card featured reveal">
-      <div class="room-card-gallery"><img src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Gîte en bois Les Forges d'Enfalits Ariège"></div>
+
+    <!-- ═══ BLÉ ═══ -->
+    <div class="room-card reveal reveal-delay-3">
+      <div class="room-card-gallery" id="gal-ble" style="position:relative;overflow:hidden;">
+        <img class="room-main-img" src="chambre_ble_1.webp" alt="Chambre Blé"
+             >
+        <div class="thumb-strip">
+          <img src="chambre_ble_1.webp"  onclick="setRoom('ble','chambre_ble_1.webp',this)"  class="rthumb active" alt="">
+          <img src="chambre_ble_2.webp" onclick="setRoom('ble','chambre_ble_2.webp',this)" class="rthumb" alt="">
+          <img src="chambre_ble_3.webp" onclick="setRoom('ble','chambre_ble_3.webp',this)" class="rthumb" alt="">
+          <img src="chambre_ble_4.webp" onclick="setRoom('ble','chambre_ble_4.webp',this)" class="rthumb" alt="">
+        </div>
+      </div>
+      <div class="room-card-info">
+        <span class="room-badge">Chambre double</span>
+        <h3>Chambre Blé</h3>
+        <p>Dans des teintes dorées et naturelles, cette chambre lumineuse baigne dans un esprit campagnard raffiné.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">Lit double</span>
+          <span class="amenity-tag">Salle de bain</span>
+          <span class="amenity-tag">Vue jardin</span>
+        </div>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+      </div>
+    </div>
+
+    <!-- ═══ GÎTE EN BOIS ═══ -->
+    <div class="room-card reveal reveal-delay-3">
+      <div class="room-card-gallery" id="gal-gite" style="position:relative;overflow:hidden;">
+        <img class="room-main-img" src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Gîte en bois Les Forges d'Enfalits">
+      </div>
       <div class="room-card-info">
         <span class="room-badge" style="background:#f0ebe0;color:#5a4a35">Gîte indépendant</span>
         <h3>Le Gîte en Bois</h3>
-        <p>Chalet en bois indépendant au cœur du parc, idéal pour les familles et groupes. Cuisine équipée, terrasse privée. Capacité 6 personnes.</p>
+        <p>Chalet en bois indépendant au cœur du parc, idéal pour les familles et groupes. Cuisine équipée, terrasse privée, accès direct à la rivière. Capacité 6 personnes.</p>
         <div class="room-amenities">
           <span class="amenity-tag">Jusqu'à 6 pers.</span>
           <span class="amenity-tag">Cuisine équipée</span>
@@ -437,6 +529,7 @@ header.scrolled .burger span { background:var(--dark); }
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -449,11 +542,10 @@ header.scrolled .burger span { background:var(--dark); }
     <p>L'accès au SPA peut être réservé à l'heure, pour profiter pleinement de cet espace dans la plus grande intimité.</p>
     <div class="spa-offerings">
       <div class="spa-item"><span>♨️</span> Jacuzzi intérieur</div>
-      <div class="spa-item"><span>??</span> Sauna finlandais</div>
-      <div class="spa-item"><span>??</span> Accès privatif</div>
+      <div class="spa-item"><span>🌿</span> Sauna finlandais</div>
+      <div class="spa-item"><span>🔒</span> Accès privatif</div>
       <div class="spa-item"><span>⏱</span> Réservation à l'heure</div>
     </div>
-    <a href="#contact" class="btn-primary" style="border:1px solid var(--gold);background:transparent;color:var(--gold);">Réserver le SPA</a>
   </div>
   <div class="spa-media reveal reveal-delay-1">
     <img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna privatif Les Forges d'Enfalits">
@@ -464,11 +556,11 @@ header.scrolled .burger span { background:var(--dark); }
   <div class="section-tag">Autour du domaine</div>
   <h2 class="section-title reveal">L'Ariège, une nature<br>à couper le souffle</h2>
   <div class="nature-gallery">
-    <div class="nature-img tall reveal"><img src="Entr%C3%A9e%20Maison.webp" alt="Les Forges d'Enfalits et les Pyrénées"></div>
+    <div class="nature-img tall reveal"><img src="forges-d-enfalits-chambres-hotes-parc-1920-13.webp" alt="Les Forges d'Enfalits et les Pyrénées"></div>
     <div class="nature-img reveal reveal-delay-1"><img src="Entree2.jpg" alt="Terrasse Les Forges d'Enfalits Ariège"></div>
-    <div class="nature-img reveal reveal-delay-2"><img src="unnamed%20(3).webp" alt="Vue Pyrénées Ariège"></div>
-    <div class="nature-img reveal reveal-delay-1"><img src="unnamed%20(4).webp" alt="La rivière Les Forges d'Enfalits"></div>
-    <div class="nature-img reveal reveal-delay-2"><img src="2022-09-19-03%20Mandarins%20aux%20Forges%20d'Enfalits.webp" alt="Canards mandarins Ariège"></div>
+    <div class="nature-img reveal reveal-delay-2"><img src="vue-pyrenees-ariege.webp" alt="Vue Pyrénées Ariège"></div>
+    <div class="nature-img reveal reveal-delay-1"><img src="riviere-forges-enfalits.webp" alt="La rivière Les Forges d'Enfalits"></div>
+    <div class="nature-img reveal reveal-delay-2"><img src="2022-09-19-03_Mandarins_aux__Forges_d_Enfalits.webp" alt="Canards mandarins Ariège"></div>
   </div>
 </section>
 
@@ -498,7 +590,7 @@ header.scrolled .burger span { background:var(--dark); }
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="index.html">Accueil</a></li>
         <li><a href="#hebergements">Chambres d'hôtes</a></li>
         <li><a href="#hebergements">Le Gîte</a></li>
         <li><a href="#bien-etre">SPA & Bien-être</a></li>
@@ -522,12 +614,7 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
   <div class="footer-bottom">
     <span>2026 © Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</span>
-    <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
-      <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a>
-      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a>
-      <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a>
-      <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a>
-    </span>
+    <span>© Création et développement Alexis Ubiedo &nbsp;·&nbsp; <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a></span>
   </div>
 </footer>
 
@@ -567,6 +654,85 @@ header.scrolled .burger span { background:var(--dark); }
   timer = setInterval(next, 3000);
 })();
 
+// ── ROOM GALLERIES AUTO-SLIDESHOW ────────────────────────────────
+(function() {
+  const galleries = ['paprika', 'myrtille', 'chataigne', 'ble'];
+  const timers = {};
+
+  function goTo(roomId, thumbEl) {
+    const gal = document.getElementById('gal-' + roomId);
+    if (!gal) return;
+    const main = gal.querySelector('.room-main-img');
+    const thumbs = Array.from(gal.querySelectorAll('.rthumb'));
+    const src = thumbEl.src;
+    main.style.opacity = '0';
+    setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 200);
+    thumbs.forEach(t => t.classList.remove('active'));
+    thumbEl.classList.add('active');
+  }
+
+  function startAuto(roomId) {
+    const gal = document.getElementById('gal-' + roomId);
+    if (!gal) return;
+    const thumbs = Array.from(gal.querySelectorAll('.rthumb'));
+    if (thumbs.length < 2) return;
+    let idx = 0;
+    timers[roomId] = setInterval(() => {
+      idx = (idx + 1) % thumbs.length;
+      goTo(roomId, thumbs[idx]);
+    }, 3500);
+  }
+
+  // Expose for onclick
+  window.setRoom = function(roomId, src, thumbEl) {
+    clearInterval(timers[roomId]);
+    goTo(roomId, thumbEl);
+    // Restart auto after manual click
+    const gal = document.getElementById('gal-' + roomId);
+    const thumbs = Array.from(gal.querySelectorAll('.rthumb'));
+    let idx = thumbs.indexOf(thumbEl);
+    timers[roomId] = setInterval(() => {
+      idx = (idx + 1) % thumbs.length;
+      goTo(roomId, thumbs[idx]);
+    }, 3500);
+  };
+
+  galleries.forEach(startAuto);
+})();
+
+// ── PETIT-DEJ SLIDESHOW ──────────────────────────────────────────
+(function() {
+  const slides = document.querySelectorAll('#petitdejSlideshow .slide');
+  const dotsContainer = document.getElementById('petitdejDots');
+  const counter = document.getElementById('petitdejCounter');
+  const total = slides.length;
+  let current = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'parc-slide-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.parc-slide-dot');
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + total;
+    clearInterval(timer);
+    timer = setInterval(next, 3500);
+  }
+
+  function next() { goTo(current + 1); }
+  timer = setInterval(next, 3500);
+})();
+
 // ── SALON SLIDER ─────────────────────────────────────────────────
 const salonImgs = ['forges-d-enfalits-chambres-hotes-salon-1920-06.webp','Salon2.jpg','Salon3.jpg'];
 let salonCurrent = 0;
@@ -583,6 +749,7 @@ setInterval(() => salonSlide((salonCurrent + 1) % 3), 4000);
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
+
 
 // ── COOKIES GDPR ─────────────────────────────────────────────────
 function acceptCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
@@ -610,7 +777,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── BURGER MENU ──────────────────────────────────────────────────
 function toggleMenu() {
-  var btn  = document.getElementById('burgerBtn');
+  var btn = document.getElementById('burgerBtn');
   var menu = document.getElementById('mobileMenu');
   var isOpen = btn.classList.toggle('open');
   menu.classList.toggle('open', isOpen);
@@ -631,5 +798,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 </script>
+
 </body>
 </html>
