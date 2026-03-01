@@ -298,11 +298,18 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
     </div>
 
     <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-card-img"><img src="forges-d-enfalits-chambres-hotes-ariege-pyrenees-tarascon-morilles_02.webp" alt="Gastronomie ariégeoise Les Forges d'Enfalits"></div>
+      <div class="parc-slideshow" id="petitdejSlideshow">
+        <div class="slide active"><img src="petitdej.jpg" alt="Petit-déjeuner Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-03.jpg" alt="Petit-déjeuner maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-01.jpg" alt="Thés et confitures maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-04.jpg" alt="Crêpes et viennoiseries Les Forges d'Enfalits"></div>
+        <div class="parc-slide-dots" id="petitdejDots"></div>
+        <div class="parc-slide-counter" id="petitdejCounter">1 / 4</div>
+      </div>
       <div class="feature-card-body">
-        <div class="feature-card-icon">🍄</div>
-        <h3>Gastronomie</h3>
-        <p>Produits locaux et spécialités ariégeoises. Les champignons du parc, les morilles, le terroir pyrénéen.</p>
+        <div class="feature-card-icon">🥐</div>
+        <h3>Petit-déjeuner</h3>
+        <p>Un petit-déjeuner généreux avec produits locaux : confitures maison, miels du terroir, viennoiseries, crêpes, fruits frais et jus de saison.</p>
       </div>
     </div>
     <div class="feature-card reveal reveal-delay-3">
@@ -531,6 +538,39 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
   function next() { goTo(current + 1); }
 
   timer = setInterval(next, 3000);
+})();
+
+// ── PETIT-DEJ SLIDESHOW ──────────────────────────────────────────
+(function() {
+  const slides = document.querySelectorAll('#petitdejSlideshow .slide');
+  const dotsContainer = document.getElementById('petitdejDots');
+  const counter = document.getElementById('petitdejCounter');
+  const total = slides.length;
+  let current = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'parc-slide-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.parc-slide-dot');
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + total;
+    clearInterval(timer);
+    timer = setInterval(next, 3500);
+  }
+
+  function next() { goTo(current + 1); }
+  timer = setInterval(next, 3500);
 })();
 
 // ── SALON SLIDER ─────────────────────────────────────────────────
