@@ -300,9 +300,9 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
     <div class="feature-card reveal reveal-delay-2">
       <div class="parc-slideshow" id="petitdejSlideshow">
         <div class="slide active"><img src="petitdej.jpg" alt="Petit-déjeuner Les Forges d'Enfalits"></div>
-        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-03.jpg" alt="Petit-déjeuner maison Les Forges d'Enfalits"></div>
-        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-01.jpg" alt="Thés et confitures maison Les Forges d'Enfalits"></div>
-        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyren%C3%A9es-ariege-tarascon-petit-dejeuner-04.jpg" alt="Crêpes et viennoiseries Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-petit-dejeuner-03.jpg" alt="Petit-déjeuner maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-petit-dejeuner-01.jpg" alt="Thés et confitures maison Les Forges d'Enfalits"></div>
+        <div class="slide"><img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-petit-dejeuner-04.jpg" alt="Crêpes et viennoiseries Les Forges d'Enfalits"></div>
         <div class="parc-slide-dots" id="petitdejDots"></div>
         <div class="parc-slide-counter" id="petitdejCounter">1 / 4</div>
       </div>
@@ -358,13 +358,47 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
   <p class="intro-text reveal" style="margin-bottom:0">Chaque chambre porte le nom d'une couleur pyrénéenne. Toutes disposent d'une salle de bain privée et d'un accès direct au parc.</p>
   <div class="rooms-grid">
     <div class="room-card featured reveal">
-      <div class="room-card-gallery"><img src="paprika-master-bedroom.jpg" alt="Chambre Paprika Les Forges d'Enfalits Ariège"></div>
+      <div class="room-card-gallery" style="position:relative;overflow:hidden;">
+        <!-- Main image -->
+        <img id="paprikaMain" src="Chambre Paprika.jpg" alt="Chambre Paprika Les Forges d'Enfalits Ariège" style="width:100%;height:100%;min-height:320px;object-fit:cover;transition:opacity 0.4s ease;">
+        <!-- Thumbnails strip -->
+        <div style="position:absolute;bottom:0;left:0;right:0;display:flex;gap:4px;padding:8px;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent);z-index:2;overflow-x:auto;">
+          <img class="paprika-thumb active-thumb" src="Chambre Paprika.jpg"
+               onclick="setPaprika(this,'Chambre Paprika.jpg')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid white;flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 1">
+          <img class="paprika-thumb" src="chambr-paprika-2em chambres.jpg"
+               onclick="setPaprika(this,'chambr-paprika-2em chambres.jpg')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika 2e chambre">
+          <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-01.webp"
+               onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-01.webp')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 3">
+          <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-04.webp"
+               onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-04.webp')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 4">
+          <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-06.webp"
+               onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-06.webp')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 5">
+          <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-02.webp"
+               onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-02.webp')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 6">
+          <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-03.webp"
+               onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-03.webp')"
+               style="width:52px;height:40px;object-fit:cover;border-radius:2px;cursor:pointer;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;transition:0.2s;"
+               alt="Paprika vue 7">
+        </div>
+      </div>
       <div class="room-card-info">
         <span class="room-badge">Chambre familiale</span>
         <h3>Chambre Paprika</h3>
-        <p>Notre chambre la plus lumineuse, avec ses teintes orangées chaleureuses. Vue sur le jardin et accès direct à la terrasse.</p>
+        <p>Notre chambre la plus lumineuse, avec ses teintes orangées chaleureuses. Vue sur le jardin et accès direct à la terrasse. Peut accueillir jusqu'à 4 personnes avec sa 2e chambre attenante.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Lit double 160</span>
+          <span class="amenity-tag">Jusqu'à 4 personnes</span>
           <span class="amenity-tag">Salle de bain privée</span>
           <span class="amenity-tag">Vue jardin</span>
           <span class="amenity-tag">Terrasse</span>
@@ -539,6 +573,15 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
 
   timer = setInterval(next, 3000);
 })();
+
+// ── PAPRIKA THUMBNAILS ───────────────────────────────────────────
+function setPaprika(thumb, src) {
+  const main = document.getElementById('paprikaMain');
+  main.style.opacity = '0';
+  setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 250);
+  document.querySelectorAll('.paprika-thumb').forEach(t => t.style.border = '2px solid rgba(255,255,255,0.4)');
+  thumb.style.border = '2px solid white';
+}
 
 // ── PETIT-DEJ SLIDESHOW ──────────────────────────────────────────
 (function() {
