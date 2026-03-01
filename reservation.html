@@ -264,7 +264,7 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
   <div class="contact-bar-item">
     <span class="contact-bar-icon">✉️</span>
-    <div><span class="contact-bar-label">Email</span><a href="/cdn-cgi/l/email-protection#2d4e4243594c4e596d4b425f4a485e4948434b4c4144595e034e4240"><span class="__cf_email__" data-cfemail="40232f2e3421233400262f3227253324252e26212c2934336e232f2d">[email&#160;protected]</span></a></div>
+    <div><span class="contact-bar-label">Email</span><a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a></div>
   </div>
 </div>
 
@@ -385,9 +385,14 @@ header.scrolled .burger span { background:var(--dark); }
 
       <!-- GÎTE -->
       <div class="heberg-card gite" id="card-gite" onclick="selectHeberg('Le Gîte en Bois','gite')">
-        <div class="heberg-img">
-          <img src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Le Gîte en Bois">
+        <div class="heberg-img" id="res-gal-gite">
+          <img class="main-photo" src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Le Gîte">
           <span class="heberg-badge" style="background:var(--green)">Gîte indépendant</span>
+          <div class="res-thumb-strip">
+            <img src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" class="res-thumb active" onclick="resSetRoom(event,'gite','forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg',this)" alt="">
+            <img src="gite-salon.webp"   class="res-thumb" onclick="resSetRoom(event,'gite','gite-salon.webp',this)"   alt="">
+            <img src="gite-chambre.webp" class="res-thumb" onclick="resSetRoom(event,'gite','gite-chambre.webp',this)" alt="">
+          </div>
         </div>
         <div class="heberg-info">
           <div>
@@ -451,7 +456,9 @@ header.scrolled .burger span { background:var(--dark); }
         <div class="service-item">🐾 Animaux non acceptés</div>
         <div class="service-item">📶 Wifi gratuit</div>
         <div class="service-item">🚗 Parking privé</div>
-        <div class="service-item">🎫 Chèques Vacances</div>
+        <div class="service-item">🏦 Chèques bancaires</div>
+        <div class="service-item">💵 Espèces</div>
+        <div class="service-item">💻 Paypal</div>
         <div class="service-item">🍳 Petit-déjeuner inclus</div>
       </div>
     </div>
@@ -482,7 +489,7 @@ header.scrolled .burger span { background:var(--dark); }
         <div class="form-divider"><span>ou appelez directement</span></div>
         <a href="tel:0561038345" class="btn-phone">📞 <strong>05 61 03 83 45</strong></a>
         <a href="tel:0673058834" class="btn-phone">📱 <strong>06 73 05 88 34</strong></a>
-        <div class="form-note">Réservations par téléphone ou email. Un contrat accompagné du descriptif contractuel du gîte avec les options vous sera envoyé.</div>
+
       </div>
       <div class="confirmation" id="confirmationMsg">
         <div class="confirmation-icon">✉️</div>
