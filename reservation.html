@@ -17,7 +17,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { background:var(--cream); font-family:'Jost',sans-serif; color:var(--text); overflow-x:hidden; }
-
 header { position:fixed; top:0; width:100%; z-index:1000; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; transition:all 0.5s ease; background:transparent; }
 header.scrolled { background:rgba(245,239,228,0.96); backdrop-filter:blur(10px); box-shadow:0 2px 30px rgba(100,70,30,0.08); padding:10px 60px; }
 .logo img { height:52px; }
@@ -32,42 +31,35 @@ header.scrolled nav a.active { color:var(--warm-brown); }
 header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .nav-cta::after { display:none !important; }
 .nav-cta:hover { background:var(--dark) !important; }
-
 .page-hero { height:380px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; background:url('Entree2.jpg') center 40%/cover no-repeat; }
 .page-hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(20,12,5,0.5),rgba(58,46,34,0.65)); }
 .page-hero-content { position:relative; z-index:1; }
 .page-hero-eyebrow { font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
 .page-hero h1 { font-family:'Dancing Script',cursive; font-size:clamp(2.8rem,6vw,5rem); color:white; font-weight:600; line-height:1.1; margin-bottom:10px; text-shadow:0 2px 20px rgba(0,0,0,0.3); }
 .page-hero p { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:rgba(255,255,255,0.89); }
-
 .contact-bar { background:var(--dark); padding:20px 10%; display:flex; justify-content:center; gap:60px; align-items:center; flex-wrap:wrap; }
 .contact-bar-item { display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.8); }
 .contact-bar-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:2px; }
 .contact-bar-item a { color:white; text-decoration:none; font-family:'Cormorant Garamond',serif; font-size:1.4rem; transition:0.3s; }
 .contact-bar-item a:hover { color:var(--gold); }
 .contact-bar-icon { font-size:1.2rem; }
-
 .main-wrap { max-width:1200px; margin:0 auto; padding:70px 40px 100px; display:grid; grid-template-columns:1fr 380px; gap:60px; align-items:start; }
-
 .section-tag { font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:12px; }
 .section-tag::before { content:''; display:block; width:25px; height:1px; background:var(--gold); }
 .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.4rem); font-weight:400; color:var(--dark); margin-bottom:30px; line-height:1.2; }
-
 .heberg-grid { display:flex; flex-direction:column; gap:20px; margin-bottom:60px; }
-.heberg-card { background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 6px 30px rgba(100,70,30,0.07); display:grid; grid-template-columns:260px 1fr; transition:0.3s; cursor:pointer; border:2px solid transparent; }
+.heberg-card { background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 6px 30px rgba(100,70,30,0.07); display:grid; grid-template-columns:220px 1fr; transition:0.3s; cursor:pointer; border:2px solid transparent; }
 .heberg-card:hover { box-shadow:0 12px 40px rgba(100,70,30,0.12); }
 .heberg-card.selected { border-color:var(--warm-brown); box-shadow:0 8px 35px rgba(124,92,62,0.2); }
 .heberg-card.gite { grid-template-columns:280px 1fr; }
-
-/* Gallery with thumbnails */
 .heberg-img { overflow:hidden; position:relative; }
-.heberg-img .main-photo { width:100%; height:190px; object-fit:cover; transition:transform 0.5s, opacity 0.3s; display:block; }
-.heberg-card:hover .heberg-img .main-photo { transform:scale(1.05); }
+.heberg-img img { width:100%; height:100%; object-fit:cover; min-height:170px; transition:transform 0.5s; }
+.heberg-img img.main-photo { transition:transform 0.5s, opacity 0.3s; }
+.heberg-card:hover .heberg-img img { transform:scale(1.05); }
 .heberg-badge { position:absolute; top:12px; left:12px; background:var(--warm-brown); color:white; font-family:'Jost',sans-serif; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; padding:4px 10px; border-radius:20px; z-index:2; }
-.res-thumb-strip { position:absolute; bottom:0; left:0; right:0; height:52px; display:flex; gap:3px; padding:4px; background:linear-gradient(to top, rgba(0,0,0,0.5), transparent); box-sizing:border-box; }
-.res-thumb { flex:1; min-width:0; height:100%; object-fit:cover; cursor:pointer; border:2px solid transparent; opacity:0.75; transition:0.2s; border-radius:2px; }
+.res-thumb-strip { position:absolute; bottom:0; left:0; right:0; height:48px; display:flex; gap:3px; padding:4px; background:linear-gradient(to top,rgba(0,0,0,0.5),transparent); }
+.res-thumb { flex:1; min-width:0; height:100%; object-fit:cover; cursor:pointer; border:2px solid transparent; opacity:0.75; transition:0.2s; border-radius:2px; min-height:0 !important; }
 .res-thumb.active, .res-thumb:hover { border-color:white; opacity:1; }
-
 .heberg-info { padding:22px 24px; display:flex; flex-direction:column; justify-content:space-between; }
 .heberg-name { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:500; color:var(--dark); margin-bottom:6px; }
 .heberg-desc { font-size:0.84rem; line-height:1.6; color:var(--text-light); margin-bottom:12px; font-weight:300; }
@@ -81,8 +73,6 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .check-icon { display:none; }
 .heberg-card.selected .check-icon { display:inline; }
 .heberg-card.selected .arrow-icon { display:none; }
-
-/* TARIFS */
 .tarifs-section { margin-bottom:50px; }
 .tarifs-tabs { display:flex; gap:4px; margin-bottom:0; }
 .tarif-tab { font-family:'Jost',sans-serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; padding:9px 22px; border-radius:3px 3px 0 0; border:none; cursor:pointer; transition:0.3s; background:var(--cream-dark); color:var(--text-light); }
@@ -98,8 +88,6 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .tarif-price { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--warm-brown); font-weight:500; }
 .tarif-na { color:var(--cream-dark); font-size:1.2rem; }
 .tarif-note { padding:14px 20px; background:var(--cream); font-size:0.8rem; color:var(--text-light); line-height:1.6; }
-
-/* GITE SAISONS */
 .gite-tarifs { padding:24px; }
 .gite-saisons { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
 .saison-card { padding:16px; border-radius:4px; border-left:3px solid; }
@@ -117,13 +105,9 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .option-row { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid rgba(0,0,0,0.06); font-size:0.83rem; }
 .option-row:last-child { border-bottom:none; }
 .option-price { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--warm-brown); }
-
-/* SERVICES */
 .services-section { margin-bottom:20px; }
 .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .service-item { background:var(--white); border-radius:4px; padding:12px 14px; display:flex; align-items:center; gap:8px; font-size:0.81rem; color:var(--text); box-shadow:0 3px 15px rgba(100,70,30,0.05); }
-
-/* FORM */
 .form-sidebar { position:sticky; top:100px; }
 .form-card { background:var(--white); border-radius:8px; box-shadow:0 10px 50px rgba(60,40,20,0.12); overflow:hidden; }
 .form-header { background:var(--dark); padding:24px 28px; }
@@ -148,13 +132,10 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .btn-phone:hover { background:var(--cream); }
 .btn-phone strong { font-family:'Cormorant Garamond',serif; font-size:1.1rem; }
 .form-note { margin-top:14px; font-size:0.74rem; color:var(--text-light); line-height:1.6; text-align:center; padding:12px; background:var(--cream); border-radius:3px; }
-
 .confirmation { display:none; padding:36px 28px; text-align:center; }
 .confirmation-icon { font-size:3rem; margin-bottom:14px; }
 .confirmation h4 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--dark); margin-bottom:10px; }
 .confirmation p { font-size:0.87rem; color:var(--text-light); line-height:1.7; }
-
-/* COOKIE BANNER */
 #cookie-banner { position:fixed; bottom:0; left:0; right:0; z-index:9999; background:var(--dark); color:rgba(255,255,255,0.85); padding:18px 40px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:0.82rem; line-height:1.5; transition:transform 0.4s ease; box-shadow:0 -4px 20px rgba(0,0,0,0.3); }
 #cookie-banner.hidden { transform:translateY(110%); }
 #cookie-banner p { flex:1; min-width:200px; }
@@ -164,8 +145,6 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .btn-cookie-accept:hover { background:var(--gold); }
 .btn-cookie-refuse { background:transparent; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.3); padding:10px 18px; border-radius:3px; cursor:pointer; font-size:0.78rem; text-transform:uppercase; transition:0.3s; }
 .btn-cookie-refuse:hover { border-color:white; color:white; }
-
-/* ADMIN PANEL */
 #admin-panel { display:none; position:fixed; inset:0; z-index:9000; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; }
 #admin-panel.open { display:flex; }
 .admin-modal { background:white; border-radius:8px; width:90%; max-width:640px; max-height:90vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
@@ -193,12 +172,10 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .btn-admin-save { background:#4a7c59; color:white; border:none; padding:12px 28px; border-radius:3px; cursor:pointer; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; transition:0.3s; }
 .btn-admin-save:hover { background:#3a6347; }
 .admin-success { background:#eaf5ee; color:#4a7c59; padding:10px 14px; border-radius:3px; font-size:0.82rem; margin-top:12px; display:none; }
-
 footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; flex-wrap:wrap; gap:12px; }
 .footer-back { color:var(--gold); text-decoration:none; }
 .footer-back:hover { color:white; }
-
 @media (max-width:1024px) {
   .main-wrap { grid-template-columns:1fr; }
   .form-sidebar { position:static; }
@@ -209,7 +186,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
   nav { display:none; }
   .main-wrap { padding:50px 20px 80px; }
   .heberg-card, .heberg-card.gite { grid-template-columns:1fr; }
-  .heberg-img .main-photo { height:200px; }
+  .heberg-img img { min-height:200px!important; height:200px; }
   .gite-saisons { grid-template-columns:1fr 1fr; }
   .services-grid { grid-template-columns:1fr 1fr; }
   .contact-bar { gap:24px; padding:20px 6%; }
@@ -219,7 +196,6 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
 </head>
 <body>
 
-<!-- COOKIE BANNER GDPR -->
 <div id="cookie-banner">
   <p>🍪 Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de traçage.</p>
   <div class="cookie-btns">
@@ -228,7 +204,6 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
   </div>
 </div>
 
-<!-- ADMIN PANEL -->
 <div id="admin-panel">
   <div class="admin-modal">
     <div class="admin-header">
@@ -275,7 +250,6 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
   </nav>
 </header>
 
-<!-- HERO -->
 <div class="page-hero">
   <div class="page-hero-content">
     <div class="page-hero-eyebrow">Les Forges d'Enfalits · Ariège · Pyrénées</div>
@@ -284,7 +258,6 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
   </div>
 </div>
 
-<!-- BARRE CONTACT -->
 <div class="contact-bar">
   <div class="contact-bar-item">
     <span class="contact-bar-icon">📞</span>
@@ -300,10 +273,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
   </div>
 </div>
 
-<!-- CONTENU PRINCIPAL -->
 <div class="main-wrap">
-
-  <!-- GAUCHE -->
   <div>
     <div class="section-tag">Choisissez votre hébergement</div>
     <h2 class="section-title">4 Chambres & 1 Gîte</h2>
@@ -312,6 +282,11 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
 
       <!-- CHÂTAIGNE -->
       <div class="heberg-card" id="card-chataigne" onclick="selectHeberg('Chambre Châtaigne','chataigne')">
+        <div class="heberg-img" id="res-gal-chataigne">
+          <img class="main-photo" src="chambre_chataigne1.webp" alt="Chambre Châtaigne">
+          <span class="heberg-badge">Chambre double</span>
+          <div class="res-thumb-strip">
+            <img src="chambre_chataigne1.webp" class="res-thumb active" onclick="resSetRoom(event,'chataigne','chambre_chataigne1.webp',this)" alt="">
             <img src="chambre_chataigne2.webp" class="res-thumb" onclick="resSetRoom(event,'chataigne','chambre_chataigne2.webp',this)" alt="">
             <img src="chambre_chataigne3.webp" class="res-thumb" onclick="resSetRoom(event,'chataigne','chambre_chataigne3.webp',this)" alt="">
           </div>
@@ -321,9 +296,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
             <div class="heberg-name">Chambre Châtaigne</div>
             <div class="heberg-desc">Tons chauds et boisés évoquant l'automne ariégeois. Salle de bain privée, ambiance cosy et naturelle.</div>
             <div class="heberg-features">
-              <span class="heberg-feat">1–2 personnes</span>
-              <span class="heberg-feat">Salle de bain privée</span>
-              <span class="heberg-feat">Petit-déjeuner inclus</span>
+              <span class="heberg-feat">1–2 personnes</span><span class="heberg-feat">Salle de bain privée</span><span class="heberg-feat">Petit-déjeuner inclus</span>
             </div>
           </div>
           <div class="heberg-bottom">
@@ -350,9 +323,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
             <div class="heberg-name">Chambre Myrtille</div>
             <div class="heberg-desc">Délicate et apaisante dans ses tons bleutés. Vue sur le parc boisé, atmosphère douce et sereine.</div>
             <div class="heberg-features">
-              <span class="heberg-feat">1–2 personnes</span>
-              <span class="heberg-feat">Salle de bain privée</span>
-              <span class="heberg-feat">Petit-déjeuner inclus</span>
+              <span class="heberg-feat">1–2 personnes</span><span class="heberg-feat">Salle de bain privée</span><span class="heberg-feat">Petit-déjeuner inclus</span>
             </div>
           </div>
           <div class="heberg-bottom">
@@ -379,9 +350,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
             <div class="heberg-name">Chambre Blé</div>
             <div class="heberg-desc">Lumineuse aux teintes dorées. Décoration naturelle et chaleureuse, salle de bain privée.</div>
             <div class="heberg-features">
-              <span class="heberg-feat">1–2 personnes</span>
-              <span class="heberg-feat">Salle de bain privée</span>
-              <span class="heberg-feat">Petit-déjeuner inclus</span>
+              <span class="heberg-feat">1–2 personnes</span><span class="heberg-feat">Salle de bain privée</span><span class="heberg-feat">Petit-déjeuner inclus</span>
             </div>
           </div>
           <div class="heberg-bottom">
@@ -397,8 +366,8 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
           <img class="main-photo" src="chambre_paprika.jpg" alt="Chambre Paprika">
           <span class="heberg-badge">Chambre familiale</span>
           <div class="res-thumb-strip">
-            <img src="chambre_paprika.jpg"    class="res-thumb active" onclick="resSetRoom(event,'paprika','chambre_paprika.jpg',this)" alt="">
-            <img src="chambre_paprika2.webp"  class="res-thumb" onclick="resSetRoom(event,'paprika','chambre_paprika2.webp',this)" alt="">
+            <img src="chambre_paprika.jpg"     class="res-thumb active" onclick="resSetRoom(event,'paprika','chambre_paprika.jpg',this)" alt="">
+            <img src="chambre_paprika2.webp"   class="res-thumb" onclick="resSetRoom(event,'paprika','chambre_paprika2.webp',this)" alt="">
             <img src="chambre-paprika-01.webp" class="res-thumb" onclick="resSetRoom(event,'paprika','chambre-paprika-01.webp',this)" alt="">
             <img src="chambre-paprika-02.webp" class="res-thumb" onclick="resSetRoom(event,'paprika','chambre-paprika-02.webp',this)" alt="">
             <img src="chambre-paprika-03.webp" class="res-thumb" onclick="resSetRoom(event,'paprika','chambre-paprika-03.webp',this)" alt="">
@@ -409,10 +378,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
             <div class="heberg-name">Chambre Paprika</div>
             <div class="heberg-desc">La plus grande chambre, tons orangés. Vue jardin et accès terrasse. Peut accueillir jusqu'à 4 personnes.</div>
             <div class="heberg-features">
-              <span class="heberg-feat">1–4 personnes</span>
-              <span class="heberg-feat">Salle de bain privée</span>
-              <span class="heberg-feat">Terrasse</span>
-              <span class="heberg-feat">Petit-déjeuner inclus</span>
+              <span class="heberg-feat">1–4 personnes</span><span class="heberg-feat">Salle de bain privée</span><span class="heberg-feat">Terrasse</span><span class="heberg-feat">Petit-déjeuner inclus</span>
             </div>
           </div>
           <div class="heberg-bottom">
@@ -425,7 +391,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
       <!-- GÎTE -->
       <div class="heberg-card gite" id="card-gite" onclick="selectHeberg('Le Gîte en Bois','gite')">
         <div class="heberg-img">
-          <img class="main-photo" src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Le Gîte en Bois">
+          <img src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Le Gîte en Bois">
           <span class="heberg-badge" style="background:var(--green)">Gîte indépendant</span>
         </div>
         <div class="heberg-info">
@@ -433,11 +399,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
             <div class="heberg-name">Le Gîte en Bois</div>
             <div class="heberg-desc">Chalet indépendant au cœur du parc pour familles et groupes. Cuisine équipée, terrasse privée. Location à la semaine du samedi au samedi. Contrat fourni avec options.</div>
             <div class="heberg-features">
-              <span class="heberg-feat">Jusqu'à 6 personnes</span>
-              <span class="heberg-feat">Cuisine équipée</span>
-              <span class="heberg-feat">Terrasse privée</span>
-              <span class="heberg-feat">Totalement indépendant</span>
-              <span class="heberg-feat">Sam 16h → Sam 10h</span>
+              <span class="heberg-feat">Jusqu'à 6 personnes</span><span class="heberg-feat">Cuisine équipée</span><span class="heberg-feat">Terrasse privée</span><span class="heberg-feat">Totalement indépendant</span><span class="heberg-feat">Sam 16h → Sam 10h</span>
             </div>
           </div>
           <div class="heberg-bottom">
@@ -447,9 +409,8 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
         </div>
       </div>
 
-    </div><!-- /heberg-grid -->
+    </div>
 
-    <!-- TARIFS -->
     <div class="tarifs-section" id="tarifs">
       <div class="section-tag">Tarifs 2026</div>
       <h2 class="section-title">Nos prix</h2>
@@ -459,9 +420,7 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
       </div>
       <div class="tarif-panel active" id="panel-chambres">
         <table class="tarif-table">
-          <thead>
-            <tr><th>Chambre</th><th>1–2 Personnes</th><th>3 Personnes</th><th>4 Personnes</th></tr>
-          </thead>
+          <thead><tr><th>Chambre</th><th>1–2 Personnes</th><th>3 Personnes</th><th>4 Personnes</th></tr></thead>
           <tbody>
             <tr><td><span class="chambre-name">Châtaigne</span></td><td><span class="tarif-price" id="t-chataigne-12">89 €</span></td><td><span class="tarif-na">—</span></td><td><span class="tarif-na">—</span></td></tr>
             <tr><td><span class="chambre-name">Myrtille</span></td><td><span class="tarif-price" id="t-myrtille-12">89 €</span></td><td><span class="tarif-na">—</span></td><td><span class="tarif-na">—</span></td></tr>
@@ -474,32 +433,12 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
       <div class="tarif-panel" id="panel-gite">
         <div class="gite-tarifs">
           <div class="gite-saisons">
-            <div class="saison-card saison-haute">
-              <div class="saison-label">🌞 Haute saison</div>
-              <div class="saison-dates">27 Juin → 29 Août<br>20 Déc → 2 Jan 2027</div>
-              <div class="saison-price"><span id="t-gite-haute">750</span> € <span class="saison-unit">/ sem.</span></div>
-            </div>
-            <div class="saison-card saison-moyenne">
-              <div class="saison-label">🌤 Moyenne saison</div>
-              <div class="saison-dates">4 Avr → 2 Mai<br>30 Mai → 27 Juin<br>29 Août → 26 Sept</div>
-              <div class="saison-price"><span id="t-gite-moyenne">500</span> € <span class="saison-unit">/ sem.</span></div>
-            </div>
-            <div class="saison-card saison-basse">
-              <div class="saison-label">🍂 Basse saison</div>
-              <div class="saison-dates">5 Jan → 7 Fév<br>2 Mai → 30 Mai<br>24 Sept → 19 Déc</div>
-              <div class="saison-price"><span id="t-gite-basse">400</span> € <span class="saison-unit">/ sem.</span></div>
-            </div>
-            <div class="saison-card saison-hiver">
-              <div class="saison-label">❄️ Hiver</div>
-              <div class="saison-dates">7 Fév → 7 Mars<br>19 Mars → 4 Avr</div>
-              <div class="saison-price"><span id="t-gite-hiver">550</span> € <span class="saison-unit">/ sem.</span></div>
-            </div>
+            <div class="saison-card saison-haute"><div class="saison-label">🌞 Haute saison</div><div class="saison-dates">27 Juin → 29 Août<br>20 Déc → 2 Jan 2027</div><div class="saison-price"><span id="t-gite-haute">750</span> € <span class="saison-unit">/ sem.</span></div></div>
+            <div class="saison-card saison-moyenne"><div class="saison-label">🌤 Moyenne saison</div><div class="saison-dates">4 Avr → 2 Mai<br>30 Mai → 27 Juin<br>29 Août → 26 Sept</div><div class="saison-price"><span id="t-gite-moyenne">500</span> € <span class="saison-unit">/ sem.</span></div></div>
+            <div class="saison-card saison-basse"><div class="saison-label">🍂 Basse saison</div><div class="saison-dates">5 Jan → 7 Fév<br>2 Mai → 30 Mai<br>24 Sept → 19 Déc</div><div class="saison-price"><span id="t-gite-basse">400</span> € <span class="saison-unit">/ sem.</span></div></div>
+            <div class="saison-card saison-hiver"><div class="saison-label">❄️ Hiver</div><div class="saison-dates">7 Fév → 7 Mars<br>19 Mars → 4 Avr</div><div class="saison-price"><span id="t-gite-hiver">550</span> € <span class="saison-unit">/ sem.</span></div></div>
           </div>
-          <div class="gite-info">
-            📅 Location du <strong>Samedi 16h</strong> au <strong>Samedi suivant 10h</strong><br>
-            Week-end basse saison (ven. 18h → dim. 10h) : <strong><span id="t-gite-we">300</span> €</strong> · Nuit suppl. : <strong>120 €</strong><br>
-            Électricité hiver : 0,20 € / kW au-dessus des 15 kW fournis
-          </div>
+          <div class="gite-info">📅 Location du <strong>Samedi 16h</strong> au <strong>Samedi suivant 10h</strong><br>Week-end basse saison (ven. 18h → dim. 10h) : <strong><span id="t-gite-we">300</span> €</strong> · Nuit suppl. : <strong>120 €</strong><br>Électricité hiver : 0,20 € / kW au-dessus des 15 kW fournis</div>
           <div class="gite-options">
             <h4>Options</h4>
             <div class="option-row"><span>Location linge (lit, toilette, maison)</span><span class="option-price">30 € / séjour</span></div>
@@ -510,7 +449,6 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
       </div>
     </div>
 
-    <!-- SERVICES -->
     <div class="services-section">
       <div class="section-tag">Services</div>
       <div class="services-grid">
@@ -522,10 +460,8 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
         <div class="service-item">🍳 Petit-déjeuner inclus</div>
       </div>
     </div>
+  </div>
 
-  </div><!-- /col gauche -->
-
-  <!-- FORMULAIRE -->
   <div class="form-sidebar">
     <div class="form-card">
       <div class="form-header">
@@ -533,22 +469,14 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
         <p>Réponse sous 24h · Contrat envoyé par email</p>
       </div>
       <div class="form-body" id="formBody">
-        <div class="selected-preview" id="selectedPreview">
-          🏠 Sélectionnez un hébergement ci-contre
-        </div>
+        <div class="selected-preview" id="selectedPreview">🏠 Sélectionnez un hébergement ci-contre</div>
         <div class="form-row">
           <div class="form-group"><label>Arrivée</label><input type="date" id="dateArrivee"></div>
           <div class="form-group"><label>Départ</label><input type="date" id="dateDepart"></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Adultes</label>
-            <select id="adultes"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
-          </div>
-          <div class="form-group">
-            <label>Enfants</label>
-            <select id="enfants"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
-          </div>
+          <div class="form-group"><label>Adultes</label><select id="adultes"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+          <div class="form-group"><label>Enfants</label><select id="enfants"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
         </div>
         <div class="form-group"><label>Nom complet</label><input type="text" id="nom" placeholder="Prénom Nom"></div>
         <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="votre@email.com"></div>
@@ -566,15 +494,11 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
         <h4>Demande envoyée !</h4>
         <p>Régine et Gérard vous répondront sous 24h pour confirmer votre réservation aux Forges d'Enfalits.</p>
         <br>
-        <p>Pour toute urgence :<br>
-          <a href="tel:0561038345" style="color:var(--warm-brown)">05 61 03 83 45</a> ·
-          <a href="tel:0673058834" style="color:var(--warm-brown)">06 73 05 88 34</a>
-        </p>
+        <p>Pour toute urgence :<br><a href="tel:0561038345" style="color:var(--warm-brown)">05 61 03 83 45</a> · <a href="tel:0673058834" style="color:var(--warm-brown)">06 73 05 88 34</a></p>
       </div>
     </div>
   </div>
-
-</div><!-- /main-wrap -->
+</div>
 
 <footer>
   <div class="footer-bottom">
@@ -588,21 +512,14 @@ footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); 
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
-
-// COOKIES GDPR
 function acceptCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
 function refuseCookies() { localStorage.setItem('cookie_consent','refused'); document.getElementById('cookie-banner').classList.add('hidden'); }
 (function(){ if(localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').classList.add('hidden'); })();
-
-// DATES
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('dateArrivee').min = today;
 document.getElementById('dateDepart').min = today;
-document.getElementById('dateArrivee').addEventListener('change', function() {
-  document.getElementById('dateDepart').min = this.value;
-});
+document.getElementById('dateArrivee').addEventListener('change', function() { document.getElementById('dateDepart').min = this.value; });
 
-// THUMBNAIL SWITCHER — stops card click propagation
 function resSetRoom(e, roomId, src, thumb) {
   e.stopPropagation();
   const gal = document.getElementById('res-gal-' + roomId);
@@ -613,7 +530,6 @@ function resSetRoom(e, roomId, src, thumb) {
   thumb.classList.add('active');
 }
 
-// AUTO-SLIDESHOW for each room card
 (function() {
   const rooms = {
     chataigne: ['chambre_chataigne1.webp','chambre_chataigne2.webp','chambre_chataigne3.webp'],
@@ -622,12 +538,10 @@ function resSetRoom(e, roomId, src, thumb) {
     paprika:   ['chambre_paprika.jpg','chambre_paprika2.webp','chambre-paprika-01.webp','chambre-paprika-02.webp','chambre-paprika-03.webp']
   };
   Object.keys(rooms).forEach(id => {
-    const imgs = rooms[id];
-    let idx = 0;
+    const imgs = rooms[id]; let idx = 0;
     setInterval(() => {
       idx = (idx + 1) % imgs.length;
-      const gal = document.getElementById('res-gal-' + id);
-      if (!gal) return;
+      const gal = document.getElementById('res-gal-' + id); if (!gal) return;
       const main = gal.querySelector('.main-photo');
       const thumbs = gal.querySelectorAll('.res-thumb');
       main.style.opacity = '0';
@@ -638,7 +552,6 @@ function resSetRoom(e, roomId, src, thumb) {
   });
 })();
 
-// TARIFS depuis localStorage
 const DEFAULT_PRICES = { chataigne12:89, myrtille12:89, ble12:89, paprika12:89, paprika3:109, paprika4:129, giteHaute:750, giteMoyenne:500, giteBasse:400, giteHiver:550, giteWe:300 };
 function loadPrices() { const s = localStorage.getItem('forges_prices'); return s ? JSON.parse(s) : DEFAULT_PRICES; }
 function applyPrices() {
@@ -662,7 +575,6 @@ function applyPrices() {
 }
 applyPrices();
 
-// SÉLECTION HÉBERGEMENT
 let selectedHeberg = '';
 function selectHeberg(name, id) {
   document.querySelectorAll('.heberg-card').forEach(c => c.classList.remove('selected'));
@@ -671,12 +583,9 @@ function selectHeberg(name, id) {
   const p = document.getElementById('selectedPreview');
   p.classList.add('filled');
   p.textContent = '✓ ' + name + ' sélectionné(e)';
-  if (window.innerWidth < 1024) {
-    document.querySelector('.form-sidebar').scrollIntoView({ behavior:'smooth', block:'start' });
-  }
+  if (window.innerWidth < 1024) { document.querySelector('.form-sidebar').scrollIntoView({ behavior:'smooth', block:'start' }); }
 }
 
-// ONGLETS TARIFS
 function showTarif(tab, btn) {
   document.querySelectorAll('.tarif-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tarif-tab').forEach(b => b.classList.remove('active'));
@@ -684,7 +593,6 @@ function showTarif(tab, btn) {
   btn.classList.add('active');
 }
 
-// ENVOI FORMULAIRE avec reCAPTCHA v3
 let lastSend = 0;
 function envoyerDemande() {
   if (document.getElementById('website').value !== '') return;
@@ -707,25 +615,15 @@ function envoyerDemande() {
   grecaptcha.ready(function() {
     grecaptcha.execute('6Ld3YnssAAAAANllYb_7-sXfsMoSuSzya9nkUyOv', { action:'reservation' }).then(function(token) {
       const subject = encodeURIComponent('Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits');
-      const body = encodeURIComponent(
-        'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n' +
-        '🏠 Hébergement : ' + selectedHeberg + '\n📅 Arrivée : ' + fmt(arrivee) +
-        '\n📅 Départ : ' + fmt(depart) + '\n👥 Adultes : ' + adultes + '\n👶 Enfants : ' + enfants +
-        '\n\nNom : ' + nom + '\nEmail : ' + email + '\nTél : ' + (tel||'non renseigné') +
-        (msg ? '\n\nMessage :\n' + msg : '') + '\n\nCordialement,\n' + nom
-      );
+      const body = encodeURIComponent('Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n🏠 Hébergement : ' + selectedHeberg + '\n📅 Arrivée : ' + fmt(arrivee) + '\n📅 Départ : ' + fmt(depart) + '\n👥 Adultes : ' + adultes + '\n👶 Enfants : ' + enfants + '\n\nNom : ' + nom + '\nEmail : ' + email + '\nTél : ' + (tel||'non renseigné') + (msg ? '\n\nMessage :\n' + msg : '') + '\n\nCordialement,\n' + nom);
       window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
       lastSend = Date.now();
       document.getElementById('formBody').style.display = 'none';
       document.getElementById('confirmationMsg').style.display = 'block';
-    }).catch(function() {
-      btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
-      alert('Erreur de vérification. Veuillez réessayer.');
-    });
+    }).catch(function() { btn.disabled = false; btn.textContent = 'Envoyer ma demande →'; alert('Erreur de vérification. Veuillez réessayer.'); });
   });
 }
 
-// ADMIN
 let adminKeySeq = [];
 document.addEventListener('keydown', function(e) {
   adminKeySeq.push(e.key); if (adminKeySeq.length > 5) adminKeySeq.shift();
