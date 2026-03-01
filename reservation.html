@@ -499,7 +499,12 @@ header.scrolled .burger span { background:var(--dark); }
   <div class="footer-bottom">
     <a href="index.html" class="footer-back">← Retour à l'accueil</a>
     <span>2026 © Les Forges d'Enfalits · Chemin d'Enfalits · 09400 Rabat-les-Trois-Seigneurs</span>
-    <span>© Création et développement Alexis Ubiedo &nbsp;·&nbsp; <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a></span>
+    <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a>
+      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a>
+      <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a>
+      <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a>
+    </span>
   </div>
 </footer>
 
@@ -647,22 +652,34 @@ function envoyerDemande() {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Adresse email invalide.'); return; }
   if (!selectedHeberg) { alert('Merci de sélectionner un hébergement.'); return; }
   const btn = document.getElementById('btnEnvoyer');
-  btn.disabled = true; btn.textContent = 'Vérification…';
-  const fmt = d => d ? new Date(d).toLocaleDateString('fr-FR') : 'non précisé';
+  btn.disabled = true; btn.textContent = 'Envoi en cours…';
   grecaptcha.ready(function() {
     grecaptcha.execute('6Ld3YnssAAAAANllYb_7-sXfsMoSuSzya9nkUyOv', { action:'reservation' }).then(function(token) {
-      const subject = encodeURIComponent('Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits');
-      const body = encodeURIComponent(
-        'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n' +
-        '🏠 Hébergement : ' + selectedHeberg + '\n📅 Arrivée : ' + fmt(arrivee) +
-        '\n📅 Départ : '    + fmt(depart)  + '\n👥 Adultes : ' + adultes + '\n👶 Enfants : ' + enfants +
-        '\n\nNom : ' + nom + '\nEmail : ' + email + '\nTél : ' + (tel||'non renseigné') +
-        (msg ? '\n\nMessage :\n' + msg : '') + '\n\nCordialement,\n' + nom
-      );
-      window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
-      lastSend = Date.now();
-      document.getElementById('formBody').style.display = 'none';
-      document.getElementById('confirmationMsg').style.display = 'block';
+      fetch('send_reservation.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom, email, tel, heberg: selectedHeberg,
+          arrivee, depart, adultes, enfants,
+          message: msg, website: document.getElementById('website').value,
+          recaptcha: token
+        })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          lastSend = Date.now();
+          document.getElementById('formBody').style.display = 'none';
+          document.getElementById('confirmationMsg').style.display = 'block';
+        } else {
+          alert('Erreur : ' + (data.error || 'Veuillez nous appeler directement.'));
+          btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
+        }
+      })
+      .catch(function() {
+        alert('Erreur de connexion. Veuillez nous appeler au 05 61 03 83 45.');
+        btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
+      });
     }).catch(function() {
       btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
       alert('Erreur de vérification. Veuillez réessayer.');
