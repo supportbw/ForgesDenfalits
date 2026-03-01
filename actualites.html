@@ -183,12 +183,92 @@ header.scrolled .burger span { background:var(--dark); }
   </nav>
 <!-- BURGER BUTTON -->
 <button class="burger" id="burgerBtn" aria-label="Menu" onclick="toggleMenu()">
-      <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
-      <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a>
-      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a>
-      <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a>
-      <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a>
-    </span>
+  <span></span><span></span><span></span>
+</button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="index.html#hebergements">Hébergements</a>
+  <a href="index.html#bien-etre">Bien-Être</a>
+  <a href="index.html#nature">Nature</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="actualites.html">Actualités</a>
+  <a href="reservation.html" class="mobile-cta">Réserver</a>
+</div>
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Ariège · Pyrénées · Autour de vous</div>
+    <h1>Agenda & Sorties</h1>
+    <p>Événements, marchés et activités du coin — mis à jour automatiquement</p>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="filters-bar">
+    <span class="filter-label">Filtrer :</span>
+    <button class="filter-btn active" data-cat="all">Tout voir</button>
+    <button class="filter-btn" data-cat="fete">🎉 Fêtes & Festivals</button>
+    <button class="filter-btn" data-cat="marche">🛒 Marchés</button>
+    <button class="filter-btn" data-cat="nature">🥾 Nature & Rando</button>
+    <button class="filter-btn" data-cat="culture">🎭 Culture</button>
+    <button class="filter-btn" data-cat="sport">🚵 Sport</button>
+    <button class="filter-btn" data-cat="gastronomie">🍷 Gastronomie</button>
+  </div>
+
+  <div class="loading-state visible" id="loadingState">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Recherche des événements en Ariège…</div>
+    <div class="loading-sub">Mise à jour automatique en cours</div>
+  </div>
+
+  <div id="eventsContainer" style="display:none">
+    <div class="events-header">
+      <span class="events-count" id="eventsCount"></span>
+      <button class="refresh-btn" id="refreshBtn"><span class="refresh-icon">↻</span> Actualiser</button>
+    </div>
+    <div class="events-grid" id="eventsGrid"></div>
+    <div class="last-updated" id="lastUpdated"></div>
+  </div>
+
+  <div class="section-links">
+    <h2>Sites utiles pour préparer votre séjour</h2>
+    <p class="sub">Sources officielles de tourisme autour des Forges d'Enfalits</p>
+    <div class="links-grid">
+      <a href="https://www.ariegepyrenees.com/fr/preparer/agenda/tout-lagenda/" target="_blank" class="link-card">
+        <span class="link-icon">🏔️</span>
+        <div class="link-info"><h4>Ariège Pyrénées Tourisme</h4><p>Agenda officiel du département</p></div>
+      </a>
+      <a href="https://www.foix-tourisme.com/fr/agenda/" target="_blank" class="link-card">
+        <span class="link-icon">🏰</span>
+        <div class="link-info"><h4>Office de Tourisme Foix</h4><p>Événements à Foix et alentours</p></div>
+      </a>
+      <a href="https://ariege.demosphere.net/" target="_blank" class="link-card">
+        <span class="link-icon">📅</span>
+        <div class="link-info"><h4>Démosphère Ariège</h4><p>Agenda associatif et participatif</p></div>
+      </a>
+      <a href="https://www.pyrenees-ariegeoises.com/sortir/agenda/" target="_blank" class="link-card">
+        <span class="link-icon">🌿</span>
+        <div class="link-info"><h4>Pyrénées Ariégeoises</h4><p>Parc naturel régional</p></div>
+      </a>
+      <a href="https://www.grotte-niaux.fr/" target="_blank" class="link-card">
+        <span class="link-icon">🦬</span>
+        <div class="link-info"><h4>Grotte de Niaux</h4><p>Art rupestre préhistorique (8 km)</p></div>
+      </a>
+      <a href="https://www.sites-touristiques-ariege.fr/" target="_blank" class="link-card">
+        <span class="link-icon">🗺️</span>
+        <div class="link-info"><h4>Sites Touristiques Ariège</h4><p>Châteaux cathares, grottes, nature</p></div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <a href="index.html" class="footer-back">← Retour au site des Forges d'Enfalits</a>
+    <span>© Les Forges d'Enfalits · Rabat-les-Trois-Seigneurs · Ariège</span>
+    <span>Google 4,9/5 · Tripadvisor 4,9/5 &nbsp;·&nbsp; <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a></span>
   </div>
 </footer>
 
