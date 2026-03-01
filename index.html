@@ -305,7 +305,12 @@ header.scrolled .burger span { background:var(--dark); }
     </div>
   </div>
   <div class="hero-badges">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+  <a href="https://www.tripadvisor.fr/Hotels-g1577394-c2-a_sort.POPULARITY-Ariege_Occitanie-Hotels.html" target="_blank" rel="noopener">
     <img src="reviews.png" alt="Tripadvisor 4.9/5 · Google 4.9/5" style="width:280px;mix-blend-mode:multiply;">
+  </a>
+  <a href="https://www.google.com/search?q=les+forges+d%27enfalits" target="_blank" rel="noopener" style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.7);text-decoration:none;border:1px solid rgba(255,255,255,0.3);padding:5px 14px;border-radius:20px;backdrop-filter:blur(4px);transition:0.3s;" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.7)';this.style.borderColor='rgba(255,255,255,0.3)'">★ Voir notre fiche Google</a>
+</div>
   </div>
   <div class="hero-dots">
     <button class="hero-dot active" onclick="goToSlide(0)"></button>
@@ -335,17 +340,15 @@ header.scrolled .burger span { background:var(--dark); }
         <div class="slide"><img src="Parc8.jpg" alt="Promenade dans le parc"></div>
         <div class="slide"><img src="Parc9.jpg" alt="Prairie ensoleillée"></div>
         <div class="slide"><img src="Parc10.jpg" alt="Barrage des forges"></div>
-        <div class="slide"><img src="Parc11.jpg" alt="Hortensias du parc"></div>
-        <div class="slide"><img src="Parc12.jpg" alt="Vue sur les Pyrénées"></div>
         <div class="slide"><img src="EntreeForges2.jpg" alt="Terrasse des Forges"></div>
         <div class="slide"><img src="Entree2.jpg" alt="Entrée Les Forges d'Enfalits"></div>
         <div class="parc-slide-dots" id="parcDots"></div>
-        <div class="parc-slide-counter" id="parcCounter">1 / 15</div>
+        <div class="parc-slide-counter" id="parcCounter">1 / 13</div>
       </div>
       <div class="feature-card-body">
         <div class="feature-card-icon">🌿</div>
         <h3>Parc & Nature</h3>
-        <p>Un environnement préservé au pied des montagnes, avec 4 hectares de parc traversé par une rivière de 1ère catégorie, hortensias, fontaines et faune sauvage.</p>
+        <p>Un environnement préservé dans un parc de 4 hectares planté d'arbres centenaires, traversé par une rivière et entouré de canaux vestiges du passé industriel du site. Labellisé Hébergement Pêche et Qualité Tourisme Occitanie Sud de France.</p>
       </div>
     </div>
 
@@ -361,15 +364,15 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="feature-card-body">
         <div class="feature-card-icon">🥐</div>
         <h3>Petit-déjeuner</h3>
-        <p>Un petit-déjeuner généreux avec produits locaux : confitures maison, miels du terroir, viennoiseries, crêpes, fruits frais et jus de saison.</p>
+        <p>Un petit-déjeuner généreux avec produits locaux : confiture maison, miels de proximité, crêpes, fruits de saison, viennoiseries, jus de fruit, thé, café, infusion.</p>
       </div>
     </div>
     <div class="feature-card reveal reveal-delay-3">
-      <div class="feature-card-img"><img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna Les Forges d'Enfalits Ariège"></div>
+      <div class="feature-card-img"><img src="spa-sauna.webp" alt="Sauna Les Forges d'Enfalits Ariège"></div>
       <div class="feature-card-body">
         <div class="feature-card-icon">✦</div>
         <h3>Détente & Bien-Être</h3>
-        <p>Jacuzzi privatif et sauna finlandais pour des moments de relaxation absolue en pleine nature.</p>
+        <p>Jacuzzi, sauna finlandais, coin tisanerie avec douche, espace privatisé pour des moments de relaxation et détente.</p>
       </div>
     </div>
   </div>
@@ -378,28 +381,23 @@ header.scrolled .burger span { background:var(--dark); }
 <section class="section-split" id="maison">
   <div class="split-media reveal">
     <div style="position:relative;">
-      <img class="split-media-main" id="salonMain" src="forges-d-enfalits-chambres-hotes-salon-1920-06.webp" alt="Grand salon cheminée Les Forges d'Enfalits Ariège" style="transition:opacity 0.6s ease;">
+      <img class="split-media-main" id="salonMain" src="salon-02.webp" alt="Grand salon Les Forges d'Enfalits Ariège" style="transition:opacity 0.6s ease;">
       <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
         <button onclick="salonSlide(0)" id="sdot0" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:1;transition:0.3s;"></button>
         <button onclick="salonSlide(1)" id="sdot1" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
         <button onclick="salonSlide(2)" id="sdot2" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+        <button onclick="salonSlide(3)" id="sdot3" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+        <button onclick="salonSlide(4)" id="sdot4" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+        <button onclick="salonSlide(5)" id="sdot5" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
       </div>
     </div>
-    <img class="split-media-accent" src="Salon3.jpg" alt="Billard salon Les Forges d'Enfalits">
+    <img class="split-media-accent" src="salon-billard-01.webp" alt="Billard salon Les Forges d'Enfalits">
   </div>
   <div class="split-text reveal reveal-delay-1">
     <div class="section-tag">Le domaine</div>
     <h2>Une maison<br>de caractère</h2>
     <span class="split-lead">Authenticité & Sérénité</span>
-    <p>Bâtie sur les vestiges des anciennes forges du XVIIIe siècle, notre demeure allie pierres ancestrales et confort contemporain. Le grand salon avec sa cheminée monumentale, le billard, les canapés Chesterfield en cuir... chaque recoin invite à la détente.</p>
-    <p>Les canards mandarins habitent notre rivière, les chevreuils traversent parfois le parc le matin. La nature ici est une présence vivante et apaisante.</p>
-    <ul class="split-features">
-      <li>Parc de 4 hectares avec rivière de 1ère catégorie</li>
-      <li>Grand salon commun avec cheminée & billard</li>
-      <li>Terrasse panoramique vue sur les Pyrénées</li>
-      <li>Hébergement Pêche agréé · Qualité Tourisme</li>
-      <li>Canards mandarins, faune et flore préservées</li>
-    </ul>
+    <p>Bâtie sur les vestiges des anciennes forges du XVIIIe siècle, notre demeure allie pierres ancestrales et confort contemporain. Le grand salon avec la cheminée monumentale, le billard, le coin fléchettes, les canapés Chesterfield, la bibliothèque, la grande table pour les petits-déjeuners conviviaux... vous invite au repos et à la détente.</p>
     <a href="#hebergements" class="btn-primary">Voir les hébergements</a>
   </div>
 </section>
@@ -407,7 +405,7 @@ header.scrolled .burger span { background:var(--dark); }
 <section class="section-rooms" id="hebergements">
   <div class="section-tag">Nos hébergements</div>
   <h2 class="section-title reveal">Chambres d'hôtes & Gîte</h2>
-  <p class="intro-text reveal" style="margin-bottom:0">Chaque chambre porte le nom d'une couleur pyrénéenne. Toutes disposent d'une salle de bain privée et d'un accès direct au parc.</p>
+  <p class="intro-text reveal" style="margin-bottom:0">Chaque chambre est personnalisée. Toutes disposent d'une salle d'eau avec douche et toilettes privées.</p>
   <div class="rooms-grid">
 
     <!-- ═══ PAPRIKA (featured) ═══ -->
@@ -426,12 +424,14 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre familiale</span>
         <h3>Chambre Paprika</h3>
-        <p>Notre chambre la plus lumineuse, avec ses teintes orangées chaleureuses. Vue sur le jardin et accès direct à la terrasse. Peut accueillir jusqu'à 4 personnes avec sa 2e chambre attenante.</p>
+        <p>Chambre très lumineuse, avec ses teintes orangées chaleureuses. Vue sur la rivière et la forêt. Chambre familiale pouvant accueillir jusqu'à 4 personnes avec sa 2ème chambre attenante.</p>
         <div class="room-amenities">
           <span class="amenity-tag">Jusqu'à 4 personnes</span>
-          <span class="amenity-tag">Salle de bain privée</span>
-          <span class="amenity-tag">Vue jardin</span>
-          <span class="amenity-tag">Terrasse</span>
+          <span class="amenity-tag">Deux pièces</span>
+          <span class="amenity-tag">Salle d'eau</span>
+          <span class="amenity-tag">1 lit double 160cm</span>
+          <span class="amenity-tag">2 lits en 90cm</span>
+          <span class="amenity-tag">Vue rivière et forêt</span>
         </div>
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
@@ -452,11 +452,11 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Myrtille</h3>
-        <p>Délicate et apaisante dans ses tons bleutés, cette chambre offre une vue directe sur le parc boisé.</p>
+        <p>Délicate et apaisante dans ses tons bleutés, cette chambre offre une vue directe sur le jardin et la rivière.</p>
         <div class="room-amenities">
           <span class="amenity-tag">Lit double 160</span>
-          <span class="amenity-tag">Salle de bain</span>
-          <span class="amenity-tag">Vue forêt</span>
+          <span class="amenity-tag">Salle d'eau</span>
+          <span class="amenity-tag">Vue montagne et rivière</span>
         </div>
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
@@ -478,9 +478,9 @@ header.scrolled .burger span { background:var(--dark); }
         <h3>Chambre Châtaigne</h3>
         <p>Aux tons chauds et boisés, cette chambre évoque l'automne ariégeois avec douceur et confort.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Lit double</span>
-          <span class="amenity-tag">Salle de bain</span>
-          <span class="amenity-tag">Vue montagne</span>
+          <span class="amenity-tag">Lit double 160</span>
+          <span class="amenity-tag">Salle d'eau</span>
+          <span class="amenity-tag">Vue forêt</span>
         </div>
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
@@ -503,9 +503,9 @@ header.scrolled .burger span { background:var(--dark); }
         <h3>Chambre Blé</h3>
         <p>Dans des teintes dorées et naturelles, cette chambre lumineuse baigne dans un esprit campagnard raffiné.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Lit double</span>
-          <span class="amenity-tag">Salle de bain</span>
-          <span class="amenity-tag">Vue jardin</span>
+          <span class="amenity-tag">Lit double 160</span>
+          <span class="amenity-tag">Salle d'eau</span>
+          <span class="amenity-tag">Vue montagne</span>
         </div>
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
@@ -514,17 +514,22 @@ header.scrolled .burger span { background:var(--dark); }
     <!-- ═══ GÎTE EN BOIS ═══ -->
     <div class="room-card reveal reveal-delay-3">
       <div class="room-card-gallery" id="gal-gite" style="position:relative;overflow:hidden;">
-        <img class="room-main-img" src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Gîte en bois Les Forges d'Enfalits">
+        <img class="room-main-img" src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" alt="Gîte Les Forges d'Enfalits">
+        <div class="thumb-strip">
+          <img src="forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg" onclick="setRoom('gite','forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg',this)" class="rthumb active" alt="">
+          <img src="gite-salon.webp" onclick="setRoom('gite','gite-salon.webp',this)" class="rthumb" alt="">
+          <img src="gite-chambre.webp" onclick="setRoom('gite','gite-chambre.webp',this)" class="rthumb" alt="">
+        </div>
       </div>
       <div class="room-card-info">
         <span class="room-badge" style="background:#f0ebe0;color:#5a4a35">Gîte indépendant</span>
-        <h3>Le Gîte en Bois</h3>
-        <p>Chalet en bois indépendant au cœur du parc, idéal pour les familles et groupes. Cuisine équipée, terrasse privée, accès direct à la rivière. Capacité 6 personnes.</p>
+        <h3>Gîte</h3>
+        <p>Chalet en bois indépendant de 3 pièces de 60m² au cœur du parc, idéal pour les familles. Cuisine équipée, lave-linge, salon de jardin, BBQ. Capacité 4 personnes. Accès gratuit à l'espace détente durant le séjour.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Jusqu'à 6 pers.</span>
-          <span class="amenity-tag">Cuisine équipée</span>
-          <span class="amenity-tag">Terrasse privée</span>
           <span class="amenity-tag">Indépendant</span>
+          <span class="amenity-tag">1 lit double 160</span>
+          <span class="amenity-tag">2 lits en 90</span>
+          <span class="amenity-tag">Vue montagne</span>
         </div>
         <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
       </div>
@@ -537,18 +542,24 @@ header.scrolled .burger span { background:var(--dark); }
   <div class="spa-text reveal">
     <div class="section-tag">Espace bien-être</div>
     <h2>Un SPA privatif</h2>
-    <span style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--gold);display:block;margin-bottom:24px;">au cœur de la nature</span>
-    <p>Pour compléter votre séjour, nous mettons à disposition un espace bien-être privatif. Jacuzzi intérieur et sauna finlandais vous attendent pour des moments de pure relaxation.</p>
-    <p>L'accès au SPA peut être réservé à l'heure, pour profiter pleinement de cet espace dans la plus grande intimité.</p>
+    <p>Pour compléter votre séjour, nous mettons gracieusement à votre disposition l'espace bien-être : Jacuzzi intérieur, sauna finlandais et coin tisanerie vous attendent pour des moments de pure relaxation.</p>
+    <p>L'accès à l'espace détente vous est privatisé pour la durée d'une séance d'une heure par jour, pour en profiter pleinement dans la plus grande intimité.</p>
     <div class="spa-offerings">
       <div class="spa-item"><span>♨️</span> Jacuzzi intérieur</div>
       <div class="spa-item"><span>🌿</span> Sauna finlandais</div>
       <div class="spa-item"><span>🔒</span> Accès privatif</div>
-      <div class="spa-item"><span>⏱</span> Réservation à l'heure</div>
+      <div class="spa-item"><span>🎁</span> Accès gratuit</div>
     </div>
   </div>
   <div class="spa-media reveal reveal-delay-1">
-    <img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna privatif Les Forges d'Enfalits">
+    <div id="spaSlideshow" style="position:relative;border-radius:4px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+      <img id="spaMain" src="spa-jacuzzi.webp" alt="SPA jacuzzi Les Forges d'Enfalits" style="width:100%;display:block;transition:opacity 0.5s;">
+      <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+        <button onclick="spaSlide(0)" id="spdot0" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:1;transition:0.3s;"></button>
+        <button onclick="spaSlide(1)" id="spdot1" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+        <button onclick="spaSlide(2)" id="spdot2" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -614,7 +625,7 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
   <div class="footer-bottom">
     <span>2026 © Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</span>
-    <span>© Création et développement Alexis Ubiedo &nbsp;·&nbsp; <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a></span>
+    <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a> <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a> <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a> <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a></span>
   </div>
 </footer>
 
@@ -656,7 +667,7 @@ header.scrolled .burger span { background:var(--dark); }
 
 // ── ROOM GALLERIES AUTO-SLIDESHOW ────────────────────────────────
 (function() {
-  const galleries = ['paprika', 'myrtille', 'chataigne', 'ble'];
+  const galleries = ['paprika', 'myrtille', 'chataigne', 'ble', 'gite'];
   const timers = {};
 
   function goTo(roomId, thumbEl) {
@@ -734,16 +745,16 @@ header.scrolled .burger span { background:var(--dark); }
 })();
 
 // ── SALON SLIDER ─────────────────────────────────────────────────
-const salonImgs = ['forges-d-enfalits-chambres-hotes-salon-1920-06.webp','Salon2.jpg','Salon3.jpg'];
+const salonImgs = ['salon-02.webp','salon-03.webp','salon-04.webp','salon-billard-01.webp','salon-billard-02.webp','salon-flechettes.webp'];
 let salonCurrent = 0;
 function salonSlide(n) {
   salonCurrent = n;
   const img = document.getElementById('salonMain');
   img.style.opacity = '0';
   setTimeout(() => { img.src = salonImgs[n]; img.style.opacity = '1'; }, 300);
-  [0,1,2].forEach(i => document.getElementById('sdot'+i).style.opacity = i===n ? '1' : '0.45');
+  [0,1,2,3,4,5].forEach(i => { const el = document.getElementById('sdot'+i); if(el) el.style.opacity = i===n ? '1' : '0.45'; });
 }
-setInterval(() => salonSlide((salonCurrent + 1) % 3), 4000);
+setInterval(() => salonSlide((salonCurrent + 1) % 6), 4000);
 
 // ── HEADER ───────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
@@ -774,6 +785,19 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+// ── SPA SLIDESHOW ─────────────────────────────────────────────────
+const spaImgs = ['spa-jacuzzi.webp','spa-sauna.webp','spa-espace.webp'];
+let spaCurrent = 0;
+function spaSlide(n) {
+  spaCurrent = n;
+  const img = document.getElementById('spaMain');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = spaImgs[n]; img.style.opacity = '1'; }, 300);
+  [0,1,2].forEach(i => { const el = document.getElementById('spdot'+i); if(el) el.style.opacity = i===n ? '1' : '0.45'; });
+}
+setInterval(() => spaSlide((spaCurrent + 1) % 3), 4000);
 
 // ── BURGER MENU ──────────────────────────────────────────────────
 function toggleMenu() {
