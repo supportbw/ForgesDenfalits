@@ -113,20 +113,20 @@ h2.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.
 .split-features li::before { content: '✦'; color: var(--gold); font-size: 0.7rem; flex-shrink: 0; }
 .section-rooms { padding: 40px 10%; background: var(--cream); text-align: center; }
 .rooms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1100px; margin: 60px auto 0; }
-.room-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 8px 35px rgba(100,70,30,0.07); display: grid; grid-template-columns: 1fr 1fr; transition: 0.4s; }
+.room-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 8px 35px rgba(100,70,30,0.07); display: grid; grid-template-columns: 1fr 1fr; transition: 0.4s; align-items: stretch; }
 .room-card:hover { box-shadow: 0 15px 50px rgba(100,70,30,0.12); }
 .room-card.featured { grid-column: 1 / -1; grid-template-columns: 1.2fr 1fr; }
-.room-card-gallery { position: relative; overflow: hidden; }
-.room-card-gallery .room-main-img { width: 100%; height: 380px; object-fit: cover; transition: opacity 0.35s, transform 0.6s; display: block; }
+.room-card-gallery { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.room-card-gallery .room-main-img { width: 100%; height: 100%; min-height: 300px; object-fit: cover; transition: opacity 0.35s, transform 0.6s; display: block; }
 .room-card:hover .room-card-gallery .room-main-img { transform: scale(1.04); }
 .thumb-strip { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; display: flex; gap: 4px; padding: 8px; box-sizing: border-box; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%); }
 .rthumb { flex: 1; min-width: 0; height: 100%; object-fit: cover; cursor: pointer; border: 2px solid transparent; opacity: 0.8; transition: 0.2s; border-radius: 2px; }
 .rthumb.active, .rthumb:hover { border-color: white; opacity: 1; }
-.room-card-info { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.room-card-info { padding: 36px 32px; display: flex; flex-direction: column; text-align: left; min-height: 320px; }
 .room-badge { display: inline-block; background: var(--cream); color: var(--warm-brown); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; margin-bottom: 16px; font-family: 'Jost', sans-serif; }
 .room-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--dark); margin-bottom: 12px; }
-.room-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text-light); margin-bottom: 20px; font-weight: 300; }
-.room-amenities { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.room-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text-light); margin-bottom: 20px; font-weight: 300; flex-grow: 1; }
+.room-amenities { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; flex-shrink: 0; }
 .amenity-tag { font-size: 0.73rem; color: var(--text-light); background: var(--cream); padding: 4px 10px; border-radius: 2px; font-family: 'Jost', sans-serif; }
 .section-spa { background: var(--dark); padding: 40px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
 .section-spa::before { content: ''; position: absolute; inset: 0; background: url('forges-d-enfalits-chambres-hotes-salon-1920-06.webp') center/cover no-repeat; opacity: 0.12; }
@@ -273,6 +273,7 @@ header.scrolled .burger span { background:var(--dark); }
     <a href="#bien-etre">Bien-Être</a>
     <a href="#nature">Nature</a>
     <a href="#contact">Contact</a>
+    <a href="#acces">Accès</a>
     <a href="actualites.html">Actualités</a>
     <a href="reservation.html" class="nav-cta">Réserver</a>
   </nav>
@@ -287,6 +288,7 @@ header.scrolled .burger span { background:var(--dark); }
   <a href="#bien-etre">Bien-Être</a>
   <a href="#nature">Nature</a>
   <a href="#contact">Contact</a>
+  <a href="#acces">Accès</a>
   <a href="actualites.html">Actualités</a>
   <a href="reservation.html" class="mobile-cta">Réserver</a>
 </div>
@@ -426,16 +428,14 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre familiale</span>
         <h3>Chambre Paprika</h3>
-        <p>Chambre très lumineuse, avec ses teintes orangées chaleureuses. Vue sur la rivière et la forêt. Chambre familiale pouvant accueillir jusqu'à 4 personnes avec sa 2ème chambre attenante.</p>
+        <p>2 chambres attenantes très lumineuses aux teintes orangées, vue sur la rivière et la forêt, salle d'eau et toilettes privées.</p>
         <div class="room-amenities">
-          <span class="amenity-tag">Jusqu'à 4 personnes</span>
-          <span class="amenity-tag">Deux pièces</span>
-          <span class="amenity-tag">Salle d'eau</span>
-          <span class="amenity-tag">1 lit double 160cm</span>
-          <span class="amenity-tag">2 lits en 90cm</span>
-          <span class="amenity-tag">Vue rivière et forêt</span>
+          <span class="amenity-tag">1-4 personnes</span>
+          <span class="amenity-tag">1 lit double 160</span>
+          <span class="amenity-tag">2 lits en 90</span>
+          <span class="amenity-tag">Petits-déjeuners inclus</span>
         </div>
-        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;margin-top:auto;align-self:flex-start;">Voir les tarifs</a>
       </div>
     </div>
 
@@ -454,13 +454,13 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Myrtille</h3>
-        <p>Délicate et apaisante dans ses tons bleutés, cette chambre offre une vue directe sur le jardin et la rivière.</p>
+        <p>Délicate et apaisante dans ses tons bleutés, vue sur le jardin et la rivière, salle d'eau et toilettes privées.</p>
         <div class="room-amenities">
+          <span class="amenity-tag">1-2 personnes</span>
           <span class="amenity-tag">Lit double 160</span>
-          <span class="amenity-tag">Salle d'eau</span>
-          <span class="amenity-tag">Vue montagne et rivière</span>
+          <span class="amenity-tag">Petits-déjeuners inclus</span>
         </div>
-        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;margin-top:auto;align-self:flex-start;">Voir les tarifs</a>
       </div>
     </div>
 
@@ -478,13 +478,13 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Châtaigne</h3>
-        <p>Aux tons chauds et boisés, cette chambre évoque l'automne ariégeois avec douceur et confort.</p>
+        <p>Tons chauds et boisés, salle d'eau et toilettes privées, vue sur la forêt.</p>
         <div class="room-amenities">
+          <span class="amenity-tag">1-2 personnes</span>
           <span class="amenity-tag">Lit double 160</span>
-          <span class="amenity-tag">Salle d'eau</span>
-          <span class="amenity-tag">Vue forêt</span>
+          <span class="amenity-tag">Petits-déjeuners inclus</span>
         </div>
-        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;margin-top:auto;align-self:flex-start;">Voir les tarifs</a>
       </div>
     </div>
 
@@ -503,13 +503,13 @@ header.scrolled .burger span { background:var(--dark); }
       <div class="room-card-info">
         <span class="room-badge">Chambre double</span>
         <h3>Chambre Blé</h3>
-        <p>Dans des teintes dorées et naturelles, cette chambre lumineuse baigne dans un esprit campagnard raffiné.</p>
+        <p>Dans des teintes dorées et naturelles, cette chambre lumineuse baigne dans un esprit campagnard raffiné, vue sur les montagnes, salle d'eau et toilettes privées.</p>
         <div class="room-amenities">
+          <span class="amenity-tag">1-2 personnes</span>
           <span class="amenity-tag">Lit double 160</span>
-          <span class="amenity-tag">Salle d'eau</span>
-          <span class="amenity-tag">Vue montagne</span>
+          <span class="amenity-tag">Petits-déjeuners inclus</span>
         </div>
-        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;margin-top:auto;align-self:flex-start;">Voir les tarifs</a>
       </div>
     </div>
 
@@ -525,15 +525,14 @@ header.scrolled .burger span { background:var(--dark); }
       </div>
       <div class="room-card-info">
         <span class="room-badge" style="background:#f0ebe0;color:#5a4a35">Gîte indépendant</span>
-        <h3>Gîte</h3>
-        <p>Chalet en bois indépendant de 3 pièces de 60m² au cœur du parc, idéal pour les familles. Cuisine équipée, lave-linge, salon de jardin, BBQ. Capacité 4 personnes. Accès gratuit à l'espace détente durant le séjour.</p>
+        <h3>Le Gîte</h3>
+        <p>Chalet en bois indépendant au cœur du parc, entièrement équipé, salon de jardin, BBQ, accès gratuit à l'espace détente.</p>
         <div class="room-amenities">
+          <span class="amenity-tag">Jusqu'à 4 personnes</span>
           <span class="amenity-tag">Indépendant</span>
-          <span class="amenity-tag">1 lit double 160</span>
-          <span class="amenity-tag">2 lits en 90</span>
-          <span class="amenity-tag">Vue montagne</span>
+          <span class="amenity-tag">Sam 16h → Sam 10h</span>
         </div>
-        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;">Voir les tarifs</a>
+        <a href="reservation.html" class="btn-primary" style="font-size:0.72rem;padding:12px 24px;margin-top:auto;align-self:flex-start;">Voir les tarifs</a>
       </div>
     </div>
 
@@ -590,6 +589,31 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
 </section>
 
+
+<section style="background:var(--cream-dark);padding:60px 10%;text-align:center;" id="acces">
+  <div class="section-tag">Nous trouver</div>
+  <h2 class="section-title" style="margin-bottom:8px;">Venir aux Forges d'Enfalits</h2>
+  <p style="font-size:0.95rem;color:var(--text-light);margin-bottom:30px;font-weight:300;">
+    Chemin d'Enfalits · 09400 Rabat-les-Trois-Seigneurs<br>
+    À 5 km de Tarascon-sur-Ariège · 15 min de Foix · 1h de Toulouse & Andorre
+  </p>
+  <div style="border-radius:6px;overflow:hidden;box-shadow:0 10px 40px rgba(60,40,20,0.15);max-width:900px;margin:0 auto;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.5!2d1.6083!3d42.8347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aeffe3c3c9e4a7%3A0x0!2sLes+Forges+d%27Enfalits%2C+Chemin+d%27Enfalits%2C+09400+Rabat-les-Trois-Seigneurs!5e0!3m2!1sfr!2sfr!4v1709999999999"
+      width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" title="Carte Les Forges d'Enfalits">
+    </iframe>
+  </div>
+  <div style="margin-top:24px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://maps.google.com/maps?q=Les+Forges+d%27Enfalits,+Chemin+d%27Enfalits,+09400+Rabat-les-Trois-Seigneurs" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.78rem;">
+      📍 Itinéraire Google Maps
+    </a>
+    <a href="https://www.waze.com/ul?ll=42.8347,1.6083&navigate=yes&zoom=17" target="_blank" rel="noopener" class="btn-outline" style="border-color:var(--warm-brown);color:var(--warm-brown);font-size:0.78rem;">
+      🚗 Ouvrir dans Waze
+    </a>
+  </div>
+</section>
+
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -625,10 +649,12 @@ header.scrolled .burger span { background:var(--dark); }
       </address>
     </div>
   </div>
-  <div class="footer-bottom" style="flex-direction:column;gap:10px;text-align:center;">
-    <span>2026 © Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</span>
-    <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a> <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a> <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a> <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a></span>
-    <span>© Création et développement Alexis Ubiedo</span>
+  <div class="footer-bottom" style="flex-direction:column;gap:10px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;flex-wrap:wrap;gap:10px;">
+      <span>2026 © Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</span>
+      <span style="display:flex;flex-wrap:wrap;gap:10px;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a> <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a> <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a> <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a></span>
+    </div>
+    <div style="width:100%;text-align:center;">© Création et développement Alexis Ubiedo</div>
   </div>
 </footer>
 
