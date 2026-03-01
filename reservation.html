@@ -149,33 +149,6 @@ header.scrolled .nav-cta { background:var(--warm-brown) !important; }
 .btn-cookie-accept:hover { background:var(--gold); }
 .btn-cookie-refuse { background:transparent; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.3); padding:10px 18px; border-radius:3px; cursor:pointer; font-size:0.78rem; text-transform:uppercase; transition:0.3s; }
 .btn-cookie-refuse:hover { border-color:white; color:white; }
-#admin-panel { display:none; position:fixed; inset:0; z-index:9000; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; }
-#admin-panel.open { display:flex; }
-.admin-modal { background:white; border-radius:8px; width:90%; max-width:640px; max-height:90vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
-.admin-header { background:var(--dark); padding:20px 28px; display:flex; justify-content:space-between; align-items:center; }
-.admin-header h2 { font-family:'Jost',sans-serif; font-size:1rem; letter-spacing:0.15em; text-transform:uppercase; color:white; }
-.admin-close { background:none; border:none; color:rgba(255,255,255,0.6); font-size:1.5rem; cursor:pointer; transition:0.3s; line-height:1; }
-.admin-close:hover { color:white; }
-.admin-login { padding:30px; }
-.admin-login label { display:block; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-light); margin-bottom:6px; }
-.admin-login input { width:100%; padding:10px 14px; border:1.5px solid var(--cream-dark); border-radius:3px; font-size:0.9rem; margin-bottom:16px; outline:none; transition:0.3s; background:var(--cream); }
-.admin-login input:focus { border-color:var(--warm-brown); background:white; }
-.admin-login button { width:100%; background:var(--warm-brown); color:white; border:none; padding:12px; border-radius:3px; cursor:pointer; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; transition:0.3s; }
-.admin-login button:hover { background:var(--dark); }
-.admin-error { color:#c0392b; font-size:0.82rem; margin-top:8px; }
-.admin-content { display:none; padding:28px; }
-.admin-content.visible { display:block; }
-.admin-section { margin-bottom:30px; }
-.admin-section h3 { font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--cream-dark); }
-.admin-row { display:grid; grid-template-columns:1fr 100px 100px 100px; gap:10px; align-items:center; margin-bottom:12px; font-size:0.85rem; }
-.admin-row.header { font-family:'Jost',sans-serif; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-light); margin-bottom:6px; }
-.admin-row span:first-child { font-weight:500; color:var(--dark); }
-.admin-input { width:100%; padding:7px 10px; border:1.5px solid var(--cream-dark); border-radius:3px; font-size:0.85rem; text-align:center; outline:none; transition:0.3s; background:var(--cream); }
-.admin-input:focus { border-color:var(--warm-brown); background:white; }
-.admin-gite-row { display:grid; grid-template-columns:1fr 110px; gap:10px; align-items:center; margin-bottom:10px; font-size:0.85rem; }
-.btn-admin-save { background:#4a7c59; color:white; border:none; padding:12px 28px; border-radius:3px; cursor:pointer; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; transition:0.3s; }
-.btn-admin-save:hover { background:#3a6347; }
-.admin-success { background:#eaf5ee; color:#4a7c59; padding:10px 14px; border-radius:3px; font-size:0.82rem; margin-top:12px; display:none; }
 footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; flex-wrap:wrap; gap:12px; }
 .footer-back { color:var(--gold); text-decoration:none; }
@@ -245,40 +218,7 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
 </div>
 
-<div id="admin-panel">
-  <div class="admin-modal">
-    <div class="admin-header">
-      <h2>🔐 Administration — Tarifs</h2>
-      <button class="admin-close" onclick="closeAdmin()">✕</button>
-    </div>
-    <div class="admin-login" id="adminLogin">
-      <label>Mot de passe</label>
-      <input type="password" id="adminPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkAdmin()">
-      <button onclick="checkAdmin()">Accéder →</button>
-      <div class="admin-error" id="adminError"></div>
-    </div>
-    <div class="admin-content" id="adminContent">
-      <div class="admin-section">
-        <h3>Chambres d'hôtes — Tarifs par nuit</h3>
-        <div class="admin-row header"><span>Chambre</span><span>1-2 pers.</span><span>3 pers.</span><span>4 pers.</span></div>
-        <div class="admin-row"><span>Châtaigne</span><input type="number" class="admin-input" id="p-chataigne-12" value="89"><input type="number" class="admin-input" disabled style="opacity:0.3"><input type="number" class="admin-input" disabled style="opacity:0.3"></div>
-        <div class="admin-row"><span>Myrtille</span><input type="number" class="admin-input" id="p-myrtille-12" value="89"><input type="number" class="admin-input" disabled style="opacity:0.3"><input type="number" class="admin-input" disabled style="opacity:0.3"></div>
-        <div class="admin-row"><span>Blé</span><input type="number" class="admin-input" id="p-ble-12" value="89"><input type="number" class="admin-input" disabled style="opacity:0.3"><input type="number" class="admin-input" disabled style="opacity:0.3"></div>
-        <div class="admin-row"><span>Paprika</span><input type="number" class="admin-input" id="p-paprika-12" value="89"><input type="number" class="admin-input" id="p-paprika-3" value="109"><input type="number" class="admin-input" id="p-paprika-4" value="129"></div>
-      </div>
-      <div class="admin-section">
-        <h3>Gîte — Tarifs semaine</h3>
-        <div class="admin-gite-row"><span>🌞 Haute saison</span><input type="number" class="admin-input" id="p-gite-haute" value="750"></div>
-        <div class="admin-gite-row"><span>🌤 Moyenne saison</span><input type="number" class="admin-input" id="p-gite-moyenne" value="500"></div>
-        <div class="admin-gite-row"><span>🍂 Basse saison</span><input type="number" class="admin-input" id="p-gite-basse" value="400"></div>
-        <div class="admin-gite-row"><span>❄️ Hiver</span><input type="number" class="admin-input" id="p-gite-hiver" value="550"></div>
-        <div class="admin-gite-row"><span>🏖 Week-end basse</span><input type="number" class="admin-input" id="p-gite-we" value="300"></div>
-      </div>
-      <button class="btn-admin-save" onclick="savePrices()">💾 Sauvegarder les tarifs</button>
-      <div class="admin-success" id="adminSuccess">✓ Tarifs mis à jour !</div>
-    </div>
-  </div>
-</div>
+
 
 <header id="header">
   <div class="logo"><a href="index.html"><img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits"></a></div>
@@ -324,7 +264,7 @@ header.scrolled .burger span { background:var(--dark); }
   </div>
   <div class="contact-bar-item">
     <span class="contact-bar-icon">✉️</span>
-    <div><span class="contact-bar-label">Email</span><a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a></div>
+    <div><span class="contact-bar-label">Email</span><a href="/cdn-cgi/l/email-protection#2d4e4243594c4e596d4b425f4a485e4948434b4c4144595e034e4240"><span class="__cf_email__" data-cfemail="40232f2e3421233400262f3227253324252e26212c2934336e232f2d">[email&#160;protected]</span></a></div>
   </div>
 </div>
 
@@ -568,11 +508,9 @@ window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
 
-
-
 // ── BURGER MENU ──────────────────────────────────────────────────
 function toggleMenu() {
-  var btn = document.getElementById('burgerBtn');
+  var btn  = document.getElementById('burgerBtn');
   var menu = document.getElementById('mobileMenu');
   var isOpen = btn.classList.toggle('open');
   menu.classList.toggle('open', isOpen);
@@ -592,7 +530,145 @@ document.addEventListener('keydown', function(e) {
     document.body.style.overflow = '';
   }
 });
-</script>
 
+// ── COOKIES GDPR ─────────────────────────────────────────────────
+function acceptCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
+function refuseCookies()  { localStorage.setItem('cookie_consent','refused');  document.getElementById('cookie-banner').classList.add('hidden'); }
+(function(){ if(localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').classList.add('hidden'); })();
+
+// ── DATES ─────────────────────────────────────────────────────────
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('dateArrivee').min = today;
+document.getElementById('dateDepart').min  = today;
+document.getElementById('dateArrivee').addEventListener('change', function() {
+  document.getElementById('dateDepart').min = this.value;
+});
+
+// ── GALERIE THUMBNAILS ────────────────────────────────────────────
+function resSetRoom(e, roomId, src, thumb) {
+  e.stopPropagation();
+  const gal  = document.getElementById('res-gal-' + roomId);
+  const main = gal.querySelector('.main-photo');
+  main.style.opacity = '0';
+  setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 200);
+  gal.querySelectorAll('.res-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+// ── SLIDESHOW AUTO ────────────────────────────────────────────────
+(function() {
+  const rooms = {
+    chataigne: ['chambre_chataigne1.webp','chambre_chataigne2.webp','chambre_chataigne3.webp'],
+    myrtille:  ['chambre_myrtille.webp','chambre_myrtille2.webp','chambre_myrtille3.webp','chambre_myrtille5.webp'],
+    ble:       ['chambre_ble_1.webp','chambre_ble_2.webp','chambre_ble_3.webp','chambre_ble_4.webp'],
+    paprika:   ['chambre_paprika.jpg','chambre_paprika2.webp','chambre-paprika-01.webp','chambre-paprika-02.webp','chambre-paprika-03.webp']
+  };
+  Object.keys(rooms).forEach(id => {
+    const imgs = rooms[id]; let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % imgs.length;
+      const gal   = document.getElementById('res-gal-' + id); if (!gal) return;
+      const main  = gal.querySelector('.main-photo');
+      const thumbs = gal.querySelectorAll('.res-thumb');
+      main.style.opacity = '0';
+      setTimeout(() => { main.src = imgs[idx]; main.style.opacity = '1'; }, 200);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[idx]) thumbs[idx].classList.add('active');
+    }, 3500);
+  });
+})();
+
+// ── TARIFS DEPUIS tarifs.json (serveur) ───────────────────────────
+const DEF = {chataigne12:89,myrtille12:89,ble12:89,paprika12:89,paprika3:109,
+             paprika4:129,giteHaute:750,giteMoyenne:500,giteBasse:400,giteHiver:550,giteWe:300};
+
+function applyPrices(p) {
+  document.getElementById('t-chataigne-12').textContent = p.chataigne12 + ' €';
+  document.getElementById('t-myrtille-12').textContent  = p.myrtille12  + ' €';
+  document.getElementById('t-ble-12').textContent       = p.ble12       + ' €';
+  document.getElementById('t-paprika-12').textContent   = p.paprika12   + ' €';
+  document.getElementById('t-paprika-3').textContent    = p.paprika3    + ' €';
+  document.getElementById('t-paprika-4').textContent    = p.paprika4    + ' €';
+  document.getElementById('t-gite-haute').textContent   = p.giteHaute;
+  document.getElementById('t-gite-moyenne').textContent = p.giteMoyenne;
+  document.getElementById('t-gite-basse').textContent   = p.giteBasse;
+  document.getElementById('t-gite-hiver').textContent   = p.giteHiver;
+  document.getElementById('t-gite-we').textContent      = p.giteWe;
+  document.getElementById('disp-chataigne').textContent = p.chataigne12 + ' €';
+  document.getElementById('disp-myrtille').textContent  = p.myrtille12  + ' €';
+  document.getElementById('disp-ble').textContent       = p.ble12       + ' €';
+  document.getElementById('disp-paprika').textContent   = p.paprika12 + '–' + p.paprika4 + ' €';
+  document.getElementById('disp-gite').textContent      = p.giteBasse + '–' + p.giteHaute + ' €';
+}
+
+// Charger depuis tarifs.json (partagé entre tous les visiteurs)
+fetch('tarifs.json?t=' + Date.now())
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(p => applyPrices(p))
+  .catch(() => applyPrices(DEF));  // Fallback valeurs par défaut
+
+// ── SÉLECTION HÉBERGEMENT ─────────────────────────────────────────
+let selectedHeberg = '';
+function selectHeberg(name, id) {
+  document.querySelectorAll('.heberg-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('card-' + id).classList.add('selected');
+  selectedHeberg = name;
+  const p = document.getElementById('selectedPreview');
+  p.classList.add('filled');
+  p.textContent = '✓ ' + name + ' sélectionné(e)';
+  if (window.innerWidth < 1024) {
+    document.querySelector('.form-sidebar').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+}
+
+// ── ONGLETS TARIFS ────────────────────────────────────────────────
+function showTarif(tab, btn) {
+  document.querySelectorAll('.tarif-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tarif-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── ENVOI FORMULAIRE avec reCAPTCHA v3 ───────────────────────────
+let lastSend = 0;
+function envoyerDemande() {
+  if (document.getElementById('website').value !== '') return;
+  const now = Date.now();
+  if (now - lastSend < 60000) { alert('Merci de patienter une minute.'); return; }
+  const nom     = document.getElementById('nom').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const tel     = document.getElementById('tel').value.trim();
+  const arrivee = document.getElementById('dateArrivee').value;
+  const depart  = document.getElementById('dateDepart').value;
+  const adultes = document.getElementById('adultes').value;
+  const enfants = document.getElementById('enfants').value;
+  const msg     = document.getElementById('message').value.trim();
+  if (!nom || !email) { alert('Merci de renseigner votre nom et votre email.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Adresse email invalide.'); return; }
+  if (!selectedHeberg) { alert('Merci de sélectionner un hébergement.'); return; }
+  const btn = document.getElementById('btnEnvoyer');
+  btn.disabled = true; btn.textContent = 'Vérification…';
+  const fmt = d => d ? new Date(d).toLocaleDateString('fr-FR') : 'non précisé';
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6Ld3YnssAAAAANllYb_7-sXfsMoSuSzya9nkUyOv', { action:'reservation' }).then(function(token) {
+      const subject = encodeURIComponent('Demande de réservation – ' + selectedHeberg + ' – Forges d\'Enfalits');
+      const body = encodeURIComponent(
+        'Bonjour Régine et Gérard,\n\nJe souhaite réserver :\n\n' +
+        '🏠 Hébergement : ' + selectedHeberg + '\n📅 Arrivée : ' + fmt(arrivee) +
+        '\n📅 Départ : '    + fmt(depart)  + '\n👥 Adultes : ' + adultes + '\n👶 Enfants : ' + enfants +
+        '\n\nNom : ' + nom + '\nEmail : ' + email + '\nTél : ' + (tel||'non renseigné') +
+        (msg ? '\n\nMessage :\n' + msg : '') + '\n\nCordialement,\n' + nom
+      );
+      window.location.href = 'mailto:contact@forgesdenfalits.com?subject=' + subject + '&body=' + body;
+      lastSend = Date.now();
+      document.getElementById('formBody').style.display = 'none';
+      document.getElementById('confirmationMsg').style.display = 'block';
+    }).catch(function() {
+      btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
+      alert('Erreur de vérification. Veuillez réessayer.');
+    });
+  });
+}
+</script>
 </body>
 </html>
