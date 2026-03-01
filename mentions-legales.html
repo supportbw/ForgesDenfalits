@@ -95,6 +95,59 @@ header.scrolled .burger span { background:var(--dark); }
   nav { display:none !important; }
   .burger { display:flex; }
 }
+
+/* ── BURGER MENU ──────────────────────────────────────────── */
+.burger { display:none; flex-direction:column; justify-content:center; gap:6px; width:40px; height:40px; cursor:pointer; background:none; border:none; padding:6px; z-index:9999; flex-shrink:0; }
+.burger span { display:block; height:2px; border-radius:2px; background:white; transition:all 0.35s cubic-bezier(0.23,1,0.32,1); }
+header.scrolled .burger span { background:var(--dark); }
+.burger.open span { background:white !important; }
+.burger.open span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.burger.open span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+
+.mobile-menu {
+  position:fixed; inset:0; z-index:9998;
+  background:rgba(30,20,12,0.98);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0;
+  opacity:0; pointer-events:none;
+  transition:opacity 0.35s ease;
+}
+.mobile-menu.open { opacity:1; pointer-events:all; }
+
+.mobile-menu nav-link {display:block;}
+.mobile-menu a {
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,7vw,2.6rem);
+  font-weight:300; font-style:italic;
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;
+  padding:16px 60px;
+  letter-spacing:0.05em;
+  transition:color 0.2s, padding-left 0.2s;
+  width:100%; text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.mobile-menu a:first-child { border-top:1px solid rgba(255,255,255,0.07); }
+.mobile-menu a:hover { color:var(--gold); padding-left:70px; }
+.mobile-menu a.active { color:var(--gold); }
+.mobile-menu .mobile-cta {
+  margin-top:36px;
+  font-family:'Jost',sans-serif !important;
+  font-size:0.78rem !important; font-style:normal !important;
+  font-weight:500 !important; letter-spacing:0.2em !important;
+  text-transform:uppercase; padding:16px 60px !important;
+  background:var(--warm-brown) !important; color:white !important;
+  border-radius:3px; border:none; border-top:none !important;
+  width:auto !important; display:inline-block !important;
+}
+.mobile-menu .mobile-cta:hover { background:var(--gold) !important; padding-left:60px !important; }
+
+@media (max-width: 768px) {
+  nav { display:none !important; }
+  .burger { display:flex; }
+}
+
 </style>
 </head>
 <body>
@@ -111,23 +164,17 @@ header.scrolled .burger span { background:var(--dark); }
     <a href="reservation.html" class="nav-cta">Réserver</a>
   </nav>
 
-<!-- BURGER BUTTON (mobile) -->
-<button class="burger" id="burgerBtn" aria-label="Menu" onclick="toggleMenu()">
-  <span></span><span></span><span></span>
-</button>
-
-<!-- MOBILE MENU OVERLAY -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Accueil</a>
-    <a href="index.html#hebergements">Hébergements</a>
-    <a href="index.html#bien-etre">Bien-Être</a>
-    <a href="index.html#nature">Nature</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="actualites.html">Actualités</a>
-    <a href="reservation.html" class="mobile-cta">Réserver</a>
-</div>
 
 </header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="index.html#hebergements">Hébergements</a>
+  <a href="index.html#bien-etre">Bien-Être</a>
+  <a href="index.html#nature">Nature</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="actualites.html">Actualités</a>
+  <a href="reservation.html" class="mobile-cta">Réserver</a>
+</div>
 
 <div class="page-hero">
   <div class="page-hero-content">
@@ -308,15 +355,19 @@ window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ── BURGER MENU ───────────────────────────────────────────
+
+</script>
+
+<script>
+
+// ── BURGER MENU ────────────────────────────────────────────
 function toggleMenu() {
   const btn = document.getElementById('burgerBtn');
   const menu = document.getElementById('mobileMenu');
-  btn.classList.toggle('open');
-  menu.classList.toggle('open');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  const isOpen = btn.classList.toggle('open');
+  menu.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 }
-// Close on link click
 document.querySelectorAll('.mobile-menu a').forEach(a => {
   a.addEventListener('click', () => {
     document.getElementById('burgerBtn').classList.remove('open');
@@ -324,8 +375,13 @@ document.querySelectorAll('.mobile-menu a').forEach(a => {
     document.body.style.overflow = '';
   });
 });
-// Close on Escape
-document.addEventListener('keydown', e => { if(e.key==='Escape') { document.getElementById('burgerBtn').classList.remove('open'); document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; } });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('burgerBtn').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 </script>
 </body>
