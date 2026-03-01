@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales & Politique de confidentialité – Les Forges d'Enfalits</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:wght@0,400;0,500&family=Dancing+Script:wght@600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f5efe4; --cream-dark: #ede4d5; --warm-brown: #7c5c3e;
+  --gold: #c9a96e; --dark: #3a2e22; --text: #5a4a35; --text-light: #8a7560; --white: #fdfaf5;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); font-family:'Jost',sans-serif; color:var(--text); overflow-x:hidden; }
+header { position:fixed; top:0; width:100%; z-index:1000; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; transition:all 0.5s ease; background:transparent; }
+header.scrolled { background:rgba(245,239,228,0.96); backdrop-filter:blur(10px); box-shadow:0 2px 30px rgba(100,70,30,0.08); padding:10px 60px; }
+.logo img { height:52px; }
+nav { display:flex; align-items:center; gap:10px; }
+nav a { font-family:'Jost',sans-serif; font-size:0.8rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:white; text-decoration:none; padding:6px 14px; transition:0.3s; position:relative; }
+header.scrolled nav a { color:var(--text); }
+nav a::after { content:''; position:absolute; bottom:2px; left:14px; right:14px; height:1px; background:var(--gold); transform:scaleX(0); transition:0.3s; }
+nav a:hover::after { transform:scaleX(1); }
+.nav-cta { background:rgba(124,92,62,0.85) !important; color:white !important; border-radius:3px; padding:8px 20px !important; font-size:0.75rem !important; }
+header.scrolled .nav-cta { background:var(--warm-brown) !important; }
+.nav-cta::after { display:none !important; }
+
+.page-hero { height:260px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; background:var(--dark); }
+.page-hero::before { content:''; position:absolute; inset:0; background:url('forges-d-enfalits-chambres-hotes-parc-1920-13.webp') center/cover; opacity:0.2; }
+.page-hero-content { position:relative; z-index:1; }
+.page-hero-eyebrow { font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.page-hero h1 { font-family:'Dancing Script',cursive; font-size:clamp(2.2rem,5vw,3.8rem); color:white; font-weight:600; text-shadow:0 2px 20px rgba(0,0,0,0.4); }
+
+.main-content { max-width:860px; margin:0 auto; padding:70px 40px 100px; }
+
+.toc { background:var(--white); border-radius:6px; padding:28px 32px; margin-bottom:50px; box-shadow:0 4px 20px rgba(100,70,30,0.06); }
+.toc h2 { font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.toc ol { list-style:none; counter-reset:toc; }
+.toc li { counter-increment:toc; padding:6px 0; border-bottom:1px solid var(--cream-dark); font-size:0.88rem; }
+.toc li:last-child { border-bottom:none; }
+.toc li::before { content:counter(toc)". "; color:var(--warm-brown); font-weight:500; }
+.toc a { color:var(--text); text-decoration:none; transition:0.2s; }
+.toc a:hover { color:var(--warm-brown); }
+
+.section-block { margin-bottom:50px; padding-top:20px; border-top:1px solid var(--cream-dark); }
+.section-block:first-child { border-top:none; }
+.section-num { font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.section-block h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:500; color:var(--dark); margin-bottom:20px; }
+.section-block h3 { font-family:'Jost',sans-serif; font-size:0.9rem; font-weight:500; color:var(--dark); margin:20px 0 10px; letter-spacing:0.05em; }
+.section-block p { font-size:0.9rem; line-height:1.8; color:var(--text); margin-bottom:12px; font-weight:300; }
+.section-block ul { list-style:none; margin:10px 0 16px; }
+.section-block ul li { font-size:0.88rem; line-height:1.7; color:var(--text); padding:4px 0 4px 18px; position:relative; font-weight:300; }
+.section-block ul li::before { content:'–'; position:absolute; left:0; color:var(--gold); }
+
+.info-box { background:var(--white); border-left:3px solid var(--gold); border-radius:0 6px 6px 0; padding:18px 22px; margin:16px 0; }
+.info-box p { margin:0; font-size:0.87rem; line-height:1.7; }
+.info-box strong { color:var(--dark); }
+
+.contact-rgpd { background:var(--dark); border-radius:6px; padding:28px 32px; margin-top:50px; color:rgba(255,255,255,0.85); }
+.contact-rgpd h3 { font-family:'Dancing Script',cursive; font-size:1.6rem; color:white; margin-bottom:12px; }
+.contact-rgpd p { font-size:0.87rem; line-height:1.7; margin-bottom:8px; }
+.contact-rgpd a { color:var(--gold); text-decoration:none; }
+.contact-rgpd a:hover { color:white; }
+
+.last-update { text-align:center; margin-top:40px; font-size:0.75rem; color:var(--text-light); font-style:italic; }
+
+footer { background:var(--dark); padding:30px 10%; color:rgba(255,255,255,0.6); margin-top:0; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; flex-wrap:wrap; gap:12px; }
+.footer-back { color:var(--gold); text-decoration:none; }
+.footer-back:hover { color:white; }
+
+@media (max-width:768px) {
+  header { padding:12px 20px; }
+  nav { display:none; }
+  .main-content { padding:50px 20px 80px; }
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo"><a href="index.html"><img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits"></a></div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#hebergements">Hébergements</a>
+    <a href="index.html#bien-etre">Bien-Être</a>
+    <a href="index.html#nature">Nature</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="actualites.html">Actualités</a>
+    <a href="reservation.html" class="nav-cta">Réserver</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Informations légales</div>
+    <h1>Mentions légales & RGPD</h1>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="toc">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#editeur">Éditeur du site</a></li>
+      <li><a href="#hebergement">Hébergement</a></li>
+      <li><a href="#propriete">Propriété intellectuelle</a></li>
+      <li><a href="#donnees">Données personnelles & RGPD</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#droits">Vos droits</a></li>
+      <li><a href="#responsabilite">Limitation de responsabilité</a></li>
+      <li><a href="#contact-rgpd">Contact & réclamations</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="section-block" id="editeur">
+    <div class="section-num">Article 1</div>
+    <h2>Éditeur du site</h2>
+    <p>Le site <strong>forgesdenfalits.com</strong> est édité par :</p>
+    <div class="info-box">
+      <p>
+        <strong>Régine et Gérard Ubiedo</strong><br>
+        Les Forges d'Enfalits — Chambres d'hôtes & Gîte<br>
+        Chemin d'Enfalits<br>
+        09400 Rabat-les-Trois-Seigneurs — Ariège — France<br><br>
+        <strong>Téléphone :</strong> 05 61 03 83 45 / 06 73 05 88 34<br>
+        <strong>Email :</strong> <a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a><br><br>
+        <strong>Directeur de la publication :</strong> Gérard Ubiedo<br>
+        <strong>Conception & développement :</strong> Alexis Ubiedo
+      </p>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section-block" id="hebergement">
+    <div class="section-num">Article 2</div>
+    <h2>Hébergement</h2>
+    <p>Ce site est hébergé par :</p>
+    <div class="info-box">
+      <p>
+        <strong>GitHub, Inc.</strong> (GitHub Pages)<br>
+        88 Colin P Kelly Jr Street<br>
+        San Francisco, CA 94107 — États-Unis<br>
+        <a href="https://pages.github.com" target="_blank">pages.github.com</a>
+      </p>
+    </div>
+    <p>GitHub Pages est un service d'hébergement statique. Aucune donnée saisie sur ce site n'est stockée sur les serveurs de GitHub. Les logs d'accès standard (adresse IP, navigateur, pages visitées) peuvent être conservés par GitHub conformément à leur propre politique de confidentialité.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section-block" id="propriete">
+    <div class="section-num">Article 3</div>
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus présents sur ce site (textes, photographies, illustrations, logo, mise en page) est la propriété exclusive des Forges d'Enfalits et de ses prestataires, et est protégé par le droit français et international de la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable.</p>
+    <p>Les photographies sont la propriété de leurs auteurs respectifs. Toute utilisation non autorisée constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la Propriété Intellectuelle.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section-block" id="donnees">
+    <div class="section-num">Article 4</div>
+    <h2>Données personnelles & RGPD</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, nous vous informons des conditions dans lesquelles vos données personnelles sont collectées et traitées.</p>
+
+    <h3>Responsable du traitement</h3>
+    <p>Régine et Gérard Ubiedo — Les Forges d'Enfalits — Chemin d'Enfalits, 09400 Rabat-les-Trois-Seigneurs — <a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a></p>
+
+    <h3>Données collectées</h3>
+    <p>Ce site collecte uniquement les données que vous saisissez volontairement dans le formulaire de demande de réservation :</p>
+    <ul>
+      <li>Nom et prénom</li>
+      <li>Adresse email</li>
+      <li>Numéro de téléphone (optionnel)</li>
+      <li>Dates de séjour souhaitées</li>
+      <li>Nombre de personnes</li>
+      <li>Message libre (optionnel)</li>
+    </ul>
+    <p><strong>Important :</strong> ce formulaire fonctionne via votre client de messagerie personnel (protocole <code>mailto:</code>). Les données ne transitent pas par un serveur tiers — elles sont envoyées directement depuis votre messagerie vers notre adresse email. Nous ne stockons aucune donnée dans une base de données.</p>
+
+    <h3>Finalité du traitement</h3>
+    <ul>
+      <li>Répondre à votre demande de réservation ou de renseignement</li>
+      <li>Établir un contrat de séjour si la réservation est confirmée</li>
+      <li>Respecter nos obligations légales (facturation, comptabilité)</li>
+    </ul>
+
+    <h3>Base légale</h3>
+    <p>Le traitement est fondé sur votre consentement explicite (formulaire de contact) et sur l'exécution d'un contrat (réservation confirmée) — articles 6.1.a et 6.1.b du RGPD.</p>
+
+    <h3>Durée de conservation</h3>
+    <ul>
+      <li>Données de contact : 3 ans à compter du dernier échange</li>
+      <li>Données de facturation : 10 ans (obligation légale comptable)</li>
+    </ul>
+
+    <h3>Destinataires des données</h3>
+    <p>Vos données sont traitées uniquement par les propriétaires des Forges d'Enfalits. Elles ne sont jamais vendues, louées ou transmises à des tiers à des fins commerciales.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section-block" id="cookies">
+    <div class="section-num">Article 5</div>
+    <h2>Cookies</h2>
+    <p>Ce site utilise uniquement des cookies techniques strictement nécessaires à son fonctionnement. Aucun cookie publicitaire, de traçage ou analytique n'est utilisé.</p>
+
+    <h3>Cookies déposés</h3>
+    <ul>
+      <li><strong>cookie_consent</strong> — mémorise votre choix concernant les cookies (durée : 1 an, stockage local)</li>
+      <li><strong>forges_prices</strong> — mémorise les préférences d'affichage des tarifs (durée : session, stockage local)</li>
+    </ul>
+
+    <p>Ces cookies sont stockés localement dans votre navigateur (<code>localStorage</code>) et ne sont jamais transmis à des serveurs tiers. Vous pouvez les supprimer à tout moment depuis les paramètres de votre navigateur.</p>
+
+    <h3>reCAPTCHA (Google)</h3>
+    <p>Le formulaire de réservation utilise Google reCAPTCHA v3 afin de se protéger contre les robots. Ce service peut déposer des cookies Google. Pour en savoir plus : <a href="https://policies.google.com/privacy" target="_blank">politique de confidentialité Google</a>.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section-block" id="droits">
+    <div class="section-num">Article 6</div>
+    <h2>Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — obtenir une copie des données que nous détenons sur vous</li>
+      <li><strong>Droit de rectification</strong> — corriger des données inexactes ou incomplètes</li>
+      <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données ("droit à l'oubli")</li>
+      <li><strong>Droit à la limitation</strong> — restreindre le traitement de vos données dans certains cas</li>
+      <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format structuré et lisible</li>
+      <li><strong>Droit d'opposition</strong> — vous opposer au traitement de vos données</li>
+      <li><strong>Droit de retrait du consentement</strong> — retirer votre consentement à tout moment</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez-nous par email à <a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a> en indiquant votre nom, prénom et la nature de votre demande. Nous nous engageons à répondre dans un délai d'un mois.</p>
+    <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a> — 3 Place de Fontenoy, 75007 Paris.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section-block" id="responsabilite">
+    <div class="section-num">Article 7</div>
+    <h2>Limitation de responsabilité</h2>
+    <p>Les informations présentes sur ce site sont fournies à titre indicatif et peuvent être modifiées à tout moment. Les Forges d'Enfalits ne sauraient être tenus responsables des erreurs ou omissions dans les informations diffusées, ni des dommages directs ou indirects pouvant résulter de l'accès ou de l'utilisation du site.</p>
+    <p>Des liens hypertextes peuvent renvoyer vers des sites tiers. Nous n'avons aucun contrôle sur le contenu de ces sites et déclinons toute responsabilité quant aux informations qui y sont publiées.</p>
+    <p>Ce site est régi par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+  </div>
+
+  <!-- Contact RGPD -->
+  <div class="contact-rgpd" id="contact-rgpd">
+    <h3>Nous contacter</h3>
+    <p>Pour toute question relative à vos données personnelles ou à ces mentions légales :</p>
+    <p>📧 <a href="mailto:contact@forgesdenfalits.com">contact@forgesdenfalits.com</a></p>
+    <p>📞 <a href="tel:0561038345">05 61 03 83 45</a></p>
+    <p>📮 Les Forges d'Enfalits · Chemin d'Enfalits · 09400 Rabat-les-Trois-Seigneurs</p>
+  </div>
+
+  <p class="last-update">Mentions légales mises à jour le 1er mars 2026.</p>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <a href="index.html" class="footer-back">← Retour à l'accueil</a>
+    <span>© 2026 Les Forges d'Enfalits · Ariège · Pyrénées</span>
+    <span>© Création et développement Alexis Ubiedo</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>

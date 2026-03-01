@@ -219,7 +219,7 @@ footer { background: var(--dark); padding: 35px 10%; color: rgba(255,255,255,0.6
   <div class="footer-bottom">
     <a href="index.html" class="footer-back">← Retour au site des Forges d'Enfalits</a>
     <span>© Les Forges d'Enfalits · Rabat-les-Trois-Seigneurs · Ariège</span>
-    <span>Google 4,9/5 · Tripadvisor 4,9/5</span>
+    <span>Google 4,9/5 · Tripadvisor 4,9/5 &nbsp;·&nbsp; <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a></span>
   </div>
 </footer>
 
@@ -414,29 +414,24 @@ function renderCard(ev) {
   </div>`;
 }
 
-async function fetchDynamicEvents() {
-  try {
-    const dateStr = new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1500,
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
-        system: `Réponds UNIQUEMENT avec un tableau JSON valide, sans texte avant ou après, sans balises markdown.
-Format exact pour chaque objet: {"title":"...","when1":"date ou période lisible ex: Samedi 15 mars ou Tous les dimanches","when2":"complément ex: 10h-18h ou Centre-ville","category":"fete|marche|nature|culture|sport|gastronomie","location":"Ville (X km)","desc":"2-3 phrases.","distance":"X km","featured":false,"link":"https://..."}`,
-        messages: [{
-          role: "user",
-          content: `Nous sommes le ${dateStr}. Cherche 4 à 5 événements réels actuels ou prévus dans le prochain mois en Ariège (09), autour de Tarascon-sur-Ariège et Rabat-les-Trois-Seigneurs. Inclus festivals, marchés spéciaux, concerts, expositions, événements sportifs. Retourne un tableau JSON avec des dates lisibles en français.`
-        }]
-      })
-    });
-    const data = await res.json();
-    const txt = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
-    const m = txt.match(/\[[\s\S]*?\]/);
-    return m ? JSON.parse(m[0]) : [];
-  } catch(e) { return []; }
+function getSeasonalEvents() {
+  const month = new Date().getMonth() + 1;
+  const seasonal = [];
+  if (month >= 3 && month <= 5) {
+    seasonal.push({ title:"Ouverture de la saison randonnée", when1:"Dès avril", when2:"Sentiers balisés", category:"nature", location:"Massif du Trois Seigneurs", desc:"Les sentiers de moyenne montagne rouvrent après l'hiver. Idéal pour les premières randonnées vers le Pic des Trois Seigneurs.", distance:"Au pied", featured:false, link:"https://www.ariegepyrenees.com" });
+    seasonal.push({ title:"Fête de printemps & marchés animés", when1:"Avril – Mai", when2:"Week-ends", category:"fete", location:"Tarascon-sur-Ariège (5 km)", desc:"Retour des marchés animés, concerts en plein air et animations printanières dans les rues de Tarascon.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" });
+  }
+  if (month >= 6 && month <= 8) {
+    seasonal.push({ title:"Marchés nocturnes d'été", when1:"Juillet & Août", when2:"Soirs de semaine", category:"gastronomie", location:"Villages alentours (5–15 km)", desc:"Marchés producteurs en soirée avec dégustations de fromages, charcuteries, miel et vins ariégeois à la lumière des lanternes.", distance:"5–15 km", featured:false, link:"https://www.ariegepyrenees.com" });
+    seasonal.push({ title:"Festivals & concerts estivaux", when1:"Juillet – Août", when2:"Soirées en plein air", category:"fete", location:"Région Ariège (15–40 km)", desc:"Festivals de musiques du monde, concerts folkloriques et animations estivales tout au long de l'été ariégeois.", distance:"15–40 km", featured:false, link:"https://www.ariegepyrenees.com" });
+  }
+  if (month >= 9 && month <= 11) {
+    seasonal.push({ title:"Saison des cèpes & champignons", when1:"Octobre", when2:"Week-ends", category:"gastronomie", location:"Tarascon-sur-Ariège (5 km)", desc:"Marchés spéciaux champignons, balades mycologiques et repas gastronomiques avec produits des forêts ariégeoises.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" });
+  }
+  if (month === 12 || month <= 2) {
+    seasonal.push({ title:"Ski nordique – Station de Beille", when1:"Décembre à Mars", when2:"Ski de fond & raquettes", category:"sport", location:"Les Cabannes – Beille (30 km)", desc:"Station nordique de Beille : ski de fond, raquettes et promenades hivernales à 1800 m d'altitude. Paysages enneigés exceptionnels.", distance:"30 km", featured:false, link:"https://www.ariegepyrenees.com" });
+  }
+  return seasonal;
 }
 
 let currentFilter = 'all';
@@ -460,11 +455,11 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-async function loadEvents() {
+function loadEvents() {
   document.getElementById('loadingState').classList.add('visible');
   document.getElementById('eventsContainer').style.display = 'none';
 
-  const dynamic = await fetchDynamicEvents();
+  const dynamic = getSeasonalEvents();
   const all = [...dynamic, ...STATIC_EVENTS];
 
   document.getElementById('eventsGrid').innerHTML = all.map(renderCard).join('');
