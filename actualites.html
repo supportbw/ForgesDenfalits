@@ -36,7 +36,6 @@ header.scrolled .nav-cta { background: var(--warm-brown) !important; }
 .nav-cta::after { display: none !important; }
 .nav-cta:hover { background: var(--dark) !important; }
 
-/* PAGE HERO */
 .page-hero { height: 380px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: url('forges-d-enfalits-chambres-hotes-parc-1920-12.webp') center/cover no-repeat; }
 .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,12,5,0.5), rgba(58,46,34,0.65)); }
 .page-hero-content { position: relative; z-index: 1; }
@@ -44,16 +43,13 @@ header.scrolled .nav-cta { background: var(--warm-brown) !important; }
 .page-hero h1 { font-family: 'Dancing Script', cursive; font-size: clamp(2.8rem, 6vw, 5rem); color: white; font-weight: 600; line-height: 1.1; margin-bottom: 10px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
 .page-hero p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.85); }
 
-/* MAIN */
 .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 40px 100px; }
 
-/* FILTERS */
 .filters-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 50px; align-items: center; }
 .filter-label { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-light); margin-right: 6px; }
 .filter-btn { font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.08em; padding: 8px 18px; border-radius: 30px; border: 1px solid var(--cream-dark); background: white; color: var(--text-light); cursor: pointer; transition: 0.3s; }
 .filter-btn:hover, .filter-btn.active { background: var(--warm-brown); color: white; border-color: var(--warm-brown); }
 
-/* LOADING */
 .loading-state { text-align: center; padding: 80px 20px; display: none; }
 .loading-state.visible { display: block; }
 .loading-spinner { width: 50px; height: 50px; border: 3px solid var(--cream-dark); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
@@ -61,7 +57,6 @@ header.scrolled .nav-cta { background: var(--warm-brown) !important; }
 .loading-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--text-light); }
 .loading-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 8px; }
 
-/* EVENTS */
 .events-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px; }
 .events-count { font-size: 0.82rem; color: var(--text-light); letter-spacing: 0.1em; }
 .refresh-btn { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-brown); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
@@ -77,11 +72,12 @@ header.scrolled .nav-cta { background: var(--warm-brown) !important; }
 .event-card-top { padding: 24px 24px 0; display: flex; gap: 16px; align-items: flex-start; }
 .event-card.featured .event-card-top { padding: 28px; flex: 1; align-items: center; }
 
-.event-date-box { flex-shrink: 0; width: 54px; text-align: center; background: var(--cream); border-radius: 4px; padding: 8px 6px; }
-.event-card.featured .event-date-box { width: 70px; }
-.event-date-day { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; color: var(--warm-brown); line-height: 1; }
-.event-card.featured .event-date-day { font-size: 2.4rem; }
-.event-date-month { font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-top: 2px; }
+/* NEW: clean date pill */
+.event-date-pill { flex-shrink: 0; background: var(--cream); border-radius: 6px; padding: 10px 12px; text-align: center; min-width: 80px; }
+.event-card.featured .event-date-pill { min-width: 100px; }
+.event-date-pill .pill-line1 { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--warm-brown); letter-spacing: 0.05em; white-space: nowrap; }
+.event-date-pill .pill-line2 { font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--text-light); margin-top: 3px; white-space: nowrap; }
+.event-card.featured .event-date-pill .pill-line1 { font-size: 0.9rem; }
 
 .event-meta { flex: 1; }
 .event-category { display: inline-block; font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; font-weight: 500; }
@@ -108,7 +104,6 @@ header.scrolled .nav-cta { background: var(--warm-brown) !important; }
 .event-link:hover { color: var(--dark); gap: 8px; }
 .featured-badge { position: absolute; top: 16px; right: 16px; background: var(--gold); color: white; font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
 
-/* LIENS */
 .section-links { margin-top: 70px; padding-top: 50px; border-top: 1px solid var(--cream-dark); }
 .section-links h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
 .section-links .sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 30px; }
@@ -138,7 +133,7 @@ footer { background: var(--dark); padding: 35px 10%; color: rgba(255,255,255,0.6
 </head>
 <body>
 
-<header>
+<header id="header">
   <div class="logo"><a href="index.html"><img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits"></a></div>
   <nav>
     <a href="index.html">Accueil</a>
@@ -187,7 +182,6 @@ footer { background: var(--dark); padding: 35px 10%; color: rgba(255,255,255,0.6
     <div class="last-updated" id="lastUpdated"></div>
   </div>
 
-  <!-- Liens utiles -->
   <div class="section-links">
     <h2>Sites utiles pour préparer votre séjour</h2>
     <p class="sub">Sources officielles de tourisme autour des Forges d'Enfalits</p>
@@ -230,44 +224,164 @@ footer { background: var(--dark); padding: 35px 10%; color: rgba(255,255,255,0.6
 </footer>
 
 <script>
-// ── ÉVÉNEMENTS PERMANENTS DU COIN ───────────────────────────────────────────
+// Événements permanents avec dates lisibles
 const STATIC_EVENTS = [
-  { title:"Randonnée – Pic des Trois Seigneurs", day:"∞", month:"", category:"nature", location:"Rabat-les-Trois-Seigneurs (départ aux Forges)", desc:"Depuis les Forges d'Enfalits, montée au Pic des Trois Seigneurs (2199 m). Vue panoramique exceptional sur les Pyrénées. Comptez 5h A/R, niveau intermédiaire.", distance:"Au pied", featured:true, link:"https://www.ariegepyrenees.com" },
-  { title:"Marché de Tarascon-sur-Ariège", day:"LUN", month:"", category:"marche", location:"Tarascon-sur-Ariège (5 km)", desc:"Marché hebdomadaire du lundi avec producteurs locaux, fromages pyrénéens, charcuteries, légumes de saison et artisanat ariégeois.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Marché de Foix", day:"VEN", month:"SAM", category:"marche", location:"Foix (15 km)", desc:"Grand marché traditionnel du vendredi matin sous les arcades médiévales de Foix. Produits régionaux, fleurs, vêtements.", distance:"15 km", featured:false, link:"https://www.foix-tourisme.com" },
-  { title:"Grotte de Niaux", day:"365", month:"", category:"culture", location:"Niaux (8 km)", desc:"L'une des plus belles grottes ornées du monde avec ses peintures rupestres magdaléniennes vieilles de 14 000 ans. Réservation obligatoire.", distance:"8 km", featured:false, link:"https://www.grotte-niaux.fr" },
-  { title:"Parc de la Préhistoire", day:"AVR", month:"→NOV", category:"culture", location:"Tarascon-sur-Ariège (5 km)", desc:"Parcours immersif dans la préhistoire ariégeoise. Fresque géante, animations. Idéal en famille.", distance:"5 km", featured:false, link:"https://www.sites-touristiques-ariege.fr" },
-  { title:"Pêche à la truite – Rivière 1ère catégorie", day:"MAR", month:"→SEP", category:"nature", location:"Rivière des Forges d'Enfalits", desc:"La rivière qui borde notre propriété est une rivière de 1ère catégorie idéale pour la pêche à la truite. Hébergement Pêche agréé.", distance:"Sur place", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Canoë-Kayak sur l'Ariège", day:"JUN", month:"→SEP", category:"sport", location:"Tarascon-sur-Ariège (5 km)", desc:"Descente de l'Ariège en canoë ou kayak. Plusieurs bases de loisirs proposent location et accompagnement pour tous niveaux.", distance:"5 km", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Ax-les-Thermes – Bains", day:"365", month:"", category:"nature", location:"Ax-les-Thermes (25 km)", desc:"Station thermale avec bassins gratuits en plein air. Eaux sulfureuses à 78°C, parfaites après une randonnée.", distance:"25 km", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Château de Foix", day:"365", month:"", category:"culture", location:"Foix (15 km)", desc:"Forteresse médiévale cathare perchée sur son rocher. Exposition sur les Comtes de Foix. Vue imprenable sur la vallée.", distance:"15 km", featured:false, link:"https://www.sites-touristiques-ariege.fr" },
-  { title:"Via Ferrata de Celles", day:"MAI", month:"→OCT", category:"sport", location:"Celles (20 km)", desc:"Parcours de via ferrata pour toute la famille et version sportive pour les plus aguerris. Encadrement possible.", distance:"20 km", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Marchés Gourmands Estivaux", day:"ÉTÉ", month:"", category:"gastronomie", location:"Tarascon & villages (5–15 km)", desc:"Marchés nocturnes tout l'été avec fromages, charcuteries, vins, miel et confits ariégeois directement chez les producteurs.", distance:"5–15 km", featured:false, link:"https://www.ariegepyrenees.com" },
-  { title:"Fête de l'Ours", day:"FÉV", month:"", category:"fete", location:"Saint-Girons & vallées (35 km)", desc:"Tradition pyrénéenne ancestrale : l'ours sort de sa tanière et parcourt les villages. Fête populaire colorée et festive.", distance:"35 km", featured:false, link:"https://www.ariegepyrenees.com" }
+  {
+    title: "Randonnée – Pic des Trois Seigneurs",
+    when1: "Toute l'année",
+    when2: "Départ aux Forges",
+    category: "nature",
+    location: "Rabat-les-Trois-Seigneurs",
+    desc: "Depuis les Forges d'Enfalits, montée au Pic des Trois Seigneurs (2199 m). Vue panoramique exceptionnelle sur les Pyrénées. Comptez 5h A/R, niveau intermédiaire.",
+    distance: "Au pied",
+    featured: true,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Marché de Tarascon-sur-Ariège",
+    when1: "Tous les lundis",
+    when2: "Matin",
+    category: "marche",
+    location: "Tarascon-sur-Ariège (5 km)",
+    desc: "Marché hebdomadaire avec producteurs locaux, fromages pyrénéens, charcuteries, légumes de saison et artisanat ariégeois.",
+    distance: "5 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Marché de Foix",
+    when1: "Vendredi & Samedi",
+    when2: "Matin",
+    category: "marche",
+    location: "Foix (15 km)",
+    desc: "Grand marché traditionnel sous les arcades médiévales de Foix. Produits régionaux, fleurs, vêtements.",
+    distance: "15 km",
+    featured: false,
+    link: "https://www.foix-tourisme.com"
+  },
+  {
+    title: "Grotte de Niaux",
+    when1: "Toute l'année",
+    when2: "Sur réservation",
+    category: "culture",
+    location: "Niaux (8 km)",
+    desc: "L'une des plus belles grottes ornées du monde avec ses peintures rupestres magdaléniennes vieilles de 14 000 ans.",
+    distance: "8 km",
+    featured: false,
+    link: "https://www.grotte-niaux.fr"
+  },
+  {
+    title: "Parc de la Préhistoire",
+    when1: "Avril à Novembre",
+    when2: "Tous les jours",
+    category: "culture",
+    location: "Tarascon-sur-Ariège (5 km)",
+    desc: "Parcours immersif dans la préhistoire ariégeoise. Fresque géante, animations. Idéal en famille.",
+    distance: "5 km",
+    featured: false,
+    link: "https://www.sites-touristiques-ariege.fr"
+  },
+  {
+    title: "Pêche à la truite",
+    when1: "Mars à Septembre",
+    when2: "Rivière 1ère catégorie",
+    category: "nature",
+    location: "Rivière des Forges (sur place)",
+    desc: "La rivière qui borde notre propriété est classée 1ère catégorie, idéale pour la pêche à la truite. Hébergement Pêche agréé.",
+    distance: "Sur place",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Canoë-Kayak sur l'Ariège",
+    when1: "Juin à Septembre",
+    when2: "Tous les jours",
+    category: "sport",
+    location: "Tarascon-sur-Ariège (5 km)",
+    desc: "Descente de l'Ariège en canoë ou kayak. Plusieurs bases de loisirs proposent location et accompagnement pour tous niveaux.",
+    distance: "5 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Ax-les-Thermes – Bains",
+    when1: "Toute l'année",
+    when2: "Bassins gratuits en plein air",
+    category: "nature",
+    location: "Ax-les-Thermes (25 km)",
+    desc: "Station thermale avec bassins gratuits en plein air. Eaux sulfureuses à 78°C, parfaites après une randonnée.",
+    distance: "25 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Château de Foix",
+    when1: "Toute l'année",
+    when2: "Tous les jours",
+    category: "culture",
+    location: "Foix (15 km)",
+    desc: "Forteresse médiévale cathare perchée sur son rocher. Exposition sur les Comtes de Foix. Vue imprenable sur la vallée.",
+    distance: "15 km",
+    featured: false,
+    link: "https://www.sites-touristiques-ariege.fr"
+  },
+  {
+    title: "Via Ferrata de Celles",
+    when1: "Mai à Octobre",
+    when2: "Parcours famille & sportif",
+    category: "sport",
+    location: "Celles (20 km)",
+    desc: "Parcours de via ferrata pour toute la famille et version sportive pour les plus aguerris. Encadrement possible.",
+    distance: "20 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Marchés Gourmands Estivaux",
+    when1: "Juillet & Août",
+    when2: "Soirs de marché",
+    category: "gastronomie",
+    location: "Tarascon & villages (5–15 km)",
+    desc: "Marchés nocturnes tout l'été avec fromages, charcuteries, vins, miel et confits ariégeois directement chez les producteurs.",
+    distance: "5–15 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  },
+  {
+    title: "Fête de l'Ours",
+    when1: "Février",
+    when2: "Tradition pyrénéenne",
+    category: "fete",
+    location: "Saint-Girons & vallées (35 km)",
+    desc: "Tradition pyrénéenne ancestrale : l'ours sort de sa tanière et parcourt les villages. Fête populaire colorée et festive.",
+    distance: "35 km",
+    featured: false,
+    link: "https://www.ariegepyrenees.com"
+  }
 ];
 
-// ── CATÉGORIES ───────────────────────────────────────────────────────────────
 const CATS = {
-  fete:       { label:'Fête & Festival',      css:'cat-fete' },
-  marche:     { label:'Marché',               css:'cat-marche' },
-  nature:     { label:'Nature & Rando',       css:'cat-nature' },
-  culture:    { label:'Culture & Patrimoine', css:'cat-culture' },
-  sport:      { label:'Sport & Aventure',     css:'cat-sport' },
-  gastronomie:{ label:'Gastronomie',          css:'cat-gastronomie' },
-  autre:      { label:'Autre',                css:'cat-autre' }
+  fete:        { label:'Fête & Festival',      css:'cat-fete' },
+  marche:      { label:'Marché',               css:'cat-marche' },
+  nature:      { label:'Nature & Rando',       css:'cat-nature' },
+  culture:     { label:'Culture & Patrimoine', css:'cat-culture' },
+  sport:       { label:'Sport & Aventure',     css:'cat-sport' },
+  gastronomie: { label:'Gastronomie',          css:'cat-gastronomie' },
+  autre:       { label:'Autre',                css:'cat-autre' }
 };
 
-// ── RENDU D'UNE CARTE ────────────────────────────────────────────────────────
 function renderCard(ev) {
   const cat = CATS[ev.category] || CATS.autre;
+  const pill = `<div class="event-date-pill">
+    <div class="pill-line1">${ev.when1}</div>
+    ${ev.when2 ? `<div class="pill-line2">${ev.when2}</div>` : ''}
+  </div>`;
+
   if (ev.featured) {
     return `<div class="event-card featured" data-cat="${ev.category}">
       <span class="featured-badge">⭐ Incontournable</span>
       <div class="event-card-top">
-        <div class="event-date-box">
-          <div class="event-date-day">${ev.day}</div>
-          <div class="event-date-month">${ev.month||''}</div>
-        </div>
+        ${pill}
         <div class="event-meta">
           <span class="event-category ${cat.css}">${cat.label}</span>
           <div class="event-title">${ev.title}</div>
@@ -283,10 +397,7 @@ function renderCard(ev) {
   }
   return `<div class="event-card" data-cat="${ev.category}">
     <div class="event-card-top">
-      <div class="event-date-box">
-        <div class="event-date-day">${ev.day}</div>
-        <div class="event-date-month">${ev.month||''}</div>
-      </div>
+      ${pill}
       <div class="event-meta">
         <span class="event-category ${cat.css}">${cat.label}</span>
         <div class="event-title">${ev.title}</div>
@@ -303,7 +414,6 @@ function renderCard(ev) {
   </div>`;
 }
 
-// ── ÉVÉNEMENTS DYNAMIQUES VIA API CLAUDE ─────────────────────────────────────
 async function fetchDynamicEvents() {
   try {
     const dateStr = new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
@@ -315,10 +425,10 @@ async function fetchDynamicEvents() {
         max_tokens: 1500,
         tools: [{ type: "web_search_20250305", name: "web_search" }],
         system: `Réponds UNIQUEMENT avec un tableau JSON valide, sans texte avant ou après, sans balises markdown.
-Format exact pour chaque objet: {"title":"...","day":"JJ ou abrév","month":"MMM ou vide","category":"fete|marche|nature|culture|sport|gastronomie","location":"Ville (X km)","desc":"2-3 phrases.","distance":"X km","featured":false,"link":"https://..."}`,
+Format exact pour chaque objet: {"title":"...","when1":"date ou période lisible ex: Samedi 15 mars ou Tous les dimanches","when2":"complément ex: 10h-18h ou Centre-ville","category":"fete|marche|nature|culture|sport|gastronomie","location":"Ville (X km)","desc":"2-3 phrases.","distance":"X km","featured":false,"link":"https://..."}`,
         messages: [{
           role: "user",
-          content: `Nous sommes le ${dateStr}. Cherche 4 à 5 événements réels actuels ou prévus dans le prochain mois en Ariège (09), autour de Tarascon-sur-Ariège et Rabat-les-Trois-Seigneurs. Inclus festivals, marchés spéciaux, concerts, expositions, événements sportifs. Retourne un tableau JSON.`
+          content: `Nous sommes le ${dateStr}. Cherche 4 à 5 événements réels actuels ou prévus dans le prochain mois en Ariège (09), autour de Tarascon-sur-Ariège et Rabat-les-Trois-Seigneurs. Inclus festivals, marchés spéciaux, concerts, expositions, événements sportifs. Retourne un tableau JSON avec des dates lisibles en français.`
         }]
       })
     });
@@ -329,7 +439,6 @@ Format exact pour chaque objet: {"title":"...","day":"JJ ou abrév","month":"MMM
   } catch(e) { return []; }
 }
 
-// ── FILTRES ───────────────────────────────────────────────────────────────────
 let currentFilter = 'all';
 function applyFilter(cat) {
   currentFilter = cat;
@@ -351,7 +460,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ── CHARGEMENT PRINCIPAL ──────────────────────────────────────────────────────
 async function loadEvents() {
   document.getElementById('loadingState').classList.add('visible');
   document.getElementById('eventsContainer').style.display = 'none';
@@ -373,7 +481,7 @@ async function loadEvents() {
 
 document.getElementById('refreshBtn').addEventListener('click', loadEvents);
 window.addEventListener('scroll', () => {
-  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
 loadEvents();
 </script>
