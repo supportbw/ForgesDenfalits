@@ -358,41 +358,39 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
   <p class="intro-text reveal" style="margin-bottom:0">Chaque chambre porte le nom d'une couleur pyrénéenne. Toutes disposent d'une salle de bain privée et d'un accès direct au parc.</p>
   <div class="rooms-grid">
     <div class="room-card featured reveal">
-      <div class="room-card-gallery" style="position:relative;overflow:hidden;display:flex;flex-direction:column;">
+      <div class="room-card-gallery" style="position:relative;overflow:hidden;padding-bottom:72px;">
         <!-- Grande photo principale -->
-        <div style="flex:1;overflow:hidden;position:relative;">
-          <img id="paprikaMain" src="Chambre_Paprika.jpg" alt="Chambre Paprika Les Forges d'Enfalits Ariège"
-               style="width:100%;height:100%;min-height:280px;object-fit:cover;transition:opacity 0.4s ease;display:block;">
-        </div>
-        <!-- Bande miniatures -->
-        <div style="display:flex;gap:3px;padding:3px;background:#2a2018;flex-shrink:0;">
+        <img id="paprikaMain" src="Chambre_Paprika.jpg" alt="Chambre Paprika Les Forges d'Enfalits Ariège"
+             style="width:100%;height:calc(100% - 72px);min-height:260px;object-fit:cover;transition:opacity 0.4s ease;display:block;">
+        <!-- Bande miniatures ancrée en bas -->
+        <div style="position:absolute;bottom:0;left:0;right:0;display:flex;gap:3px;padding:3px;background:#2a2018;height:72px;box-sizing:border-box;">
           <img class="paprika-thumb" src="Chambre_Paprika.jpg"
                onclick="setPaprika(this,'Chambre_Paprika.jpg')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid white;transition:0.2s;opacity:1;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid white;transition:0.2s;opacity:1;"
                alt="Paprika 1">
           <img class="paprika-thumb" src="chambr-paprika-2em_chambres.jpg"
                onclick="setPaprika(this,'chambr-paprika-2em_chambres.jpg')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 2">
           <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-01.webp"
                onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-01.webp')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 3">
           <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-02.webp"
                onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-02.webp')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 4">
           <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-03.webp"
                onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-03.webp')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 5">
           <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-04.webp"
                onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-04.webp')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 6">
           <img class="paprika-thumb" src="20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-06.webp"
                onclick="setPaprika(this,'20220620-forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-chambre-paprika-06.webp')"
-               style="width:calc(100%/7 - 3px);aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
+               style="flex:1;height:100%;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:0.2s;opacity:0.7;"
                alt="Paprika 7">
         </div>
       </div>
