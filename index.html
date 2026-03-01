@@ -278,14 +278,18 @@ header.scrolled .burger span { background:var(--dark); }
   </nav>
 <!-- BURGER BUTTON -->
 <button class="burger" id="burgerBtn" aria-label="Menu" onclick="toggleMenu()">
-      <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
-      <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a>
-      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a>
-      <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a>
-      <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a>
-    </span>
-  </div>
-</footer>
+  <span></span><span></span><span></span>
+</button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Accueil</a>
+  <a href="#hebergements">Hébergements</a>
+  <a href="#bien-etre">Bien-Être</a>
+  <a href="#nature">Nature</a>
+  <a href="#contact">Contact</a>
+  <a href="actualites.html">Actualités</a>
+  <a href="reservation.html" class="mobile-cta">Réserver</a>
+</div>
 
 <script>
 // ── PARC SLIDESHOW ──────────────────────────────────────────────
@@ -468,5 +472,50 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="logo-forges-denfalits.png" alt="Les Forges d'Enfalits">
+      <p>Chambres d'hôtes & Gîte de charme au cœur du Parc Naturel Régional des Pyrénées Ariégeoises. Qualité Tourisme · Hébergement Pêche agréé.</p>
+      <div class="footer-partners">
+        <img src="imagetourisme.png" alt="Qualité Tourisme">
+        <img src="imagepeche.png" alt="Hébergement Pêche">
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#hebergements">Chambres d'hôtes</a></li>
+        <li><a href="#hebergements">Le Gîte</a></li>
+        <li><a href="#bien-etre">SPA & Bien-être</a></li>
+        <li><a href="#nature">Nature & Activités</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="reservation.html">Tarifs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <address>
+        Les Forges d'Enfalits<br>
+        Rabat-les-Trois-Seigneurs<br>
+        09400 Ariège<br><br>
+        <a href="tel:0561038345">05 61 03 83 45</a><br><br>
+        À 5 km de Tarascon-sur-Ariège<br>
+        À 15 min de Foix<br>
+        À 1h de Toulouse & Andorre
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2026 © Les Forges d'Enfalits – Chambres d'hôtes & Gîte en Ariège</span>
+    <span style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="mentions-legales.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Mentions légales</a>
+      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Confidentialité</a>
+      <a href="politique-cookies.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Cookies</a>
+      <a href="cgv.html" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">CGV</a>
+    </span>
+  </div>
+</footer>
 </body>
 </html>
