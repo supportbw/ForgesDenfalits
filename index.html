@@ -46,9 +46,9 @@ nav a:hover::after { transform: scaleX(1); }
 .hero { height: 100vh; min-height: 700px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: flex-start; }
 .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease; }
 .hero-slide.active { opacity: 1; animation: heroZoom 8s ease-in-out forwards; }
-.hero-slide:nth-child(1) { background-image: url('Entree2.jpg'); }
-.hero-slide:nth-child(2) { background-image: url('Parc12.jpg'); }
-.hero-slide:nth-child(3) { background-image: url('forges-enfalits-gite-tarascon-ariege-pyrenees-occitanie-exterieur-002.jpg'); }
+.hero-slide:nth-child(1) { background-image: url('forges-d-enfalits-chambres-hotes-parc-1920-12.webp'); }
+.hero-slide:nth-child(2) { background-image: url('Entree.jpg'); }
+.hero-slide:nth-child(3) { background-image: url('background.webp'); }
 @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
 .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(105deg, rgba(20,12,5,0.45) 0%, rgba(30,18,8,0.25) 50%, rgba(40,25,10,0.1) 100%); }
 .hero-overlay::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; pointer-events: none; background: linear-gradient(to bottom, rgba(245,239,228,0) 0%, rgba(245,239,228,0.3) 40%, rgba(245,239,228,0.7) 75%, var(--cream) 100%); }
@@ -271,7 +271,7 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
       </div>
     </div>
     <div class="feature-card reveal reveal-delay-3">
-      <div class="feature-card-img"><img src="forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna Les Forges d'Enfalits Ariège"></div>
+      <div class="feature-card-img"><img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna Les Forges d'Enfalits Ariège"></div>
       <div class="feature-card-body">
         <div class="feature-card-icon">✦</div>
         <h3>Détente & Bien-Être</h3>
@@ -283,8 +283,15 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
 
 <section class="section-split" id="maison">
   <div class="split-media reveal">
-    <img class="split-media-main" src="forges-d-enfalits-chambres-hotes-salon-1920-06.webp" alt="Grand salon cheminée Les Forges d'Enfalits Ariège">
-    <img class="split-media-accent" src="2022-09-19-03%20Mandarins%20aux%20Forges%20d'Enfalits.webp" alt="Canards mandarins Les Forges d'Enfalits">
+    <div style="position:relative;">
+      <img class="split-media-main" id="salonMain" src="forges-d-enfalits-chambres-hotes-salon-1920-06.webp" alt="Grand salon cheminée Les Forges d'Enfalits Ariège" style="transition:opacity 0.6s ease;">
+      <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+        <button onclick="salonSlide(0)" id="sdot0" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:1;transition:0.3s;"></button>
+        <button onclick="salonSlide(1)" id="sdot1" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+        <button onclick="salonSlide(2)" id="sdot2" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:white;opacity:0.45;transition:0.3s;"></button>
+      </div>
+    </div>
+    <img class="split-media-accent" src="Salon3.jpg" alt="Billard salon Les Forges d'Enfalits">
   </div>
   <div class="split-text reveal reveal-delay-1">
     <div class="section-tag">Le domaine</div>
@@ -385,7 +392,7 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
     <a href="#contact" class="btn-primary" style="border:1px solid var(--gold);background:transparent;color:var(--gold);">Réserver le SPA</a>
   </div>
   <div class="spa-media reveal reveal-delay-1">
-    <img src="forges-d-enfalits-chambres-hotes-pyr%C3%A9n%C3%A9es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna privatif Les Forges d'Enfalits">
+    <img src="forges-d-enfalits-chambres-hotes-pyrene_es-ariege-tarascon-SPA-sauna-detente-01.webp" alt="SPA jacuzzi sauna privatif Les Forges d'Enfalits">
   </div>
 </section>
 
@@ -456,6 +463,18 @@ footer { background: var(--dark); padding: 45px 10% 25px; color: rgba(255,255,25
 </footer>
 
 <script>
+// SALON SLIDER
+const salonImgs = ['forges-d-enfalits-chambres-hotes-salon-1920-06.webp','Salon2.jpg','Salon3.jpg'];
+let salonCurrent = 0;
+function salonSlide(n) {
+  salonCurrent = n;
+  const img = document.getElementById('salonMain');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = salonImgs[n]; img.style.opacity = '1'; }, 300);
+  [0,1,2].forEach(i => document.getElementById('sdot'+i).style.opacity = i===n ? '1' : '0.45');
+}
+setInterval(() => salonSlide((salonCurrent + 1) % 3), 4000);
+
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 });
